@@ -31,6 +31,13 @@ Point clé du projet :
 
 ## Définition des termes
 
+Afin de faire un code cohérent et construit il faut se mettre d'accord sur la nomenclature.
+
+Objets :
+- vaisseau
+- asteroide
+- tir
+
 
 
 ## Getting Started
