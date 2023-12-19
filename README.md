@@ -1,11 +1,13 @@
-# Project Title
+# ASTÉROÏDS
 
-A short and catchy description of your project.
+Le projet a pour objectif de réaliser le célèbre jeu Astéroïds.
+Le code est réalisé en C++ et utilise la librairie SFML.
 
-## Table of Contents
+
+## Table des Matières
 
 - [Introduction](#introduction)
-- [Features](#features)
+- [Explication du projet](#Explication-du-projet)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -16,11 +18,11 @@ A short and catchy description of your project.
 
 ## Introduction
 
-Provide a brief overview of your project. Explain its purpose, key features, and any relevant background information.
+Description succinte du projet
 
 ## Features
 
-List the key features of your project. Use bullet points for better readability.
+Point clé du projet :
 
 - Feature 1
 - Feature 2
@@ -28,11 +30,11 @@ List the key features of your project. Use bullet points for better readability.
 
 ## Getting Started
 
-Explain how to get your project up and running.
+Comment lancer le jeu et utiliser le code
 
 ### Prerequisites
 
-List any software, libraries, or dependencies that users need to have installed before they can use your project.
+Liste des installations prérequises pour le bon fonctionnement.
 
 
 
