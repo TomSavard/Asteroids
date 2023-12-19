@@ -1,23 +1,39 @@
-# Asteroids
-Réalisation du jeu asteroids en 2D.
+# Project Title
 
-#Structure du projet :
+A short and catchy description of your project.
 
-Découverte de la librairie SFML (l’installer, apprendre à utiliser)
-Première fenêtre d’affichage 
-Definition des différentes classes :
-Vaisseau
-Astéroïde
-Tir ?
+## Table of Contents
 
-Affichage et déplacement du vaisseau
-Affichage et déplacement des astéroïdes
-Affichage et déplacement des tirs
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-Menu du jeu, score et fonctionnalité de présentation.
+## Introduction
 
-Possible extension du jeu : graphique et ajout de fonctionnalité
-Multi-joueur.
+Provide a brief overview of your project. Explain its purpose, key features, and any relevant background information.
+
+## Features
+
+List the key features of your project. Use bullet points for better readability.
+
+- Feature 1
+- Feature 2
+- ...
+
+## Getting Started
+
+Explain how to get your project up and running.
+
+### Prerequisites
+
+List any software, libraries, or dependencies that users need to have installed before they can use your project.
+
 
 
 
