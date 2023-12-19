@@ -23,11 +23,10 @@ Description succinte du projet
 
 ## Features
 
-Point clé du projet :
-
-- Feature 1
-- Feature 2
-- ...
+- C++ and SFML
+- 2D Game
+- Hub Menu and high score
+- Multiplayer 
 
 ## Définition des termes
 
@@ -39,14 +38,13 @@ Objets :
 - tir
 
 
-
 ## Getting Started
 
-Comment lancer le jeu et utiliser le code
+Description des étapes pour lancer le jeu.
 
 ### Prerequisites
 
-Liste des installations prérequises pour le bon fonctionnement.
+Liste des installations prérequises pour le bon fonctionnement du code.
 
 
 
