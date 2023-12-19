@@ -11,10 +11,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [Remerciement](#remerciement)
 
 ## Introduction
 
