@@ -24,9 +24,9 @@ Description succinte du projet
 ## Features
 
 - C++ and SFML
-- 2D Game
-- Hub Menu and high score
-- Multiplayer 
+- 2D Game (to be done)
+- Hub Menu and high score (to be done)
+- Multiplayer(to be done)
 
 ## Définition des termes
 
