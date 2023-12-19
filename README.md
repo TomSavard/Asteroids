@@ -11,6 +11,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 
 - [Introduction](#introduction)
 - [Explication du projet](#Explication-du-projet)
+- [Définition des termes](#Définition-des-termes)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -27,6 +28,10 @@ Point clé du projet :
 - Feature 1
 - Feature 2
 - ...
+
+## Définition des termes
+
+
 
 ## Getting Started
 
