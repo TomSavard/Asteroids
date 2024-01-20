@@ -11,6 +11,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 
 - [Introduction](#introduction)
 - [Explication du projet](#Explication-du-projet)
+- [Strucutre des dossiers](#Structure-des-dossiers)
 - [Définition des termes](#Définition-des-termes)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -27,6 +28,12 @@ Description succinte du projet
 - 2D Game (to be done)
 - Hub Menu and high score (to be done)
 - Multiplayer(to be done)
+
+## Structure des dossiers
+- ExternalLibraries : contient la librarie SFML pour mac et pour windows
+- Platforms : mac ou windows permet de ?
+- Ressources : contient toutes les ressources ( images etc)
+- code : contient l'essentiel du code
 
 ## Définition des termes
 
