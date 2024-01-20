@@ -1,7 +1,7 @@
 # ASTÉROÏDS
 
 
-![Project Logo](images/logo.png)
+![Project Logo](/Ressources/images/logo.png)
 
 Le projet a pour objectif de réaliser le célèbre jeu Astéroïds.
 Le code est réalisé en C++ et utilise la librairie SFML.
