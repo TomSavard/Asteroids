@@ -1,0 +1,5 @@
+J'ai testé l'installation sur Mac en utilisant Xcode. Aucun tuto ne fonctionne. Toujours une erreur de librairie dont la solution est totalement introuvable
+
+La solution visual studio ne fonctionne que sur Windows et n'est pas dispo sur mac.
+
+Je test l'installation en utilisant Cmake.
