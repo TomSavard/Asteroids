@@ -1,0 +1,11 @@
+SFML supporte les formats WAV, OGG/Vorbis et FLAC. En raison de l'octroi de licences, le format MP3 n'est pas supporté.
+
+
+    // // définit le nombre de sommet (4)
+    // player.setPointCount(4);
+
+    // // définit les sommets
+    // player.setPoint(0, sf::Vector2f(0, 0));
+    // player.setPoint(1, sf::Vector2f(20, 40));
+    // player.setPoint(2, sf::Vector2f(0, 35));
+    // player.setPoint(3, sf::Vector2f(-20, 40));
