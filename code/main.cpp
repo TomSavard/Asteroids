@@ -117,12 +117,12 @@ sf::Clock clock; // Horloge pour mesurer le temps écoulé
 
 
 // Charge(plutot stream) et joue la musique
-sf::Music music;
-if (!music.openFromFile("../Ressources/audio/Glory.wav")) {
-    std::cerr << "Failed to load music file" << std::endl;
-    return -1; // Error
-}
-music.play();
+// sf::Music music;
+// if (!music.openFromFile("../Ressources/audio/Glory.wav")) {
+//     std::cerr << "Failed to load music file" << std::endl;
+//     return -1; // Error
+// }
+// music.play();
 
 
 
