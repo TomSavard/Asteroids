@@ -1,6 +1,8 @@
 # Ignore macOS system files
 .DS_Store
 
+test
+
 # Ignore system files created by Windows
 Thumbs.db
 Desktop.ini
