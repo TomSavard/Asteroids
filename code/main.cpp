@@ -158,6 +158,12 @@ public:
 
         bool isDragging = false;
 
+        // Chargez le son pour le clic sur le bouton
+        sf::SoundBuffer clickSoundBuffer;
+        if (!clickSoundBuffer.loadFromFile("../Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
+        sf::Sound clickSound;
+        clickSound.setBuffer(clickSoundBuffer);
+
         while (window.isOpen()) {
             sf::Event event;
             while (window.pollEvent(event)) {
@@ -168,12 +174,14 @@ public:
                     if (playButton.getGlobalBounds().contains(mousePos)) {
                         // Action lorsque le bouton "Jouer" est cliqué
                         std::cout << "Bouton Jouer cliqué" << std::endl;
+                        clickSound.play(); // Jouer le son de clic
                         window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
                         return ActionMenu::Jouer;
                     }
                     else if (exitButton.getGlobalBounds().contains(mousePos)) {
                         // Action lorsque le bouton "Quitter" est cliqué
                         std::cout << "Bouton quitter cliqué!" << std::endl;
+                        clickSound.play(); // Jouer le son de clic
                         window.close(); // Fermer la fenêtre lorsque le bouton "Quitter" est cliqué
                         return ActionMenu::Quitter;
                     }
