@@ -14,6 +14,8 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <vector>
+#include <memory> // Ajoutez cette directive d'inclusion pour std::make_unique
+
 
 // Définir la couleur normale et la couleur survolée des boutons
 sf::Color normalColor = sf::Color::White;
@@ -97,9 +99,9 @@ void update(sf::Time dt, std::vector<std::unique_ptr<Projectile>>& projectiles) 
     void draw(sf::RenderWindow& window) const {
         window.draw(shape);
     }
-        //tire des projectiles
+    // Tire des projectiles
     void shoot(std::vector<std::unique_ptr<Projectile>>& projectiles) {
-        projectiles.push_back(std::make_unique<Projectile>(position + sf::Vector2f(0.f, -50.f)));
+        projectiles.push_back(std::unique_ptr<Projectile>(new Projectile(position + sf::Vector2f(0.f, -50.f))));
     }
         //???
     void setPosition(sf::Vector2f pos) {
