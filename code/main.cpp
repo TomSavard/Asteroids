@@ -4,11 +4,15 @@
 // g++ Fusion.o -o Fusion.exe -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 // ./Game.exe
 
+
+
 // ! Not to do
 // ? interrogation
 // TODO : 
 
-// TODO : Faire un code plus propre avec une classe entite et des sous-classes.
+///// TODO : Faire un code plus propre avec une classe entite et des sous-classes.
+///// TODO : mise en place d'un écran game over.
+// TODO : Mise en place d'un mode multi en local
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -190,95 +194,6 @@ bool isCollide(Entite *a,Entite *b)
 }
 
 
-
-// Les différentes classes d'objets :
-class Projectile {
-public:
-    Projectile(sf::Vector2f position) : shape(sf::Vector2f(5.f, 5.f)), lifetime(sf::Time::Zero) {
-        shape.setFillColor(sf::Color::Red);
-        shape.setPosition(position);
-    }
-
-    void draw(sf::RenderWindow& window) const {
-        window.draw(shape);
-    }
-
-    void update(sf::Time dt) {
-    sf::Vector2f velocity(0.f, -200.f); // Vitesse du projectile
-    shape.move(velocity * dt.asSeconds()); // Mettre à jour la position du projectile en fonction de la vitesse
-    lifetime += dt; // Mettre à jour la durée de vie du projectile
-    }
-
-    bool isExpired() const {
-        return lifetime >= maxLifetime; // Vérifier si la durée de vie dépasse la limite
-    }
-
-private:
-    sf::RectangleShape shape;
-        sf::Time lifetime;
-    const sf::Time maxLifetime = sf::seconds(5.f); // Durée de vie maximale du projectile
-};
-
-class Player
-{
-friend class Projectile; // Déclaration d'amitié
-
-private:
-    sf::Vector2f position;
-    sf::Time shootTimer;
-    sf::ConvexShape shape;
-    const sf::Time shootCooldown = sf::seconds(0.3f); // Cooldown entre deux tirs
-
-public:
-
-// Constructeur 
-Player(sf::Vector2f startPos) : position(startPos), shootTimer(sf::seconds(0.f)) {
-    shape.setPointCount(4);
-    shape.setPoint(0, sf::Vector2f(0, 0));
-    shape.setPoint(1, sf::Vector2f(20, 40));
-    shape.setPoint(2, sf::Vector2f(0, 30));
-    shape.setPoint(3, sf::Vector2f(-20, 40));
-    shape.setFillColor(sf::Color::White);
-    shape.setPosition(startPos);
-}
-
-void update(sf::Time dt, std::vector<std::unique_ptr<Projectile>>& projectiles) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shootTimer >= shootCooldown) {
-        shoot(projectiles);
-        shootTimer = sf::Time::Zero; // Réinitialiser la minuterie de tir
-    }
-    // Mettre à jour la minuterie de tir
-    shootTimer += dt;
-}
-
-
-//Les différentes fonctions de player
-        //Le déplacement
-    void move(sf::Vector2f offset) {
-        position += offset;
-        shape.move(offset);
-    }
-
-        //lire sa position
-    sf::Vector2f getPosition() const {
-        return position;
-    }
-        //l'affichage du vaisseau
-    void draw(sf::RenderWindow& window) const {
-        window.draw(shape);
-    }
-    // Tire des projectiles
-    void shoot(std::vector<std::unique_ptr<Projectile>>& projectiles) {
-        projectiles.push_back(std::unique_ptr<Projectile>(new Projectile(position + sf::Vector2f(0.f, -50.f))));
-    }
-        //???
-    void setPosition(sf::Vector2f pos) {
-        position = pos;
-    }
-
-};
-
-
 // Pour les fenetres
 class Menu {
 public:
@@ -300,13 +215,13 @@ public:
         title.setStyle(sf::Text::Bold);
         title.setPosition(200, 100);
 
-        sf::Text playButton("Play", font, 30);
-        playButton.setFillColor(sf::Color::White);
-        playButton.setPosition(300, 250);
+        sf::Text BoutonJouer("Jouer", font, 30);
+        BoutonJouer.setFillColor(sf::Color::White);
+        BoutonJouer.setPosition(300, 250);
 
-        sf::Text exitButton("Exit", font, 30);
-        exitButton.setFillColor(sf::Color::White);
-        exitButton.setPosition(300, 350);
+        sf::Text BoutonQuitter("Quitter", font, 30);
+        BoutonQuitter.setFillColor(sf::Color::White);
+        BoutonQuitter.setPosition(300, 350);
 
         sf::RectangleShape volumeBar(sf::Vector2f(200, 20));
         volumeBar.setFillColor(sf::Color(200, 200, 200)); // Couleur gris clair
@@ -321,7 +236,7 @@ public:
 
         bool isDragging = false;
 
-        // Chargez le son pour le clic sur le bouton
+        // Charger le son pour le clic sur le bouton
         sf::SoundBuffer clickSoundBuffer;
         if (!clickSoundBuffer.loadFromFile("../Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
         sf::Sound clickSound;
@@ -334,14 +249,14 @@ public:
                     window.close();
                 else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseButton.x, event.mouseButton.y));
-                    if (playButton.getGlobalBounds().contains(mousePos)) {
+                    if (BoutonJouer.getGlobalBounds().contains(mousePos)) {
                         // Action lorsque le bouton "Jouer" est cliqué
                         std::cout << "Bouton Jouer cliqué" << std::endl;
                         clickSound.play(); // Jouer le son de clic
                         window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
                         return ActionMenu::Jouer;
                     }
-                    else if (exitButton.getGlobalBounds().contains(mousePos)) {
+                    else if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {
                         // Action lorsque le bouton "Quitter" est cliqué
                         std::cout << "Bouton quitter cliqué!" << std::endl;
                         clickSound.play(); // Jouer le son de clic
@@ -358,10 +273,10 @@ public:
                 else if (event.type == sf::Event::MouseMoved) {
                     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseMove.x, event.mouseMove.y));
                     // Gestion du survol des boutons
-                    if (playButton.getGlobalBounds().contains(mousePos)) {playButton.setFillColor(hoverColor);} 
-                    else {playButton.setFillColor(normalColor);}
-                    if (exitButton.getGlobalBounds().contains(mousePos)) {exitButton.setFillColor(hoverColor);}
-                    else {exitButton.setFillColor(normalColor);}
+                    if (BoutonJouer.getGlobalBounds().contains(mousePos)) {BoutonJouer.setFillColor(hoverColor);} 
+                    else {BoutonJouer.setFillColor(normalColor);}
+                    if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {BoutonQuitter.setFillColor(hoverColor);}
+                    else {BoutonQuitter.setFillColor(normalColor);}
                     // Déplacement du bouton de volume si l'utilisateur est en train de le glisser
                     if (isDragging) {
                         float newVolume = (mousePos.x - (window.getSize().x - 250)) / 200.0f;
@@ -377,8 +292,8 @@ public:
             }
             window.clear();
             window.draw(title);
-            window.draw(playButton);
-            window.draw(exitButton);
+            window.draw(BoutonJouer);
+            window.draw(BoutonQuitter);
             window.draw(volumeBar);
             window.draw(volumeIndicator);
             window.display();
@@ -392,83 +307,36 @@ private:
     float volume = 0.5f; // Volume initial
 };
 
-class GameLauncher {
-public:
-    GameLauncher(sf::RenderWindow& window) : window(window) {}
-
-void launch() {
-    sf::RenderWindow window (sf::VideoMode(800,800), "Asteroid Game");
-    Player joueur1(sf::Vector2f(400.f, 400.f));
-    float speed = 0.5f; //vitesse du joueur
-        std::vector<std::unique_ptr<Projectile>> projectiles;
-        sf::Clock clock; // Horloge pour mesurer le temps écoulé
-
-    // Boucle principale :
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event)){
-            if (event.type ==sf::Event::Closed) window.close();}
-        sf::Time dt = clock.restart(); // Mesurer le temps écoulé depuis la dernière itération
-        joueur1.update(dt, projectiles); // Mettre à jour le joueur avec le temps écoulé
-        // On gère le déplacement droite/gauche/bas/haut avec les flèches directionnelles
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && joueur1.getPosition().x > 20) {joueur1.move(sf::Vector2f(-speed, 0.f));}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && joueur1.getPosition().x < window.getSize().x - 20) {joueur1.move(sf::Vector2f(speed, 0.f));}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && joueur1.getPosition().y > 0) {joueur1.move(sf::Vector2f(0.f,-speed));}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && joueur1.getPosition().y < window.getSize().y - 40) {joueur1.move(sf::Vector2f(0.f,speed));}
-        // Vérifie si la touche "espace" est enfoncée pour tirer un projectile
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            joueur1.update(dt, projectiles);
-        }
-        // Netoyyage de la fenetre
-        window.clear();
-        // Mettre à jour et dessiner les projectiles
-        for (auto& projectile : projectiles) {
-            projectile->update(dt); // Mettre à jour la position du projectile
-            projectile->draw(window); // Dessiner le projectile mis à jour
-        }
-        joueur1.draw(window);
-    // Supprimer les projectiles expirés
-        projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(),
-        [](const std::unique_ptr<Projectile>& p) { return p->isExpired(); }), projectiles.end());
-        window.display();   
-    }
-}
-
-private:
-    sf::RenderWindow& window;
-};
-
-
 class TableauDesScores {
-private:
-    int score; // Variable de compteur de points
+    private:
+        int score; // Variable de compteur de points
 
-public:
-    TableauDesScores() : score(0) {} // Initialiser le compteur de points à zéro
+    public:
+        TableauDesScores() : score(0) {} // Initialiser le compteur de points à zéro
 
-    void increaseScore(int points) {
-        score += points; // Augmenter le compteur de points
-    }
-
-    void drawScore(sf::RenderWindow& window) {
-        sf::Font font;
-        if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
-            // Gérer l'erreur de chargement de la police
-            std::cerr << "Failed to load font file" << std::endl;
-            return;
+        void increaseScore(int points) {
+            score += points; // Augmenter le compteur de points
         }
 
-        sf::Text scoreText("Score: " + std::to_string(score), font, 30);
-        scoreText.setFillColor(sf::Color::White);
-        scoreText.setPosition(10, 10);
+        void drawScore(sf::RenderWindow& window) {
+            sf::Font font;
+            if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
+                // Gérer l'erreur de chargement de la police
+                std::cerr << "Failed to load font file" << std::endl;
+                return;
+            }
+            sf::Text scoreText("Score: " + std::to_string(score), font, 30);
+            scoreText.setFillColor(sf::Color::White);
+            scoreText.setPosition(10, 10);
 
-        window.draw(scoreText); // Dessiner le compteur de points à l'écran
-    }
+            window.draw(scoreText); // Dessiner le compteur de points à l'écran
+        }
 
-    void resetScore(){
-        score = 0;
-    }
+        void reset(){score = 0;}
+
+        int getScore(){
+            return score;
+        }
 };
 
 class GameOverScreen {
@@ -477,9 +345,11 @@ private:
     sf::Text gameOverText;
     sf::Text retryText;
     sf::Text quitText;
+    sf::Text scoreText;
 
 public:
-    GameOverScreen() {
+    GameOverScreen(int score =0) {
+
         if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
         }
 
@@ -487,27 +357,39 @@ public:
         gameOverText.setCharacterSize(50);
         gameOverText.setFillColor(sf::Color::Red);
         gameOverText.setString("Game Over");
-        gameOverText.setPosition(LargeurFenetre/2, HauteurFenetre/2);
+        gameOverText.setPosition((LargeurFenetre - gameOverText.getGlobalBounds().width) / 2, HauteurFenetre/2 - 100);
+
+        scoreText.setFont(font);
+        scoreText.setCharacterSize(30);
+        scoreText.setFillColor(sf::Color::White);
+        scoreText.setString("Score: " + std::to_string(score)); // Convertir le score en chaîne de caractères
+        scoreText.setPosition((LargeurFenetre - scoreText.getGlobalBounds().width) / 2, HauteurFenetre / 2);
 
         retryText.setFont(font);
         retryText.setCharacterSize(30);
         retryText.setFillColor(sf::Color::White);
-        retryText.setString("Press R to Retry");
-        retryText.setPosition(LargeurFenetre/2, HauteurFenetre/2 + 100);
+        retryText.setString("Appuyer sur R pour redemarrer");
+        retryText.setPosition((LargeurFenetre - retryText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 50);
 
         quitText.setFont(font);
         quitText.setCharacterSize(30);
         quitText.setFillColor(sf::Color::White);
-        quitText.setString("Press Q to Quit");
-        quitText.setPosition(LargeurFenetre/2, HauteurFenetre/2 + 200);
+        quitText.setString("Appuyer sur Q pour quitter");
+        quitText.setPosition((LargeurFenetre - quitText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 100);
     }
 
     void draw(sf::RenderWindow &window) {
         window.draw(gameOverText);
+        window.draw(scoreText);
         window.draw(retryText);
         window.draw(quitText);
     }
 };
+
+
+
+
+
 
 int main() {
     
@@ -538,159 +420,201 @@ int main() {
     int DeathVolume = 100;
     DeathSound.setVolume(DeathVolume);
 
+    sf::SoundBuffer clickSoundBuffer;
+    if (!clickSoundBuffer.loadFromFile("../Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
+    sf::Sound clickSound;
+    clickSound.setBuffer(clickSoundBuffer);
+
 
     if (action == Menu::ActionMenu::Jouer) {
-        sf::Music musicGame;
-        if (!musicGame.openFromFile("../Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
-        int musicVolume = 30;
-        musicGame.setVolume(musicVolume);
-        musicGame.play();
-        
-        srand(time(0));
 
-        sf::RenderWindow app(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroides!");
-        app.setFramerateLimit(60);
+        bool VeuxJouer = true; // Mettons en place un statut qui permet de boucler le jeu. On arrete de jouer lorsque l'on en a marre (quit lors du GameOver)
+        bool GameOver = false;
 
-        sf::Texture t1,t2,t3,t4,t5,t6,t7;
-        t1.loadFromFile("../Ressources/animation/spaceship.png");
-        t2.loadFromFile("../Ressources/image/Fond.jpg");
-        t3.loadFromFile("../Ressources/animation/explosions/type_C.png");
-        t4.loadFromFile("../Ressources/animation/rock.png");
-        t5.loadFromFile("../Ressources/animation/fire_red.png");
-        t6.loadFromFile("../Ressources/animation/rock_small.png");
-        t7.loadFromFile("../Ressources/animation/explosions/type_B.png");
+        while(VeuxJouer){
+            sf::Music musicGame;
+            if (!musicGame.openFromFile("../Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+            int musicVolume = 30;
+            musicGame.setVolume(musicVolume);
+            musicGame.play();
 
-        t1.setSmooth(true);
-        t2.setSmooth(true);
+            srand(time(0));
 
-        sf::Sprite background(t2);
+            sf::RenderWindow app(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroides!");
+            app.setFramerateLimit(60);
 
-        Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
-        Animation sRock(t4, 0,0,64,64, 16, 0.2);
-        Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
-        Animation sBullet(t5, 0,0,32,64, 16, 0.8);
-        Animation sPlayer(t1, 40,0,40,40, 1, 0);
-        Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
-        Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
+            sf::Texture t1,t3,t4,t5,t6,t7;
+            t1.loadFromFile("../Ressources/animation/spaceship.png");
+            // t2.loadFromFile("../Ressources/image/Fond.png"); // * L'image rallenti le lancement
+            t3.loadFromFile("../Ressources/animation/explosions/type_C.png");
+            t4.loadFromFile("../Ressources/animation/rock.png");
+            t5.loadFromFile("../Ressources/animation/fire_red.png");
+            t6.loadFromFile("../Ressources/animation/rock_small.png");
+            t7.loadFromFile("../Ressources/animation/explosions/type_B.png");
+
+            t1.setSmooth(true);
+            // t2.setSmooth(true);
+
+            // sf::Sprite background(t2);
+
+            Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
+            Animation sRock(t4, 0,0,64,64, 16, 0.2);
+            Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
+            Animation sBullet(t5, 0,0,32,64, 16, 0.8);
+            Animation sPlayer(t1, 40,0,40,40, 1, 0);
+            Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
+            Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
 
 
-        std::list<Entite*> entities;
+            std::list<Entite*> entities;
 
-        for(int i=0;i<15;i++)
-        {
-            asteroide *a = new asteroide();
-            a->settings(sRock, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, 25);
-            entities.push_back(a);
-        }
-
-        player *p = new player();
-        p->settings(sPlayer,200,200,0,20);
-        entities.push_back(p);
-
-        ///main loop///
-        while (app.isOpen())
-        {
-            sf::Event event;
-            while (app.pollEvent(event))
+            for(int i=0;i<15;i++)
             {
-                if (event.type == sf::Event::Closed)
-                    app.close();
-
-                if (event.type == sf::Event::KeyPressed)
-                    if (event.key.code == sf::Keyboard::Space)
-                    {
-                        tir *b = new tir();
-                        b->settings(sBullet,p->x,p->y,p->angle,10);
-                        entities.push_back(b);
-                        shootSound.play();
-                    }
+                asteroide *a = new asteroide();
+                a->settings(sRock, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, 25);
+                entities.push_back(a);
             }
 
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p->angle+=3;
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p->angle-=3;
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) p->thrust=true;
-            else p->thrust=false;
+            player *p = new player();
+            p->settings(sPlayer,200,200,0,20);
+            entities.push_back(p);
 
 
-            for(auto a:entities)
-                for(auto b:entities)
+
+            ///main loop///
+            while (app.isOpen())
+            {
+                sf::Event event;
+                while (app.pollEvent(event))
                 {
-                    if (a->name=="asteroide" && b->name=="tir")
-                        if ( isCollide(a,b) )
-                            {
-                                a->life=false;
-                                b->life=false;
+                    if (event.type == sf::Event::Closed)
+                        app.close();
 
-                                Entite *e = new Entite();
-                                e->settings(sExplosion,a->x,a->y);
-                                e->name="explosion";
-                                entities.push_back(e);
-
-                                LeScore.increaseScore(1);
-
-                                for(int i=0;i<2;i++)
-                                {
-                                if (a->R==15) continue;
-                                Entite *e = new asteroide();
-                                e->settings(sRock_small,a->x,a->y,rand()%360,15);
-                                entities.push_back(e);
-                                }
-
-                            }
-
-                        if (a->name=="player" && b->name=="asteroide")
-                            if ( isCollide(a,b) )
-                            {
-                                b->life=false;
-
-                                Entite *e = new Entite();
-                                e->settings(sExplosion_ship,a->x,a->y);
-                                e->name="explosion";
-                                entities.push_back(e);
-
-                                LeScore.resetScore();
-                                DeathSound.play();
-
-                                p->settings(sPlayer,LargeurFenetre/2,HauteurFenetre/2,0,20);
-                                p->vx=0; p->vy=0;
-                            }
-                    }  
-
-
-                if (p->thrust)  p->anim = sPlayer_go;
-                else   p->anim = sPlayer;
-
-
-                for(auto e:entities)
-                    if (e->name=="explosion")
-                    if (e->anim.isEnd()) e->life=0;
-
-                    if (rand()%150==0)
-                    {
-                        asteroide *a = new asteroide();
-                        a->settings(sRock, 0,rand()%HauteurFenetre, rand()%360, 25);
-                        entities.push_back(a);
-                    }
-
-                for(auto i=entities.begin();i!=entities.end();)
-                {
-                    Entite *e = *i;
-
-                    e->update();
-                    e->anim.update();
-
-                    if (e->life==false) {i=entities.erase(i); delete e;}
-                    else i++;
+                    if (event.type == sf::Event::KeyPressed)
+                        if (event.key.code == sf::Keyboard::Space)
+                        {
+                            tir *b = new tir();
+                            b->settings(sBullet,p->x,p->y,p->angle,10);
+                            entities.push_back(b);
+                            shootSound.play();
+                        }
                 }
 
-        ///draw///
-        app.clear();
-        app.draw(background);
-        for(auto i:entities) i->draw(app);
-        LeScore.drawScore(app);
-        app.display();
-        }
-    }
-    
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p->angle+=3;
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p->angle-=3;
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) p->thrust=true;
+                else p->thrust=false;
+
+
+                for(auto a:entities)
+                    for(auto b:entities)
+                    {
+                        if (a->name=="asteroide" && b->name=="tir")
+                            if ( isCollide(a,b) )
+                                {
+                                    a->life=false;
+                                    b->life=false;
+
+                                    Entite *e = new Entite();
+                                    e->settings(sExplosion,a->x,a->y);
+                                    e->name="explosion";
+                                    entities.push_back(e);
+
+                                    LeScore.increaseScore(1);
+
+                                    for(int i=0;i<2;i++)
+                                    {
+                                    if (a->R==15) continue;
+                                    Entite *e = new asteroide();
+                                    e->settings(sRock_small,a->x,a->y,rand()%360,15);
+                                    entities.push_back(e);
+                                    }
+
+                                }
+
+                            if (a->name=="player" && b->name=="asteroide")
+                                if ( isCollide(a,b) )
+                                {
+                                    b->life=false;
+
+                                    Entite *e = new Entite();
+                                    e->settings(sExplosion_ship,a->x,a->y);
+                                    e->name="explosion";
+                                    entities.push_back(e);
+
+                                    app.close();
+                                    DeathSound.play();
+                                    musicGame.stop();
+
+                                    p->settings(sPlayer,LargeurFenetre/2,HauteurFenetre/2,0,20);
+                                    p->vx=0; p->vy=0;
+                                }
+                        }  
+
+
+                    if (p->thrust)  p->anim = sPlayer_go;
+                    else   p->anim = sPlayer;
+
+
+                    for(auto e:entities)
+                        if (e->name=="explosion")
+                        if (e->anim.isEnd()) e->life=0;
+
+                        if (rand()%150==0)
+                        {
+                            asteroide *a = new asteroide();
+                            a->settings(sRock, 0,rand()%HauteurFenetre, rand()%360, 25);
+                            entities.push_back(a);
+                        }
+
+                    for(auto i=entities.begin();i!=entities.end();)
+                    {
+                        Entite *e = *i;
+
+                        e->update();
+                        e->anim.update();
+
+                        if (e->life==false) {i=entities.erase(i); delete e;}
+                        else i++;
+                    }
+
+            ///draw///
+            app.clear();
+            // app.draw(background);
+            for(auto i:entities) i->draw(app);
+            LeScore.drawScore(app);
+            app.display();
+            }
+
+            sf::RenderWindow window(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroid Game Over");
+            int scoreFinal = LeScore.getScore();
+            GameOverScreen gameOverScreen(scoreFinal);
+            bool actionRecu = false; //permet de savoir si le joueur a interragit
+            while (window.isOpen() && !actionRecu) {
+                sf::Event event;
+                while (window.pollEvent(event)) {
+                    if (event.type == sf::Event::Closed)
+                    window.close();
+                    else if (event.type == sf::Event::KeyPressed) {
+                        if (event.key.code == sf::Keyboard::R) {
+                            clickSound.play(); // Jouer le son de clic
+                            VeuxJouer = true;
+                            actionRecu = true;
+                            LeScore.reset();
+                            std::cout << "Restarting the game..." << std::endl;}
+                        else if (event.key.code == sf::Keyboard::Q) {
+                            clickSound.play(); // Jouer le son de clic
+                            VeuxJouer=false;
+                            actionRecu = true;
+                            window.close();}
+                    }
+                }
+
+                window.clear();
+                gameOverScreen.draw(window);
+                window.display();
+            }
+        }// fin boucle Veux jouer
+    }// fin de la boucle if Jouer // TODO : optimiser ces deux boucles redondantes.
     return 0;
 }
