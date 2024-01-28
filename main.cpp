@@ -1,6 +1,7 @@
 /// Tom SAVARD 26/01/24 ///
 // * Better comments
-// Command to run scripts : g++ -std=c++17 -c Fusion.cpp -I/usr/local/include
+// Command to run scripts : 
+// g++ -std=c++17 -c Fusion.cpp -I/usr/local/include
 // g++ Fusion.o -o Fusion.exe -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 // ./Game.exe
 
@@ -205,7 +206,7 @@ public:
 
     ActionMenu run() {
         sf::Font font;
-        if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
+        if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
             std::cerr << "Failed to load font." << std::endl;
             return ActionMenu::Quitter;
         }
@@ -238,7 +239,7 @@ public:
 
         // Charger le son pour le clic sur le bouton
         sf::SoundBuffer clickSoundBuffer;
-        if (!clickSoundBuffer.loadFromFile("../Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
+        if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
         sf::Sound clickSound;
         clickSound.setBuffer(clickSoundBuffer);
 
@@ -320,7 +321,7 @@ class TableauDesScores {
 
         void drawScore(sf::RenderWindow& window) {
             sf::Font font;
-            if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
+            if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
                 // Gérer l'erreur de chargement de la police
                 std::cerr << "Failed to load font file" << std::endl;
                 return;
@@ -350,7 +351,7 @@ private:
 public:
     GameOverScreen(int score =0) {
 
-        if (!font.loadFromFile("../Ressources/police/arial/arial.ttf")) {
+        if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
         }
 
         gameOverText.setFont(font);
@@ -394,7 +395,7 @@ public:
 int main() {
     
     sf::Music musicHub;
-    if (!musicHub.openFromFile("../Ressources/audio/Dofus2.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+    if (!musicHub.openFromFile("Ressources/audio/Dofus2.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
     musicHub.play();
     sf::RenderWindow window(sf::VideoMode(800, 600), "Asteroid Game");
     TableauDesScores LeScore;
@@ -405,7 +406,7 @@ int main() {
 
     sf::SoundBuffer shootSoundBuffer;
     sf::Sound shootSound;
-    if (!shootSoundBuffer.loadFromFile("../Ressources/audio/tir.wav")) {
+    if (!shootSoundBuffer.loadFromFile("Ressources/audio/tir.wav")) {
     std::cerr << "Failed to load shoot sound file" << std::endl;}
     shootSound.setBuffer(shootSoundBuffer);
     int shootVolume = 3;
@@ -414,14 +415,14 @@ int main() {
     
     sf::SoundBuffer DeathSoundBuffer;
     sf::Sound DeathSound;
-    if (!DeathSoundBuffer.loadFromFile("../Ressources/audio/death.wav")) {
+    if (!DeathSoundBuffer.loadFromFile("Ressources/audio/death.wav")) {
     std::cerr << "Failed to load death sound file" << std::endl;}
     DeathSound.setBuffer(DeathSoundBuffer);
     int DeathVolume = 100;
     DeathSound.setVolume(DeathVolume);
 
     sf::SoundBuffer clickSoundBuffer;
-    if (!clickSoundBuffer.loadFromFile("../Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
+    if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
     sf::Sound clickSound;
     clickSound.setBuffer(clickSoundBuffer);
 
@@ -429,11 +430,10 @@ int main() {
     if (action == Menu::ActionMenu::Jouer) {
 
         bool VeuxJouer = true; // Mettons en place un statut qui permet de boucler le jeu. On arrete de jouer lorsque l'on en a marre (quit lors du GameOver)
-        bool GameOver = false;
 
         while(VeuxJouer){
             sf::Music musicGame;
-            if (!musicGame.openFromFile("../Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+            if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
             int musicVolume = 30;
             musicGame.setVolume(musicVolume);
             musicGame.play();
@@ -444,13 +444,13 @@ int main() {
             app.setFramerateLimit(60);
 
             sf::Texture t1,t3,t4,t5,t6,t7;
-            t1.loadFromFile("../Ressources/animation/spaceship.png");
-            // t2.loadFromFile("../Ressources/image/Fond.png"); // * L'image rallenti le lancement
-            t3.loadFromFile("../Ressources/animation/explosions/type_C.png");
-            t4.loadFromFile("../Ressources/animation/rock.png");
-            t5.loadFromFile("../Ressources/animation/fire_red.png");
-            t6.loadFromFile("../Ressources/animation/rock_small.png");
-            t7.loadFromFile("../Ressources/animation/explosions/type_B.png");
+            t1.loadFromFile("Ressources/animation/spaceship.png");
+            // t2.loadFromFile("Ressources/image/Fond.png"); // * L'image rallenti le lancement
+            t3.loadFromFile("Ressources/animation/explosions/type_C.png");
+            t4.loadFromFile("Ressources/animation/rock.png");
+            t5.loadFromFile("Ressources/animation/fire_red.png");
+            t6.loadFromFile("Ressources/animation/rock_small.png");
+            t7.loadFromFile("Ressources/animation/explosions/type_B.png");
 
             t1.setSmooth(true);
             // t2.setSmooth(true);
