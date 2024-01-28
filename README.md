@@ -3,8 +3,7 @@
 
 ![Project Logo](/Ressources/image/ImageReadme.png)
 
-Le projet a pour objectif de réaliser le célèbre jeu Astéroïds.
-Le code est réalisé en C++ et utilise la librairie SFML.
+Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d'astéroïde. Naviguez à travers les obstacles ou utiliez votre super blaster pour les détruire. 
 
 
 ## Table des Matières
@@ -20,17 +19,18 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 
 ## Introduction
 
-Description succinte du projet
+Le projet a pour objectif de réaliser le célèbre jeu Astéroïds.
+Le code est réalisé en C++ et utilise la librairie SFML.
 
 ## Features
 
 - C++ and SFML
-- 2D Game (to be done)
-- Hub Menu and high score (to be done)
+- 2D Game
+- Hub Menu, Game Over et score
 - Multiplayer(to be done)
 
 ## Structure des dossiers
-- ExternalLibraries : contient la librarie SFML pour mac et pour windows
+- Librairie Externes : contient la librarie SFML pour mac et pour windows
 - Platforms : mac ou windows permet de ?
 - Ressources : contient toutes les ressources ( images etc)
 - code : contient l'essentiel du code
@@ -40,18 +40,22 @@ Description succinte du projet
 Afin de faire un code cohérent et construit il faut se mettre d'accord sur la nomenclature.
 
 Objets :
-- vaisseau
+- player
 - asteroide
 - tir
 
 
 ## Getting Started
 
-Description des étapes pour lancer le jeu.
+Description des étapes pour lancer le jeu :
+- Se placer dans le répertoire principale du dossier
+- Dans le terminal : make
+- Puis : ./main.exe
+
 
 ### Prerequisites
 
-Liste des installations prérequises pour le bon fonctionnement du code.
+Il faut installer la librairie sfml. Les chemins vers la librairie sont les chemins "classiques". Ils faut surement utiliser un gestionnaire de paquet pour avoir une installation cohérente. (brew sur mac).
 
 
 
