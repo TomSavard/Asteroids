@@ -30,10 +30,8 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 - Multiplayer(to be done)
 
 ## Structure des dossiers
-- Librairie Externes : contient la librarie SFML pour mac et pour windows
-- Platforms : mac ou windows permet de ?
-- Ressources : contient toutes les ressources ( images etc)
 - code : contient l'essentiel du code
+- Ressources : contient toutes les ressources (image, audio, animation, police etc)
 
 ## Définition des termes
 
