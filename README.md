@@ -3,7 +3,7 @@
 
 ![Project Logo](/Ressources/image/ImageReadme.png)
 
-Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d'astéroïde. Naviguez à travers les obstacles ou utiliez votre super blaster pour les détruire. 
+Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d'astéroïde. Naviguez à travers les obstacles ou utilisez votre super blaster pour les détruire. 
 
 
 ## Table des Matières
