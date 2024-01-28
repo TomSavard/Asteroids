@@ -13,8 +13,8 @@ Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d
 - [Strucutre des dossiers](#Structure-des-dossiers)
 - [Définition des termes](#Définition-des-termes)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Pre-requis](#prerequisites)
+  - [Lancement](#installation)
 - [Remerciement](#remerciement)
 
 ## Introduction
@@ -45,15 +45,18 @@ Objets :
 
 ## Getting Started
 
+### Pre-requis
+
+Il faut installer la librairie sfml. Les chemins vers la librairie sont les chemins "classiques". Ils faut surement utiliser un gestionnaire de paquet pour avoir une installation cohérente. (brew sur mac).
+
+### Lancement
+
 Description des étapes pour lancer le jeu :
 - Se placer dans le répertoire principale du dossier
 - Dans le terminal : make
 - Puis : ./main.exe
 
 
-### Prerequisites
-
-Il faut installer la librairie sfml. Les chemins vers la librairie sont les chemins "classiques". Ils faut surement utiliser un gestionnaire de paquet pour avoir une installation cohérente. (brew sur mac).
 
 
 
