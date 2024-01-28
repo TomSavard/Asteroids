@@ -552,13 +552,13 @@ int main() {
         app.setFramerateLimit(60);
 
         sf::Texture t1,t2,t3,t4,t5,t6,t7;
-        t1.loadFromFile("../Ressources/INSPI/spaceship.png");
-        t2.loadFromFile("../Ressources/INSPI/Fond2.jpg");
-        t3.loadFromFile("../Ressources/INSPI/explosions/type_C.png");
-        t4.loadFromFile("../Ressources/INSPI/rock.png");
-        t5.loadFromFile("../Ressources/INSPI/fire_red.png");
-        t6.loadFromFile("../Ressources/INSPI/rock_small.png");
-        t7.loadFromFile("../Ressources/INSPI/explosions/type_B.png");
+        t1.loadFromFile("../Ressources/animation/spaceship.png");
+        t2.loadFromFile("../Ressources/image/Fond.jpg");
+        t3.loadFromFile("../Ressources/animation/explosions/type_C.png");
+        t4.loadFromFile("../Ressources/animation/rock.png");
+        t5.loadFromFile("../Ressources/animation/fire_red.png");
+        t6.loadFromFile("../Ressources/animation/rock_small.png");
+        t7.loadFromFile("../Ressources/animation/explosions/type_B.png");
 
         t1.setSmooth(true);
         t2.setSmooth(true);
