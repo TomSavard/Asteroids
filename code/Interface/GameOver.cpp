@@ -1,6 +1,6 @@
                                             /// Bibliothèques ///
 #include "GameOver.hpp"     
-#include "global_variables.hpp"                             
+#include "../global_variables.hpp"                             
 
                                             /// Code Principal ///
 

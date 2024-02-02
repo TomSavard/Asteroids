@@ -17,7 +17,7 @@ public:
 private:
     sf::RenderWindow& window;
     sf::Music& music;
-    float volume = 0.5f; // Volume sonore initial
+    float volume = 1.f; // Volume sonore initial
 };
 
 #endif // MENU_HPP

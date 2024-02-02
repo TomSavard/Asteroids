@@ -25,9 +25,9 @@
 #include<math.h>
 #include<time.h>
 
-#include "Menu.hpp"
-#include "GameOver.hpp"
-#include "TableauDesScores.hpp"
+#include "Interface/Menu.hpp"
+#include "Interface/GameOver.hpp"
+#include "Interface/TableauDesScores.hpp"
 #include "global_variables.hpp"
 
 float DEGTORAD = 0.017453f;

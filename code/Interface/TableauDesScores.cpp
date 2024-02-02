@@ -1,6 +1,6 @@
                                             /// Bibliothèques ///
 #include "TableauDesScores.hpp"
-#include "global_variables.hpp"                            
+#include "../global_variables.hpp"                            
 
                                             /// Code Principal ///
 
