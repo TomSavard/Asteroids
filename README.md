@@ -33,7 +33,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 - code : contient l'ensemble du code. Ce dernier est décomposé en plusieurs fichiers sources et headers afin d'obtenir une meilleur modularité et une capacité d'évolution performante.
 - Ressources : contient toutes les ressources (image, audio, animation, police etc)
 
-## Définition des termes
+## Définition des classes
 
 Afin de faire un code cohérent et construit il faut se mettre d'accord sur la nomenclature.
 
