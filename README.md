@@ -48,6 +48,8 @@ Interfaces :
 - TableauDesScores : Permet d'afficher tout au long de la partie le score actuel.
 - GameOverScreen : Malheureusement, chaque partie à sa fin. Cet écran est un menu qui apparait lors de la défaite du joueur. Il permet de voir son score, de pouvoir rejouer ou bien quitter le jeu.
 
+Autres :
+- Animation : Permet d'appliquer une ressource animée au dessus d'une entité afin d'obtenir une texture visuelle.
 
 ## Getting Started
 
