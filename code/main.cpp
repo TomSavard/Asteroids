@@ -259,6 +259,7 @@ int main() {
                             clickSound.play(); // Jouer le son de clic
                             VeuxJouer=false;
                             actionRecu = true;
+                            std::cout << "Exiting the game..." << std::endl;
                             window.close();}
                     }
                 }
