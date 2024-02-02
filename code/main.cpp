@@ -1,14 +1,14 @@
 /// Tom SAVARD 26/01/24 ///
 // * Better comments
-// Command to run scripts : g++ -std=c++17 -c Fusion.cpp -I/usr/local/include
-// g++ Fusion.o -o Fusion.exe -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
-// ./Game.exe
+// Command to run scripts : g++ -std=c++17 -c main.cpp -I/usr/local/include
+// g++ main.o -o main.exe -lsfml-network -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+// ./main.exe
 // ! Not to do
 // ? interrogation
 // TODO : 
 
 //// Fusionner le Hub avec le jeu
-// TODO : Continuer physique du jeu avec tuto yt
+// TODO : Continuer physique du jeu
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
