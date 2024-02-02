@@ -1,14 +1,17 @@
                                             /// Bibliothèques ///
 #include "Menu.hpp"  
-#include "../global_variables.hpp"                                
+#include "../global_variables.hpp"       
+#include <tuple>                         
+
+                                            /// Variables ///
 
                                             /// Code Principal ///
 
-Menu::ActionMenu Menu::run() {
+std::tuple <std::string, float> Menu::run() {
     sf::Font font;
     if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
         std::cerr << "Failed to load font." << std::endl;
-        return ActionMenu::Quitter;
+        return std::make_tuple("Quitter", 0);
     }
 
     sf::Text title("Asteroid Game", font, 50);
@@ -16,13 +19,17 @@ Menu::ActionMenu Menu::run() {
     title.setStyle(sf::Text::Bold);
     title.setPosition(200, 100);
 
-    sf::Text BoutonJouer("Jouer", font, 30);
-    BoutonJouer.setFillColor(sf::Color::White);
-    BoutonJouer.setPosition(300, 250);
+    sf::Text BoutonSolo("Solo", font, 30);
+    BoutonSolo.setFillColor(sf::Color::White);
+    BoutonSolo.setPosition(300, 250);
+
+    sf::Text BoutonMultijoueur("Multijoueur", font, 30);
+    BoutonMultijoueur.setFillColor(sf::Color::White);
+    BoutonMultijoueur.setPosition(300, 300);
 
     sf::Text BoutonQuitter("Quitter", font, 30);
     BoutonQuitter.setFillColor(sf::Color::White);
-    BoutonQuitter.setPosition(300, 350);
+    BoutonQuitter.setPosition(300, 400);
 
     sf::RectangleShape volumeBar(sf::Vector2f(200, 20));
     volumeBar.setFillColor(sf::Color(200, 200, 200)); // Couleur gris clair
@@ -43,6 +50,17 @@ Menu::ActionMenu Menu::run() {
     sf::Sound clickSound;
     clickSound.setBuffer(clickSoundBuffer);
 
+    // Test pour le pictogramme de son
+    sf::Texture SonTexture;
+    if (!SonTexture.loadFromFile("Ressources/image/Pictogramme_son.png")) {
+        std::cerr << "Failed to load logo image." << std::endl;
+        // Gérer l'échec du chargement de l'image
+    }
+    sf::Sprite PictogrammeSonSprite(SonTexture);
+    PictogrammeSonSprite.setPosition(window.getSize().x - 290, window.getSize().y - 55);
+    float scaleFactor = 0.1f;
+    PictogrammeSonSprite.setScale(scaleFactor, scaleFactor);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -50,19 +68,26 @@ Menu::ActionMenu Menu::run() {
                 window.close();
             else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseButton.x, event.mouseButton.y));
-                if (BoutonJouer.getGlobalBounds().contains(mousePos)) {
-                    // Action lorsque le bouton "Jouer" est cliqué
-                    std::cout << "Bouton Jouer cliqué" << std::endl;
+                if (BoutonSolo.getGlobalBounds().contains(mousePos)) {
+                    // Action lorsque le bouton "Solo" est cliqué
+                    std::cout << "Bouton Solo cliqué" << std::endl;
                     clickSound.play(); // Jouer le son de clic
                     window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
-                    return ActionMenu::Jouer;
+                    return std::make_tuple("JouerSolo", volume);
+                }
+                else if (BoutonMultijoueur.getGlobalBounds().contains(mousePos)) {
+                    // Action lorsque le bouton "Multijoueur" est cliqué
+                    std::cout << "Bouton Multijoueur cliqué" << std::endl;
+                    clickSound.play(); // Jouer le son de clic
+                    window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
+                    return std::make_tuple("JouerMulti", volume);
                 }
                 else if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {
                     // Action lorsque le bouton "Quitter" est cliqué
                     std::cout << "Bouton quitter cliqué!" << std::endl;
                     clickSound.play(); // Jouer le son de clic
                     window.close(); // Fermer la fenêtre lorsque le bouton "Quitter" est cliqué
-                    return ActionMenu::Quitter;
+                    return std::make_tuple("Quitter", volume);
                 }
                 else if (volumeIndicator.getGlobalBounds().contains(mousePos)) {
                     isDragging = true;
@@ -74,8 +99,10 @@ Menu::ActionMenu Menu::run() {
             else if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseMove.x, event.mouseMove.y));
                 // Gestion du survol des boutons
-                if (BoutonJouer.getGlobalBounds().contains(mousePos)) {BoutonJouer.setFillColor(hoverColor);} 
-                else {BoutonJouer.setFillColor(normalColor);}
+                if (BoutonSolo.getGlobalBounds().contains(mousePos)) {BoutonSolo.setFillColor(hoverColor);} 
+                else {BoutonSolo.setFillColor(normalColor);}
+                if (BoutonMultijoueur.getGlobalBounds().contains(mousePos)) {BoutonMultijoueur.setFillColor(hoverColor);} 
+                else {BoutonMultijoueur.setFillColor(normalColor);}
                 if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {BoutonQuitter.setFillColor(hoverColor);}
                 else {BoutonQuitter.setFillColor(normalColor);}
                 // Déplacement du bouton de volume si l'utilisateur est en train de le glisser
@@ -93,11 +120,14 @@ Menu::ActionMenu Menu::run() {
         }
         window.clear();
         window.draw(title);
-        window.draw(BoutonJouer);
+        window.draw(BoutonSolo);
+        window.draw(BoutonMultijoueur);
         window.draw(BoutonQuitter);
+        window.draw(PictogrammeSonSprite);
         window.draw(volumeBar);
         window.draw(volumeIndicator);
         window.display();
     }
-return ActionMenu::Quitter;
+
+return std::make_tuple("Quitter", volume);
 }

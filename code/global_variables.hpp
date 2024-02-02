@@ -10,5 +10,6 @@ extern const int LargeurFenetre;
 extern const int HauteurFenetre;
 
 extern float DEGTORAD;
+extern float VolumeGeneral;
 
 #endif // GLOBAL_VARIABLES_HPP

@@ -7,3 +7,4 @@ const int LargeurFenetre = 1200;
 const int HauteurFenetre = 800;
 
 float DEGTORAD = 0.0174533f;
+float VolumeGeneral = 1.f; //! Cette variable est utilisé et modifié par Menu.cpp

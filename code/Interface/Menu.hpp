@@ -4,20 +4,20 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
+#include "../global_variables.hpp"
+#include <tuple>
 
                                             /// Code Principal ///
 class Menu {
 public:
-    enum class ActionMenu {Quitter,Jouer};
-
     Menu(sf::RenderWindow& window, sf::Music& music) : window(window), music(music) {}
 
-    ActionMenu run();
+    std::tuple <std::string, float> run();
 
 private:
     sf::RenderWindow& window;
     sf::Music& music;
-    float volume = 1.f; // Volume sonore initial
+    float volume = VolumeGeneral; // Volume sonore initial
 };
 
 #endif // MENU_HPP

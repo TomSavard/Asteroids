@@ -36,7 +36,6 @@ bool isCollide(Entite *a,Entite *b)
 }
 
 
-
 int main() {
 
 sf::Music musicHub;
@@ -45,8 +44,8 @@ musicHub.play();
 sf::RenderWindow window(sf::VideoMode(800, 600), "Asteroid Game");
 TableauDesScores LeScore;
 Menu menu(window, musicHub);
-Menu::ActionMenu action = menu.run();
-
+std::tuple <std::string, float> action = menu.run();
+float VolumeSelected=std::get<1>(action);
 musicHub.stop();
 
 sf::SoundBuffer shootSoundBuffer;
@@ -54,7 +53,7 @@ sf::Sound shootSound;
 if (!shootSoundBuffer.loadFromFile("Ressources/audio/tir.wav")) {
 std::cerr << "Failed to load shoot sound file" << std::endl;}
 shootSound.setBuffer(shootSoundBuffer);
-int shootVolume = 3;
+int shootVolume = 3*VolumeSelected;
 shootSound.setVolume(shootVolume);
 
 
@@ -63,7 +62,7 @@ sf::Sound DeathSound;
 if (!DeathSoundBuffer.loadFromFile("Ressources/audio/death.wav")) {
 std::cerr << "Failed to load death sound file" << std::endl;}
 DeathSound.setBuffer(DeathSoundBuffer);
-int DeathVolume = 100;
+int DeathVolume = 100*VolumeSelected;
 DeathSound.setVolume(DeathVolume);
 
 sf::SoundBuffer clickSoundBuffer;
@@ -72,10 +71,10 @@ sf::Sound clickSound;
 clickSound.setBuffer(clickSoundBuffer);
 
 
-while(action == Menu::ActionMenu::Jouer){
+while(std::get<0>(action) == "JouerSolo"){
     sf::Music musicGame;
     if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
-    int musicVolume = 30;
+    int musicVolume = 70*VolumeSelected;
     musicGame.setVolume(musicVolume);
     musicGame.play();
 
@@ -239,13 +238,13 @@ while(action == Menu::ActionMenu::Jouer){
             else if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::R) {
                     clickSound.play(); // Jouer le son de clic
-                    action = Menu::ActionMenu::Jouer;
+                    std::get<0>(action) = "JouerSolo";
                     actionRecu = true;
                     LeScore.reset();
                     std::cout << "Restarting the game..." << std::endl;}
                 else if (event.key.code == sf::Keyboard::Q) {
                     clickSound.play(); // Jouer le son de clic
-                    action = Menu::ActionMenu::Quitter;
+                    std::get<0>(action) = "Quitter";
                     actionRecu = true;
                     std::cout << "Exiting the game..." << std::endl;
                     window.close();}
