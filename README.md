@@ -30,7 +30,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 - Multiplayer(to be done)
 
 ## Structure des dossiers
-- code : contient l'essentiel du code
+- code : contient l'ensemble du code. Ce dernier est décomposé en plusieurs fichiers sources et headers afin d'obtenir une meilleur modularité et une capacité d'évolution performante.
 - Ressources : contient toutes les ressources (image, audio, animation, police etc)
 
 ## Définition des termes
