@@ -31,28 +31,29 @@
 #include "global_variables.hpp"
 #include "Animation.hpp"
 #include "objet/Entite.hpp"
+#include "objet/asteroide.hpp"
 
 
-class asteroide: public Entite
-{
-   public:
-   asteroide()
-   {
-     vx=rand()%8-4;
-     vy=rand()%8-4;
-     name="asteroide";
-   }
+// class asteroide: public Entite
+// {
+//    public:
+//    asteroide()
+//    {
+//      vx=rand()%8-4;
+//      vy=rand()%8-4;
+//      name="asteroide";
+//    }
 
-   void update()
-   {
-     x+=vx;
-     y+=vy;
+//    void update()
+//    {
+//      x+=vx;
+//      y+=vy;
 
-     if (x>LargeurFenetre) x=0;  if (x<0) x=LargeurFenetre;
-     if (y>HauteurFenetre) y=0;  if (y<0) y=HauteurFenetre;
-   }
+//      if (x>LargeurFenetre) x=0;  if (x<0) x=LargeurFenetre;
+//      if (y>HauteurFenetre) y=0;  if (y<0) y=HauteurFenetre;
+//    }
 
-};
+// };
 
 class tir: public Entite
 {
