@@ -4,6 +4,9 @@
 
 test
 
+
+.vscode
+
 # Ignore macOS system files
 .DS_Store
 # Ignore system files created by Windows
