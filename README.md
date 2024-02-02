@@ -55,7 +55,7 @@ Autres :
 
 ### Pre-requis
 
-Il faut installer la librairie sfml. Les chemins vers la librairie sont les chemins "classiques". Ils faut surement utiliser un gestionnaire de paquet pour avoir une installation cohérente. (brew sur mac).
+Il faut installer la librairie SFML. Les chemins vers la librairie sont les chemins "classiques". Ils faut surement utiliser un gestionnaire de paquet pour avoir une installation cohérente. (brew sur mac)
 
 ### Lancement
 
