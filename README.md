@@ -19,7 +19,7 @@ Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d
 
 ## Introduction
 
-Le projet a pour objectif de réaliser le célèbre jeu Astéroïds.
+Le projet a pour objectif de réaliser le célèbre jeu Asteroïds.
 Le code est réalisé en C++ et utilise la librairie SFML.
 
 ## Features
