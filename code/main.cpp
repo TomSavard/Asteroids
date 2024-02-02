@@ -13,6 +13,7 @@
 
 ///// TODO : Faire un code plus propre avec une classe entite et des sous-classes.
 ///// TODO : mise en place d'un écran game over.
+// TODO : Faire un code séparé avec des fichiers joints.
 // TODO : Mise en place d'un mode multi en local
 
 #include <SFML/Graphics.hpp>
@@ -24,12 +25,10 @@
 #include<math.h>
 #include<time.h>
 
-// Définir la couleur normale et la couleur survolée des boutons
-sf::Color normalColor = sf::Color::White;
-sf::Color hoverColor = sf::Color(200, 200, 200); // Couleur gris clair pour simuler le survol
-
-const int LargeurFenetre = 1200;
-const int HauteurFenetre = 800;
+#include "Menu.hpp"
+#include "GameOver.hpp"
+#include "TableauDesScores.hpp"
+#include "global_variables.hpp"
 
 float DEGTORAD = 0.017453f;
 
@@ -193,202 +192,6 @@ bool isCollide(Entite *a,Entite *b)
          (b->y - a->y)*(b->y - a->y)<
          (a->R + b->R)*(a->R + b->R);
 }
-
-
-// Pour les fenetres
-class Menu {
-public:
-    enum class ActionMenu {
-        Quitter,
-        Jouer
-    };
-    Menu(sf::RenderWindow& window, sf::Music& music) : window(window), music(music) {}
-
-    ActionMenu run() {
-        sf::Font font;
-        if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
-            std::cerr << "Failed to load font." << std::endl;
-            return ActionMenu::Quitter;
-        }
-
-        sf::Text title("Asteroid Game", font, 50);
-        title.setFillColor(sf::Color::White);
-        title.setStyle(sf::Text::Bold);
-        title.setPosition(200, 100);
-
-        sf::Text BoutonJouer("Jouer", font, 30);
-        BoutonJouer.setFillColor(sf::Color::White);
-        BoutonJouer.setPosition(300, 250);
-
-        sf::Text BoutonQuitter("Quitter", font, 30);
-        BoutonQuitter.setFillColor(sf::Color::White);
-        BoutonQuitter.setPosition(300, 350);
-
-        sf::RectangleShape volumeBar(sf::Vector2f(200, 20));
-        volumeBar.setFillColor(sf::Color(200, 200, 200)); // Couleur gris clair
-        volumeBar.setPosition(window.getSize().x - 250, window.getSize().y - 50);
-
-        sf::CircleShape volumeIndicator(10);
-        volumeIndicator.setFillColor(sf::Color::White);
-        volumeIndicator.setOutlineColor(sf::Color::Black);
-        volumeIndicator.setOutlineThickness(2);
-        volumeIndicator.setOrigin(5, 5);
-        volumeIndicator.setPosition(window.getSize().x - 250 + volume * 200, window.getSize().y - 45);
-
-        bool isDragging = false;
-
-        // Charger le son pour le clic sur le bouton
-        sf::SoundBuffer clickSoundBuffer;
-        if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
-        sf::Sound clickSound;
-        clickSound.setBuffer(clickSoundBuffer);
-
-        while (window.isOpen()) {
-            sf::Event event;
-            while (window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed)
-                    window.close();
-                else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseButton.x, event.mouseButton.y));
-                    if (BoutonJouer.getGlobalBounds().contains(mousePos)) {
-                        // Action lorsque le bouton "Jouer" est cliqué
-                        std::cout << "Bouton Jouer cliqué" << std::endl;
-                        clickSound.play(); // Jouer le son de clic
-                        window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
-                        return ActionMenu::Jouer;
-                    }
-                    else if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {
-                        // Action lorsque le bouton "Quitter" est cliqué
-                        std::cout << "Bouton quitter cliqué!" << std::endl;
-                        clickSound.play(); // Jouer le son de clic
-                        window.close(); // Fermer la fenêtre lorsque le bouton "Quitter" est cliqué
-                        return ActionMenu::Quitter;
-                    }
-                    else if (volumeIndicator.getGlobalBounds().contains(mousePos)) {
-                        isDragging = true;
-                    }
-                } 
-                else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
-                    isDragging = false;
-                } 
-                else if (event.type == sf::Event::MouseMoved) {
-                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Vector2i(event.mouseMove.x, event.mouseMove.y));
-                    // Gestion du survol des boutons
-                    if (BoutonJouer.getGlobalBounds().contains(mousePos)) {BoutonJouer.setFillColor(hoverColor);} 
-                    else {BoutonJouer.setFillColor(normalColor);}
-                    if (BoutonQuitter.getGlobalBounds().contains(mousePos)) {BoutonQuitter.setFillColor(hoverColor);}
-                    else {BoutonQuitter.setFillColor(normalColor);}
-                    // Déplacement du bouton de volume si l'utilisateur est en train de le glisser
-                    if (isDragging) {
-                        float newVolume = (mousePos.x - (window.getSize().x - 250)) / 200.0f;
-                        if (newVolume < 0)
-                            newVolume = 0;
-                        else if (newVolume > 1)
-                            newVolume = 1;
-                        volume = newVolume;
-                        music.setVolume(volume * 100); // Réglez le volume sur une échelle de 0 à 100
-                        volumeIndicator.setPosition(window.getSize().x - 250 + volume * 200, window.getSize().y - 45);
-                    }
-                }
-            }
-            window.clear();
-            window.draw(title);
-            window.draw(BoutonJouer);
-            window.draw(BoutonQuitter);
-            window.draw(volumeBar);
-            window.draw(volumeIndicator);
-            window.display();
-        }
-    return ActionMenu::Quitter;
-    }
-
-private:
-    sf::RenderWindow& window;
-    sf::Music& music;
-    float volume = 0.5f; // Volume initial
-};
-
-class TableauDesScores {
-    private:
-        int score; // Variable de compteur de points
-
-    public:
-        TableauDesScores() : score(0) {} // Initialiser le compteur de points à zéro
-
-        void increaseScore(int points) {
-            score += points; // Augmenter le compteur de points
-        }
-
-        void drawScore(sf::RenderWindow& window) {
-            sf::Font font;
-            if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
-                // Gérer l'erreur de chargement de la police
-                std::cerr << "Failed to load font file" << std::endl;
-                return;
-            }
-            sf::Text scoreText("Score: " + std::to_string(score), font, 30);
-            scoreText.setFillColor(sf::Color::White);
-            scoreText.setPosition(10, 10);
-
-            window.draw(scoreText); // Dessiner le compteur de points à l'écran
-        }
-
-        void reset(){score = 0;}
-
-        int getScore(){
-            return score;
-        }
-};
-
-class GameOverScreen {
-private:
-    sf::Font font;
-    sf::Text gameOverText;
-    sf::Text retryText;
-    sf::Text quitText;
-    sf::Text scoreText;
-
-public:
-    GameOverScreen(int score =0) {
-
-        if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
-        }
-
-        gameOverText.setFont(font);
-        gameOverText.setCharacterSize(50);
-        gameOverText.setFillColor(sf::Color::Red);
-        gameOverText.setString("Game Over");
-        gameOverText.setPosition((LargeurFenetre - gameOverText.getGlobalBounds().width) / 2, HauteurFenetre/2 - 100);
-
-        scoreText.setFont(font);
-        scoreText.setCharacterSize(30);
-        scoreText.setFillColor(sf::Color::White);
-        scoreText.setString("Score: " + std::to_string(score)); // Convertir le score en chaîne de caractères
-        scoreText.setPosition((LargeurFenetre - scoreText.getGlobalBounds().width) / 2, HauteurFenetre / 2);
-
-        retryText.setFont(font);
-        retryText.setCharacterSize(30);
-        retryText.setFillColor(sf::Color::White);
-        retryText.setString("Appuyer sur R pour redemarrer");
-        retryText.setPosition((LargeurFenetre - retryText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 50);
-
-        quitText.setFont(font);
-        quitText.setCharacterSize(30);
-        quitText.setFillColor(sf::Color::White);
-        quitText.setString("Appuyer sur Q pour quitter");
-        quitText.setPosition((LargeurFenetre - quitText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 100);
-    }
-
-    void draw(sf::RenderWindow &window) {
-        window.draw(gameOverText);
-        window.draw(scoreText);
-        window.draw(retryText);
-        window.draw(quitText);
-    }
-};
-
-
-
 
 
 

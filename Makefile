@@ -12,7 +12,7 @@ SFML_INCLUDE = -I/usr/local/include
 SFML_LIBS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network -lsfml-audio
 
 # Fichiers source
-SRCS = main.cpp # Ajoutez ici tous les fichiers source de votre projet
+SRCS = code/main.cpp code/Menu.cpp code/TableauDesScores.cpp code/GameOver.cpp code/global_variables.cpp # Ajoutez ici tous les fichiers source de votre projet
 
 # Règle de construction du programme
 $(TARGET): $(SRCS)
