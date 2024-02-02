@@ -32,49 +32,7 @@
 #include "Animation.hpp"
 #include "objet/Entite.hpp"
 #include "objet/asteroide.hpp"
-
-
-// class asteroide: public Entite
-// {
-//    public:
-//    asteroide()
-//    {
-//      vx=rand()%8-4;
-//      vy=rand()%8-4;
-//      name="asteroide";
-//    }
-
-//    void update()
-//    {
-//      x+=vx;
-//      y+=vy;
-
-//      if (x>LargeurFenetre) x=0;  if (x<0) x=LargeurFenetre;
-//      if (y>HauteurFenetre) y=0;  if (y<0) y=HauteurFenetre;
-//    }
-
-// };
-
-class tir: public Entite
-{
-   public:
-   tir()
-   {
-     name="tir";
-   }
-
-   void  update()
-   {
-     vx=cos(angle*DEGTORAD)*6;
-     vy=sin(angle*DEGTORAD)*6;
-     // angle+=rand()%7-3;  /*try this*/
-     x+=vx;
-     y+=vy;
-
-     if (x>LargeurFenetre || x<0 || y>HauteurFenetre || y<0) life=0;
-   }
-
-};
+#include "objet/tir.hpp"
 
 class player: public Entite
 {
