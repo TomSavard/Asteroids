@@ -9,5 +9,6 @@ extern sf::Color hoverColor;
 extern const int LargeurFenetre;
 extern const int HauteurFenetre;
 
+extern float DEGTORAD;
 
 #endif // GLOBAL_VARIABLES_HPP

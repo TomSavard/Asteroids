@@ -30,9 +30,6 @@
 #include "Interface/TableauDesScores.hpp"
 #include "global_variables.hpp"
 
-float DEGTORAD = 0.017453f;
-
-
 class Animation
 {
    public:
