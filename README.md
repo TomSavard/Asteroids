@@ -1,4 +1,4 @@
-# ASTÉROÏDS
+# ASTEROÏDS
 
 
 ![Project Logo](/Ressources/image/ImageReadmeV1.png)
