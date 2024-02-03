@@ -1,7 +1,7 @@
 # ASTÉROÏDES
 
 
-![Project Logo](/Ressources/image/ImageReadme.png)
+![ImageReadme](/Ressources/image/ImageReadmev3.png)
 
 Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d'astéroïde. Naviguez à travers les obstacles ou utilisez votre blaster pour les détruire. 
 
