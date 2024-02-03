@@ -71,8 +71,8 @@ Description des étapes pour lancer le jeu :
 
 ### Contrôles :
 #### Mode Solo :
-- Déplacement : flèches directionnelle  Tir = barre espace
-
+  - Déplacement : 
+    - Boost = `↑`  Gauche = `←`  Droite = `→`  Tir = `Barre espace`
 #### Mode Multijoueur
 
 - **Joueur 1 :**
