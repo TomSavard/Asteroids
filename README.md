@@ -74,13 +74,13 @@ Mode solo :
 - Tir = barre espace
   
 Mode Multi :
--Joueur 1
+- Joueur 1
 Déplacement :
     Boost = o
     Gauche = k
     Droite = m
   Tir = ;
--Joueur 2
+- Joueur 2
   Déplacement :
     Boost = z
     Gauche = q
