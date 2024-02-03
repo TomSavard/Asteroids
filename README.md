@@ -1,7 +1,7 @@
 # ASTÉROÏDES
 
 
-![Project Logo](/Ressources/image/ImageReadmev3.png)
+![Project Logo](/Ressources/image/ImageReadmeVF.png)
 
 Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d'astéroïde. Naviguez à travers les obstacles ou utilisez votre blaster pour les détruire. 
 
@@ -84,8 +84,8 @@ Description des étapes pour lancer le jeu :
   
   
   
- 
-Merci à Deep-Fold pour ses textures disponibles sur https://deep-fold.itch.io/.
+---------
+Merci à Deep-Fold pour ses textures disponibles sur https://deep-fold.itch.io/
 
 
 
