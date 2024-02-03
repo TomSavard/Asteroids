@@ -37,7 +37,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 
 Afin de faire un code cohérent et construit il faut se mettre d'accord sur la nomenclature.
 
-Objets :
+*Objets :*
 - Entite : Classe de Base possédant les propriétés partagées par les différents objets.
 - player : Classe dérivée de Entite. Elle correspond au vaisseau controlable par le joueur. 
 - asteroide : Classe dérivée de Entite. Elle correspond aux astéroides qui apparaissent à l'écran.
