@@ -90,13 +90,10 @@ while(std::get<0>(action) == "JouerSolo"){
     app.setFramerateLimit(60);
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t4,t5,t6,t7,t10,t11,t12,t13,t14,t21,t22;
+    sf::Texture t1,t3,t5,t7,t10,t11,t12,t13,t14,t21,t22;
     t1.loadFromFile("Ressources/animation/spaceship.png");
-    // t2.loadFromFile("Ressources/image/Fond.png"); // L'image est trop lourde et rallenti le lancement
     t3.loadFromFile("Ressources/animation/explosions/type_C.png");
-    t4.loadFromFile("Ressources/animation/rock.png");
     t5.loadFromFile("Ressources/animation/fire_red.png");
-    t6.loadFromFile("Ressources/animation/rock_small.png");
     t7.loadFromFile("Ressources/animation/explosions/type_B.png");
     t1.setSmooth(true);
     t10.loadFromFile("Ressources/animation/TerranWet.png");
@@ -111,8 +108,6 @@ while(std::get<0>(action) == "JouerSolo"){
     // Param : (texture, x = position de départ des images sur la texture, y = pareil en vertical,
     // w = largeur image, h = hauteur image, count = nbr d'image, speed = vitesse de transition)
     Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
-    Animation sRock(t4, 0,0,64,64, 16, 0.2);
-    Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
     Animation sBullet(t5, 0,0,32,64, 16, 0.8);
     Animation sPlayer(t1, 40,0,40,40, 1, 0);
     Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
