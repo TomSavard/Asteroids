@@ -46,10 +46,12 @@ Objets :
 Interfaces : 
 - Menu : C'est le Menu d'accueil du jeu. Il permet de choisir le mode de jeu et de régler les paramètres avant de lancer une partie.
 - TableauDesScores : Permet d'afficher tout au long de la partie le score actuel.
-- GameOverScreen : Malheureusement, chaque partie à sa fin. Cet écran est un menu qui apparait lors de la défaite du joueur. Il permet de voir son score, de pouvoir rejouer ou bien quitter le jeu.
+- GameOver : Malheureusement, chaque partie à sa fin. Cet écran est un menu qui apparait lors de la défaite du joueur. Il permet de voir son score, de pouvoir rejouer ou bien quitter le jeu.
+- GameOverMulti : Une fois l'adversaire térassé, un écran avec le nom du gagnant s'affiche. Les options pour rejouer ou quitter le jeu sont également disponibles.
 
 Autres :
 - Animation : Permet d'appliquer une ressource animée au dessus d'une entité afin d'obtenir une texture visuelle.
+- global_variables : Contient la definition des variables globales partagées entre les fichiers sources. Cela permet une centralisation et donc une limitation de la redondance. La modification est également grandement facilitée.
 
 ## Getting Started
 
