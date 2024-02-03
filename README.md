@@ -17,6 +17,7 @@ Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d
   - [Getting Started](#getting-started)
     - [Pre-requis](#pre-requis)
     - [Lancement](#lancement)
+    - [Commande](#commande)
 
 ## Introduction
 Le projet a pour objectif de réaliser le célèbre jeu Asteroïds.
@@ -66,6 +67,28 @@ Description des étapes pour lancer le jeu :
 - Se placer dans le répertoire principale du dossier
 - Dans le terminal : make
 - Puis : ./main.exe
+
+### Commande
+- Mode solo
+Déplacement = flèches directionnelles
+Tir = barre espace
+- Mode Multi
+Joueur 1
+  Déplacement :
+    Boost = o
+    Gauche = k
+    Droite = m
+  Tir = ;
+Joueur 2
+  Déplacement :
+    Boost = z
+    Gauche = q
+    Droite = d
+  Tir = x
+ 
+
+
+
 
 
 
