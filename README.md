@@ -68,24 +68,21 @@ Description des étapes pour lancer le jeu :
 - Dans le terminal : make
 - Puis : ./main.exe
 
-### Commande
-Mode solo : 
-- Déplacement = flèches directionnelles
-- Tir = barre espace
+
+### Contrôles :
+#### Mode Solo :
+- Déplacement : flèches directionnelle  Tir = barre espace
+
+#### Mode Multijoueur
+
+- **Joueur 1 :**
+  - Déplacement : Boost = `o`  Gauche = `k`  Droite = `m`  Tir = `;`
   
-Mode Multi :
-- Joueur 1
-Déplacement :
-    Boost = o
-    Gauche = k
-    Droite = m
-  Tir = ;
-- Joueur 2
-  Déplacement :
-    Boost = z
-    Gauche = q
-    Droite = d
-  Tir = x
+- **Joueur 2 :**
+  - Déplacement : Boost = `z`  Gauche = `q`  Droite = `d`  Tir = `x`
+  
+  
+  
  
 
 
