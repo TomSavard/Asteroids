@@ -434,5 +434,7 @@ while(std::get<0>(action) == "JouerMulti"){
     }
 }// fin de la boucle while Action==JouerMulti
 
+//! Les 2 modes ont beaucoup de code en commun. Une optimisation est certainement possible.
+
 return 0;
 }
