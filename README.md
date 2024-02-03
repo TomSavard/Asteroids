@@ -27,7 +27,7 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 - C++ and SFML
 - 2D Game (done)
 - Hub Menu, Game Over et score (done)
-- Multiplayer(done)
+- Multiplayer (done)
 
 ## Structure des dossiers
 - code : contient l'ensemble du code. Ce dernier est décomposé en plusieurs fichiers sources et headers afin d'obtenir une meilleur modularité et une capacité d'évolution performante.
