@@ -1,3 +1,10 @@
+/**
+ * Le code définit une classe appelée "TableauDesScores" qui gère un compteur de scores et fournit des
+ * fonctions pour augmenter, afficher, réinitialiser et récupérer le score.
+ * 
+ * @param points Le paramètre « points » est un nombre entier qui représente le nombre de points à
+ * ajouter au score.
+ */
                                             /// Bibliothèques ///
 #include "TableauDesScores.hpp"
 #include "../global_variables.hpp"                            

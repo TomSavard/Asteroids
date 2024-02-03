@@ -1,3 +1,11 @@
+/**
+ * Le code ci-dessous définit une classe appelée GameOverMultiScreen qui affiche un écran de jeu pour un
+ * jeu multijoueur, montrant le gagnant et offrant des options pour redémarrer ou quitter le jeu.
+ * 
+ * @param gagnant Le paramètre « gagnant » représente le gagnant de la partie dans un scénario
+ * multijoueur. Il s'agit d'une valeur entière qui peut être 1 ou 2, indiquant le numéro du joueur ou
+ * de l'équipe qui a gagné la partie.
+ */
                                             /// Bibliothèques ///
 #include "GameOverMulti.hpp"     
 #include "../global_variables.hpp"                             

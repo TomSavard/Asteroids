@@ -1,3 +1,10 @@
+/**
+ * Le code ci-dessous définit une classe GameOverScreen en C++ qui affiche un jeu sur écran avec le
+ * score et les options pour redémarrer ou quitter le jeu.
+ * 
+ * @param score Le paramètre « score » est un nombre entier qui représente le score du joueur dans la
+ * partie.
+ */
                                             /// Bibliothèques ///
 #include "GameOver.hpp"     
 #include "../global_variables.hpp"                             

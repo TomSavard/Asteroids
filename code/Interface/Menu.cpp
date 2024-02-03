@@ -1,3 +1,12 @@
+/**
+ * La fonction « exécuter » dans la classe Menu affiche un écran de menu avec des boutons et gère les
+ * interactions de l'utilisateur telles que cliquer sur des boutons et faire glisser un indicateur de
+ * volume.
+ * 
+ * @return La fonction `run()` renvoie un tuple contenant une chaîne et un float. La chaîne représente
+ * l'action sélectionnée par l'utilisateur (par exemple, "JouerSolo", "JouerMulti", "Quitter"), et le
+ * float représente le niveau de volume sélectionné par l'utilisateur.
+ */
                                             /// Bibliothèques ///
 #include "Menu.hpp"  
 #include "../global_variables.hpp"       
