@@ -11,13 +11,17 @@
 
 class tir: public Entite
 {
-   public:
-   tir()
-   {
-     name="tir";
-   }
 
-   void  update();
+  public:
+  tir()
+  {
+    name="tir";
+  }
+
+
+  void setTeam(int choixTeam);
+
+  void  update();
 
 };
 

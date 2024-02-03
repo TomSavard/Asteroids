@@ -11,15 +11,18 @@
 
 class player: public Entite
 {
-   public:
-   bool thrust;
 
-   player()
-   {
-     name="player";
-   }
+public:
+  bool thrust;
 
-   void update();
+  player() 
+  {
+    name="player";
+  }
+
+  void update();
+
+  void setTeam(int choixTeam);
 
 };
 

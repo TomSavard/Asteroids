@@ -19,6 +19,7 @@
 
 #include "interface/Menu.hpp"
 #include "interface/GameOver.hpp"
+#include "interface/GameOverMulti.hpp"
 #include "interface/TableauDesScores.hpp"
 #include "global_variables.hpp"
 #include "Animation.hpp"
@@ -53,7 +54,7 @@ sf::Sound shootSound;
 if (!shootSoundBuffer.loadFromFile("Ressources/audio/tir.wav")) {
 std::cerr << "Failed to load shoot sound file" << std::endl;}
 shootSound.setBuffer(shootSoundBuffer);
-int shootVolume = 3*VolumeSelected;
+int shootVolume = 8*VolumeSelected;
 shootSound.setVolume(shootVolume);
 
 
@@ -256,5 +257,182 @@ while(std::get<0>(action) == "JouerSolo"){
         window.display();
     }
 }// fin de la boucle while Action==Jouer
+
+while(std::get<0>(action) == "JouerMulti"){
+    sf::Music musicGame;
+    if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+    int musicVolume = 70*VolumeSelected;
+    musicGame.setVolume(musicVolume);
+    musicGame.play();
+
+    srand(time(0));
+
+    sf::RenderWindow app(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroides!");
+    app.setFramerateLimit(60);
+
+    sf::Texture t1,t3,t4,t5,t6,t7,t8;
+    t1.loadFromFile("Ressources/animation/spaceship.png");
+    // t2.loadFromFile("Ressources/image/Fond.png"); // * L'image rallenti le lancement
+    t3.loadFromFile("Ressources/animation/explosions/type_C.png");
+    t4.loadFromFile("Ressources/animation/rock.png");
+    t5.loadFromFile("Ressources/animation/fire_red.png");
+    t8.loadFromFile("Ressources/animation/fire_blue.png");
+    t6.loadFromFile("Ressources/animation/rock_small.png");
+    t7.loadFromFile("Ressources/animation/explosions/type_B.png");
+
+    t1.setSmooth(true);
+    // t2.setSmooth(true);
+
+    // sf::Sprite background(t2);
+
+    Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
+    Animation sRock(t4, 0,0,64,64, 16, 0.2);
+    Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
+    Animation sBulletRed(t5, 0,0,32,64, 16, 0.8);
+    Animation sBulletBlue(t8, 0,0,32,64, 16, 0.8);
+    Animation sPlayer(t1, 40,0,40,40, 1, 0);
+    Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
+    Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
+
+
+    std::list<Entite*> entities;
+
+    player *p1 = new player();
+    p1->setTeam(1);
+    p1->settings(sPlayer,LargeurFenetre-200,HauteurFenetre-200,180,20);
+    entities.push_back(p1);
+
+    player *p2 = new player();
+    p2->setTeam(2);
+    p2->settings(sPlayer,200,200,0,20);
+    entities.push_back(p2);
+
+    int gagnant = -1;
+    ///main loop///
+    while (app.isOpen())
+    {
+        sf::Event event;
+        while (app.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed){
+                app.close();}
+
+            if (event.type == sf::Event::KeyPressed)
+                {
+                if (event.key.code == sf::Keyboard::SemiColon)
+                {
+                    tir *t1 = new tir();
+                    t1->setTeam(1);
+                    t1->settings(sBulletRed,p1->x,p1->y,p1->angle,10);
+                    entities.push_back(t1);
+                    shootSound.play();
+                }
+                if (event.key.code == sf::Keyboard::X)
+                {
+                    tir *t2 = new tir();
+                    t2->setTeam(2);
+                    t2->settings(sBulletBlue,p2->x,p2->y,p2->angle,10);
+                    entities.push_back(t2);
+                    shootSound.play();
+                }
+            }
+        }
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {p1->angle+=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {p1->angle-=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {p1->thrust=true;}
+        else {p1->thrust=false;}
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {p2->angle+=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {p2->angle-=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {p2->thrust=true;}
+        else {p2->thrust=false;}
+
+
+        for(auto a:entities)
+        {
+            for(auto b:entities)
+            {
+                if (a->name=="player" && b->name=="tir")
+                {
+                    if (isCollide(a,b) && a->getTeam()!=b->getTeam())
+                    {
+                        b->life=false;
+                        a->life=false;
+
+                        Entite *e = new Entite();
+                        e->settings(sExplosion_ship,a->x,a->y);
+                        e->name="explosion";
+                        entities.push_back(e);
+
+                        app.close();
+                        DeathSound.play();
+                        musicGame.stop();
+
+                        gagnant = b->getTeam();
+                    }
+                }
+            }//fin for b:entities
+        }
+
+        if (p1->thrust)  p1->anim = sPlayer_go;
+        else   p1->anim = sPlayer;
+        if (p2->thrust)  p2->anim = sPlayer_go;
+        else   p2->anim = sPlayer;
+
+        for(auto e:entities)
+            if (e->name=="explosion")
+            if (e->anim.isEnd()) e->life=0;
+
+
+        for(auto i=entities.begin();i!=entities.end();)
+        {
+            Entite *e = *i;
+
+            e->update();
+            e->anim.update();
+
+            if (e->life==false) {i=entities.erase(i); delete e;}
+            else i++;
+        }
+
+        app.clear();
+        // app.draw(background);
+        for(auto i:entities) i->draw(app);
+        app.display();
+
+    }//fin while app.isOpen()
+
+    sf::RenderWindow window(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroid Game Over");
+    GameOverMultiScreen gameOverMultiScreen(gagnant);
+    bool actionRecu = false; //permet de savoir si le joueur a interragit
+    while (window.isOpen() && !actionRecu)
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            window.close();
+            else if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::R) {
+                    clickSound.play(); // Jouer le son de clic
+                    std::get<0>(action) = "JouerMulti";
+                    actionRecu = true;
+                    std::cout << "Restarting the game..." << std::endl;}
+                else if (event.key.code == sf::Keyboard::Q) {
+                    clickSound.play(); // Jouer le son de clic
+                    std::get<0>(action) = "Quitter";
+                    actionRecu = true;
+                    std::cout << "Exiting the game..." << std::endl;
+                    window.close();}
+            }
+        }
+
+        window.clear();
+        gameOverMultiScreen.draw(window);
+        window.display();
+    }
+}// fin de la boucle while Action==JouerMulti
+
 return 0;
 }

@@ -16,6 +16,7 @@ class Entite
     bool life;
     std::string name;
     Animation anim;
+    int team;
 
     Entite(){life=1;}
 
@@ -25,7 +26,12 @@ class Entite
 
     void draw(sf::RenderWindow &app);
 
+    int getTeam();
+
+    void setTeam(int choixTeam);
+
     virtual ~Entite();
+
 };
 
 #endif // ENTITE_HPP

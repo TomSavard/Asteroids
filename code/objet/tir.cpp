@@ -17,4 +17,9 @@ void  tir::update()
     if (x>LargeurFenetre || x<0 || y>HauteurFenetre || y<0) life=0;
 }
 
+void tir::setTeam(int ChoixTeam)
+{
+    team = ChoixTeam;
+}
+
 

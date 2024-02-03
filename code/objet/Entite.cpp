@@ -33,3 +33,13 @@ Entite::~Entite() {
 void Entite::update(){
     // besoin de la def sinon le terminal n'est pas content
 };
+
+int Entite::getTeam()
+{
+    return team;
+}
+
+void Entite::setTeam(int choixTeam)
+{
+    team = choixTeam;
+}

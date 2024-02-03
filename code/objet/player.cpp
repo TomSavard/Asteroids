@@ -28,4 +28,8 @@ if (x>LargeurFenetre) x=0; if (x<0) x=LargeurFenetre;
 if (y>HauteurFenetre) y=0; if (y<0) y=HauteurFenetre;
 }
 
+void player::setTeam (int ChoixTeam)
+{
+    team = ChoixTeam;
+}
 
