@@ -12,4 +12,7 @@ extern const int HauteurFenetre;
 extern float DEGTORAD;
 extern float VolumeGeneral;
 
+extern int NombreAsteroideStart;
+extern int NombreResidu;
+
 #endif // GLOBAL_VARIABLES_HPP

@@ -6,8 +6,6 @@
 #include <iostream>
 
                                             /// Code Principal ///
-
-
 class Animation
 {
    public:
@@ -25,6 +23,5 @@ class Animation
    bool isEnd();
 
 };
-
 
 #endif // ANIMATION_HPP

@@ -18,7 +18,8 @@ GameOverMultiScreen::GameOverMultiScreen(int gagnant) {
     gagnantText.setFont(font);
     gagnantText.setCharacterSize(30);
     gagnantText.setFillColor(sf::Color::White);
-    gagnantText.setString("Victoire du Joueur " + std::to_string(gagnant));
+    if (gagnant == 1) {gagnantText.setString("Victoire du Joueur 1 (Equipe Rouge)");}
+    else {gagnantText.setString("Victoire du Joueur 2 (Equipe Bleue)");}
     gagnantText.setPosition((LargeurFenetre - gagnantText.getGlobalBounds().width) / 2, HauteurFenetre / 2);
 
     retryText.setFont(font);
