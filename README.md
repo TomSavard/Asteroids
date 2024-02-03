@@ -39,13 +39,13 @@ Le code est réalisé en C++ et utilise la librairie SFML.
 Afin de faire un code cohérent et construit il faut se mettre d'accord sur la nomenclature.
 
 
-<u>Objets :</u>
+Objets :
 - Entite : Classe de Base possédant les propriétés partagées par les différents objets.
 - player : Classe dérivée de Entite. Elle correspond au vaisseau controlable par le joueur. 
 - asteroide : Classe dérivée de Entite. Elle correspond aux astéroides qui apparaissent à l'écran.
 - tir : Classe dérivée de Entire. Elle correspond aux lasers tirés par le vaisseau.
 
-<u>Interfaces :</u>
+Interfaces :
 - Menu : C'est le Menu d'accueil du jeu. Il permet de choisir le mode de jeu et de régler les paramètres avant de lancer une partie.
 - TableauDesScores : Permet d'afficher tout au long de la partie le score actuel.
 - GameOver : Malheureusement, chaque partie à sa fin. Cet écran est un menu qui apparait lors de la défaite du joueur. Il permet de voir son score, de pouvoir rejouer ou bien quitter le jeu.
@@ -69,17 +69,18 @@ Description des étapes pour lancer le jeu :
 - Puis : ./main.exe
 
 ### Commande
-- Mode solo
-Déplacement = flèches directionnelles
-Tir = barre espace
-- Mode Multi
-Joueur 1
-  Déplacement :
+Mode solo : 
+- Déplacement = flèches directionnelles
+- Tir = barre espace
+  
+Mode Multi :
+-Joueur 1
+Déplacement :
     Boost = o
     Gauche = k
     Droite = m
   Tir = ;
-Joueur 2
+-Joueur 2
   Déplacement :
     Boost = z
     Gauche = q
