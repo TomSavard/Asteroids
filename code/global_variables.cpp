@@ -12,4 +12,4 @@ float DEGTORAD = 0.0174533f;
 float VolumeGeneral = 1.f;
 
 int NombreAsteroideStart = 15;
-int NombreResidu = 4;
+int NombreResidu = 2;

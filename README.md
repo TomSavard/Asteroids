@@ -85,7 +85,7 @@ Description des étapes pour lancer le jeu :
   
   
  
-
+Merci à Deep-Fold pour ses textures disponibles sur https://deep-fold.itch.io/.
 
 
 

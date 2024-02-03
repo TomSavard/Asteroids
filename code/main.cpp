@@ -90,7 +90,7 @@ while(std::get<0>(action) == "JouerSolo"){
     app.setFramerateLimit(60);
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t4,t5,t6,t7;
+    sf::Texture t1,t3,t4,t5,t6,t7,t10,t11,t12,t13,t14,t21,t22;
     t1.loadFromFile("Ressources/animation/spaceship.png");
     // t2.loadFromFile("Ressources/image/Fond.png"); // L'image est trop lourde et rallenti le lancement
     t3.loadFromFile("Ressources/animation/explosions/type_C.png");
@@ -99,6 +99,13 @@ while(std::get<0>(action) == "JouerSolo"){
     t6.loadFromFile("Ressources/animation/rock_small.png");
     t7.loadFromFile("Ressources/animation/explosions/type_B.png");
     t1.setSmooth(true);
+    t10.loadFromFile("Ressources/animation/TerranWet.png");
+    t11.loadFromFile("Ressources/animation/NoAtmosphere.png");
+    t12.loadFromFile("Ressources/animation/LavaPlanet.png");
+    t13.loadFromFile("Ressources/animation/Star.png");
+    t14.loadFromFile("Ressources/animation/Blackhole.png");
+    t21.loadFromFile("Ressources/animation/asteroide1.png");
+    t22.loadFromFile("Ressources/animation/asteroide2.png");
     // t2.setSmooth(true);
     // sf::Sprite background(t2);
     // Param : (texture, x = position de départ des images sur la texture, y = pareil en vertical,
@@ -110,6 +117,16 @@ while(std::get<0>(action) == "JouerSolo"){
     Animation sPlayer(t1, 40,0,40,40, 1, 0);
     Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
     Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
+    Animation sTerranWet(t10, 0, 0, 50, 50, 50, 0.2);
+    Animation sNoAtmosphere(t11, 0, 0, 50, 50, 50, 0.2);
+    Animation sLavaPlanet(t12, 0, 0, 50, 50, 50, 0.2);
+    Animation sStar(t13, 0, 0, 50, 50, 50, 0.2);
+    Animation sBlackhole(t14, 0, 0, 50, 50, 50, 0.2);
+    Animation sAsteroide1(t21, 0, 0, 50, 50, 50, 0.2);
+    Animation sAsteroide2(t22, 0, 0, 50, 50, 50, 0.2);
+    int asteroideWidth = 25; // à modifier en fonction de la texture choisie
+    int petitAsteroideWidth = 15; // à modifier en fonction de la texture choisie
+
 
     // Création d'une liste contenant l'ensemble des entités courantes.
     std::list<Entite*> entities;
@@ -118,7 +135,11 @@ while(std::get<0>(action) == "JouerSolo"){
     for(int i=0;i<NombreAsteroideStart;i++)
     {
         asteroide *a = new asteroide();
-        a->settings(sRock, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, 25);
+        int NumeroTexture = std::rand() % 4;
+        if (NumeroTexture == 0) {a->settings(sTerranWet, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+        else if (NumeroTexture == 1) {a->settings(sNoAtmosphere, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+        else if (NumeroTexture == 2) {a->settings(sLavaPlanet, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+        else {a->settings(sStar, rand()%LargeurFenetre, rand()%HauteurFenetre, rand()%360, petitAsteroideWidth);}
         entities.push_back(a);
     }
 
@@ -175,10 +196,13 @@ while(std::get<0>(action) == "JouerSolo"){
                             // On scinde les gros astéroïdes en NombreResidu astéroïdes de petite taille. 
                             for(int i=0; i<NombreResidu; i++)
                             {
-                            if (a->R==15) continue;
-                            Entite *e = new asteroide();
-                            e->settings(sRock_small,a->x,a->y,rand()%360,15);
-                            entities.push_back(e);
+                                if (a->R==asteroideWidth){
+                                    Entite *e = new asteroide();
+                                    int NumeroTextureAsteroide = std::rand() % 2;
+                                    if (NumeroTextureAsteroide == 0) {e->settings(sAsteroide1,a->x,a->y,rand()%360,petitAsteroideWidth);}
+                                    else {e->settings(sAsteroide2,a->x,a->y,rand()%360,petitAsteroideWidth);}
+                                    entities.push_back(e);
+                                }
                             }
 
                         }
@@ -211,7 +235,11 @@ while(std::get<0>(action) == "JouerSolo"){
                 if (rand()%150==0)
                 {
                     asteroide *a = new asteroide();
-                    a->settings(sRock, 0,rand()%HauteurFenetre, rand()%360, 25);
+                    int NumeroTexture = std::rand() % 4;
+                    if (NumeroTexture == 0) {a->settings(sTerranWet, 0, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+                    else if (NumeroTexture == 1) {a->settings(sNoAtmosphere, 0, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+                    else if (NumeroTexture == 2) {a->settings(sLavaPlanet, 0, rand()%HauteurFenetre, rand()%360, asteroideWidth);}
+                    else {a->settings(sStar, 0, rand()%HauteurFenetre, rand()%360, petitAsteroideWidth);}
                     entities.push_back(a);
                 }
 
