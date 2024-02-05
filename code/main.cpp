@@ -308,10 +308,10 @@ while(std::get<0>(action) == "JouerMulti"){
 
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t4,t5,t6,t7,t8,t9;
+    sf::Texture t1,t3,t4,t5,t6,t7,t8,t9,t2;
     t1.loadFromFile("Ressources/animation/spaceship.png");
     t9.loadFromFile("Ressources/animation/spaceshipBlue.png");
-    // t2.loadFromFile("Ressources/image/Fond.png"); // * L'image rallenti le lancement
+    t2.loadFromFile("Ressources/image/Space_Background.png");
     t3.loadFromFile("Ressources/animation/explosions/type_C.png");
     t4.loadFromFile("Ressources/animation/rock.png");
     t5.loadFromFile("Ressources/animation/fire_red.png");
@@ -319,8 +319,8 @@ while(std::get<0>(action) == "JouerMulti"){
     t6.loadFromFile("Ressources/animation/rock_small.png");
     t7.loadFromFile("Ressources/animation/explosions/type_B.png");
     t1.setSmooth(true);
-    // t2.setSmooth(true);
-    // sf::Sprite background(t2);
+    t2.setSmooth(true);
+    sf::Sprite background(t2);
     Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
     Animation sRock(t4, 0,0,64,64, 16, 0.2);
     Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
@@ -446,7 +446,7 @@ while(std::get<0>(action) == "JouerMulti"){
 
         // On nettoie la fenêtre puis affiche les entitées courantes.
         app.clear();
-        // app.draw(background);
+        app.draw(background);
         for(auto i:entities) i->draw(app);
         app.display();
 
@@ -485,7 +485,7 @@ while(std::get<0>(action) == "JouerMulti"){
     }
 }// fin de la boucle while Action==JouerMulti
 
-//! Les 2 modes ont beaucoup de code en commun. Une optimisation est certainement possible. Une partie du code pourrait être contenu directement dans le fichier source GameOver
+//! Les 2 modes ont beaucoup de code en commun. Une optimisation est certainement possible. Une partie du code pourrait être contenu directement dans le fichier source GameOver et GameOverMulti. Ces deux interfaces pourraient dérivées d'une même classe de base.
 
 return 0;
 }
