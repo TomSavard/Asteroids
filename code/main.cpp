@@ -90,7 +90,7 @@ while(std::get<0>(action) == "JouerSolo"){
     app.setFramerateLimit(60);
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t5,t7,t10,t11,t12,t13,t14,t21,t22;
+    sf::Texture t1,t3,t5,t7,t10,t11,t12,t13,t14,t21,t22,t2;
     t1.loadFromFile("Ressources/animation/spaceship.png");
     t3.loadFromFile("Ressources/animation/explosions/type_C.png");
     t5.loadFromFile("Ressources/animation/fire_red.png");
@@ -103,8 +103,9 @@ while(std::get<0>(action) == "JouerSolo"){
     t14.loadFromFile("Ressources/animation/Blackhole.png");
     t21.loadFromFile("Ressources/animation/asteroide1.png");
     t22.loadFromFile("Ressources/animation/asteroide2.png");
-    // t2.setSmooth(true);
-    // sf::Sprite background(t2);
+    t2.loadFromFile("Ressources/image/Space_Background.png");
+    t2.setSmooth(true);
+    sf::Sprite background(t2);
     // Param : (texture, x = position de départ des images sur la texture, y = pareil en vertical,
     // w = largeur image, h = hauteur image, count = nbr d'image, speed = vitesse de transition)
     Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
@@ -251,7 +252,7 @@ while(std::get<0>(action) == "JouerSolo"){
 
     /// On efface les affichages précédents puis on charge chacune des entitées courantes ainsi que le score. On affiche la fenetre.
     app.clear();
-    // app.draw(background);
+    app.draw(background);
     for(auto i:entities) i->draw(app);
     LeScore.drawScore(app);
     app.display();

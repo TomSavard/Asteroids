@@ -70,6 +70,13 @@ std::tuple <std::string, float> Menu::run() {
     float scaleFactor = 0.1f;
     PictogrammeSonSprite.setScale(scaleFactor, scaleFactor);
 
+    // Test pour le fond d'écran
+    sf::Texture tbackground;
+    tbackground.loadFromFile("Ressources/image/Menu_Background.png");
+    tbackground.setSmooth(true);
+    sf::Sprite background(tbackground);
+
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -128,6 +135,7 @@ std::tuple <std::string, float> Menu::run() {
             }
         }
         window.clear();
+        window.draw(background);
         window.draw(title);
         window.draw(BoutonSolo);
         window.draw(BoutonMultijoueur);
