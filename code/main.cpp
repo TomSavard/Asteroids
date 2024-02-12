@@ -4,6 +4,7 @@
 ///// TODO : mise en place d'un écran game over.
 ///// TODO : Faire un code séparé avec des fichiers joints.
 ///// TODO : Mise en place d'un mode multi en local
+// TODO : Mettre en place une immunité de 1 seconde au début 
 /**
  * La fonction principale d'Asteroid Game, qui gère la logique du jeu et les interactions des
  * utilisateurs.
@@ -144,10 +145,17 @@ while(std::get<0>(action) == "JouerSolo"){
     p->settings(sPlayer,200,200,0,20);
     entities.push_back(p);
 
-
+    // Variable pour le temps écoulé
+    auto Temps_start = std::chrono::steady_clock::now();
+    bool invincible = true;
     /// Boucle principale du jeu qui tourne tant que le jeu est en cours. Elle gère l'affichage des entités à chaque frame ///
     while (app.isOpen())
     {
+        auto Temps_current = std::chrono::steady_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(Temps_current - Temps_start);
+        if (duration.count() >= Temps_invincible) {
+            invincible = false;}
+        
         /* Le code ci-dessous gère les événements. Il utilise une boucle while pour
         interroger en permanence les événements. */
         sf::Event event;
@@ -203,7 +211,7 @@ while(std::get<0>(action) == "JouerSolo"){
 
                         }
 
-                    if (a->name=="player" && b->name=="asteroide")
+                    if (a->name=="player" && b->name=="asteroide" && !invincible)
                         if ( isCollide(a,b) )
                         {
                             b->life=false;
@@ -254,6 +262,7 @@ while(std::get<0>(action) == "JouerSolo"){
     app.clear();
     app.draw(background);
     for(auto i:entities) i->draw(app);
+    p->draw_bouclier(app, invincible);
     LeScore.drawScore(app);
     app.display();
     } // Fin boucle while app.isOpen()

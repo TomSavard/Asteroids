@@ -33,3 +33,13 @@ void player::setTeam (int ChoixTeam)
     team = ChoixTeam;
 }
 
+void player::draw_bouclier (sf::RenderWindow &app, bool invincible)
+{
+    if (invincible){
+        sf::CircleShape circle(R);
+        circle.setFillColor(sf::Color(255,0,0,170));
+        circle.setPosition(x,y);
+        circle.setOrigin(R,R);
+        app.draw(circle);
+    }
+}

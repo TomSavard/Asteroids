@@ -24,6 +24,8 @@ public:
 
   void setTeam(int choixTeam);
 
+  void draw_bouclier(sf::RenderWindow &app , bool invincible);
+
 };
 
 #endif // PLAYER_HPP

@@ -13,3 +13,4 @@ float VolumeGeneral = 1.f;
 
 int NombreAsteroideStart = 15;
 int NombreResidu = 2;
+const unsigned int Temps_invincible = 1500;

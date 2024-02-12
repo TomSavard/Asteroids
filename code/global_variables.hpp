@@ -15,4 +15,6 @@ extern float VolumeGeneral;
 extern int NombreAsteroideStart;
 extern int NombreResidu;
 
+extern const unsigned int Temps_invincible;
+
 #endif // GLOBAL_VARIABLES_HPP
