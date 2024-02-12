@@ -43,7 +43,9 @@ bool isCollide(Entite *a,Entite *b)
 int main() {
 // Music du menu d'accueil
 sf::Music musicHub;
-if (!musicHub.openFromFile("Ressources/audio/Dofus2.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+if (!musicHub.openFromFile("Ressources/audio/Dofus2.wav")) {
+    throw std::runtime_error("Failed to load musicHub file");
+}
 musicHub.play();
 // Création d'une fenetre pour le menu d'accueil et lancement.
 sf::RenderWindow window(sf::VideoMode(800, 600), "Asteroid Game");
@@ -58,7 +60,7 @@ musicHub.stop();
 sf::SoundBuffer shootSoundBuffer;
 sf::Sound shootSound;
 if (!shootSoundBuffer.loadFromFile("Ressources/audio/tir.wav")) {
-std::cerr << "Failed to load shoot sound file" << std::endl;}
+    throw std::runtime_error("Failed to load shootSound");}
 shootSound.setBuffer(shootSoundBuffer);
 int shootVolume = 8*VolumeSelected;
 shootSound.setVolume(shootVolume);
@@ -66,13 +68,14 @@ shootSound.setVolume(shootVolume);
 sf::SoundBuffer DeathSoundBuffer;
 sf::Sound DeathSound;
 if (!DeathSoundBuffer.loadFromFile("Ressources/audio/death.wav")) {
-std::cerr << "Failed to load death sound file" << std::endl;}
+    throw std::runtime_error("Failed to load DeathSound");}
 DeathSound.setBuffer(DeathSoundBuffer);
 int DeathVolume = 100*VolumeSelected;
 DeathSound.setVolume(DeathVolume);
 // Effet sonore click bouton
 sf::SoundBuffer clickSoundBuffer;
-if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {std::cerr << "Failed to load click sound file" << std::endl;}
+if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {
+    throw std::runtime_error("Failed to load ClickSound");}
 sf::Sound clickSound;
 clickSound.setBuffer(clickSoundBuffer);
 
@@ -80,7 +83,8 @@ clickSound.setBuffer(clickSoundBuffer);
 while(std::get<0>(action) == "JouerSolo"){
     // Chargement et lancement de la musique du jeu
     sf::Music musicGame;
-    if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+    if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {
+        throw std::runtime_error("Failed to load musicGame");}
     int musicVolume = 70*VolumeSelected;
     musicGame.setVolume(musicVolume);
     musicGame.play();
@@ -91,29 +95,58 @@ while(std::get<0>(action) == "JouerSolo"){
     app.setFramerateLimit(60);
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t5,t7,t10,t11,t12,t13,t14,t21,t22,t2;
-    t1.loadFromFile("Ressources/animation/spaceship.png");
-    t3.loadFromFile("Ressources/animation/explosions/type_C.png");
-    t5.loadFromFile("Ressources/animation/fire_red.png");
-    t7.loadFromFile("Ressources/animation/explosions/type_B.png");
+    sf::Texture t1,t2,t3,t4,t5,t10,t11,t12,t13,t14,t21,t22;
+    try {
+        if (!t1.loadFromFile("Ressources/animation/spaceship.png")) {
+            throw std::runtime_error("Failed to load spaceship.png");
+        }
+        if (!t2.loadFromFile("Ressources/image/Space_Background.png")) {
+            throw std::runtime_error("Failed to load Space_Background.png");
+        }
+        if (!t3.loadFromFile("Ressources/animation/explosions/type_C.png")) {
+            throw std::runtime_error("Failed to load type_C.png");
+        }
+        if (!t4.loadFromFile("Ressources/animation/explosions/type_B.png")) {
+            throw std::runtime_error("Failed to load type_B.png");
+        }
+        if (!t5.loadFromFile("Ressources/animation/fire_red.png")) {
+            throw std::runtime_error("Failed to load fire_red.png");
+        }
+        if (!t10.loadFromFile("Ressources/animation/TerranWet.png")) {
+            throw std::runtime_error("Failed to load TerranWet.png");
+        }
+        if (!t11.loadFromFile("Ressources/animation/NoAtmosphere.png")) {
+            throw std::runtime_error("Failed to load NoAtmosphere.png");
+        }
+        if (!t12.loadFromFile("Ressources/animation/LavaPlanet.png")) {
+            throw std::runtime_error("Failed to load LavaPlanet.png");
+        }
+        if (!t13.loadFromFile("Ressources/animation/Star.png")) {
+            throw std::runtime_error("Failed to load Star.png");
+        }
+        if (!t14.loadFromFile("Ressources/animation/Blackhole.png")) {
+            throw std::runtime_error("Failed to load Blackhole.png");
+        }
+        if (!t21.loadFromFile("Ressources/animation/asteroide1.png")) {
+            throw std::runtime_error("Failed to load asteroide1.png");
+        }
+        if (!t22.loadFromFile("Ressources/animation/asteroide2.png")) {
+            throw std::runtime_error("Failed to load asteroide2.png");
+        }
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Erreur : " << e.what() << std::endl;
+        return 1;
+    }
     t1.setSmooth(true);
-    t10.loadFromFile("Ressources/animation/TerranWet.png");
-    t11.loadFromFile("Ressources/animation/NoAtmosphere.png");
-    t12.loadFromFile("Ressources/animation/LavaPlanet.png");
-    t13.loadFromFile("Ressources/animation/Star.png");
-    t14.loadFromFile("Ressources/animation/Blackhole.png");
-    t21.loadFromFile("Ressources/animation/asteroide1.png");
-    t22.loadFromFile("Ressources/animation/asteroide2.png");
-    t2.loadFromFile("Ressources/image/Space_Background.png");
     t2.setSmooth(true);
     sf::Sprite background(t2);
     // Param : (texture, x = position de départ des images sur la texture, y = pareil en vertical,
     // w = largeur image, h = hauteur image, count = nbr d'image, speed = vitesse de transition)
-    Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
-    Animation sBullet(t5, 0,0,32,64, 16, 0.8);
     Animation sPlayer(t1, 40,0,40,40, 1, 0);
     Animation sPlayer_go(t1, 40,40,40,40, 1, 0);
-    Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
+    Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
+    Animation sExplosion_ship(t4, 0,0,192,192, 64, 0.5);
+    Animation sBullet(t5, 0,0,32,64, 16, 0.8);
     Animation sTerranWet(t10, 0, 0, 50, 50, 50, 0.2);
     Animation sNoAtmosphere(t11, 0, 0, 50, 50, 50, 0.2);
     Animation sLavaPlanet(t12, 0, 0, 50, 50, 50, 0.2);
@@ -305,7 +338,8 @@ while(std::get<0>(action) == "JouerMulti"){
 
     // Chargement et lancement de la musique du jeu
     sf::Music musicGame;
-    if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {std::cerr << "Failed to load music file" << std::endl; return -1;}
+    if (!musicGame.openFromFile("Ressources/audio/Glory.wav")) {
+        throw std::runtime_error("Failed to load musicGame");}
     int musicVolume = 70*VolumeSelected;
     musicGame.setVolume(musicVolume);
     musicGame.play();
@@ -317,23 +351,41 @@ while(std::get<0>(action) == "JouerMulti"){
 
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t5,t7,t8,t9,t2;
-    t1.loadFromFile("Ressources/animation/spaceship.png");
-    t9.loadFromFile("Ressources/animation/spaceshipBlue.png");
-    t2.loadFromFile("Ressources/image/Space_Background.png");
-    t5.loadFromFile("Ressources/animation/fire_red.png");
-    t8.loadFromFile("Ressources/animation/fire_blue.png");
-    t7.loadFromFile("Ressources/animation/explosions/type_B.png");
+    sf::Texture t1,t2,t3,t4,t5,t6;
+    try {
+        if (!t1.loadFromFile("Ressources/animation/spaceship.png")) {
+            throw std::runtime_error("Failed to load spaceship.png");
+        }
+        if (!t2.loadFromFile("Ressources/image/Space_Background.png")) {
+            throw std::runtime_error("Failed to load Space_Background.png");
+        }
+        if (!t3.loadFromFile("Ressources/animation/spaceshipBlue.png")) {
+            throw std::runtime_error("Failed to load spaceshipBlue.png");
+        }
+        if (!t4.loadFromFile("Ressources/animation/explosions/type_B.png")) {
+            throw std::runtime_error("Failed to load type_B.png");
+        }
+        if (!t5.loadFromFile("Ressources/animation/fire_red.png")) {
+            throw std::runtime_error("Failed to load fire_red.png");
+        }
+        if (!t6.loadFromFile("Ressources/animation/fire_blue.png")) {
+            throw std::runtime_error("Failed to load fire_blue.png");
+        }
+
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Erreur : " << e.what() << std::endl;
+        return 1;
+        }
     t1.setSmooth(true);
     t2.setSmooth(true);
     sf::Sprite background(t2);
     Animation sBulletRed(t5, 0,0,32,64, 16, 0.8);
-    Animation sBulletBlue(t8, 0,0,32,64, 16, 0.8);
+    Animation sBulletBlue(t6, 0,0,32,64, 16, 0.8);
     Animation sPlayer1(t1, 40,0,40,40, 1, 0);
-    Animation sPlayer2(t9, 40,0,40,40, 1, 0);
+    Animation sPlayer2(t3, 40,0,40,40, 1, 0);
     Animation sPlayer1_go(t1, 40,40,40,40, 1, 0);
-    Animation sPlayer2_go(t9, 40,40,40,40, 1, 0);
-    Animation sExplosion_ship(t7, 0,0,192,192, 64, 0.5);
+    Animation sPlayer2_go(t3, 40,40,40,40, 1, 0);
+    Animation sExplosion_ship(t4, 0,0,192,192, 64, 0.5);
 
 
     // Création d'une liste contenant l'ensemble des entités courantes.
