@@ -49,6 +49,7 @@ void Animation::update()
   if (n>0) sprite.setTextureRect( frames[int(Frame)] );
 }
 
+
 bool Animation::isEnd()
 {
   return Frame+speed>=frames.size();

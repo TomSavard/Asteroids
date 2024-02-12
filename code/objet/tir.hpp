@@ -15,7 +15,7 @@ class tir: public Entite
   public:
   tir()
   {
-    name="tir";
+    this->setName("tir");
   }
 
 

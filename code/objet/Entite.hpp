@@ -13,12 +13,11 @@ class Entite
     private :
     int team;
     bool life;
-    
+    std::string name;
+    Animation anim;
     public:
 
     float x,y,vx,vy,R,angle;
-    std::string name;
-    Animation anim;
 
     Entite(){life=1;}
 
@@ -29,12 +28,16 @@ class Entite
     void draw(sf::RenderWindow &app);
 
     int getTeam();
-
     void setTeam(int choixTeam);
 
     bool getLife();
-
     void setLife(bool newlife);
+
+    std::string getName();
+    void setName(std::string newName);
+
+    Animation* getAnim(); // passage par pointeur sinon la modification via update n'est pas prise en compte.
+    void setAnim(Animation newAnim);
 
     virtual ~Entite();
 

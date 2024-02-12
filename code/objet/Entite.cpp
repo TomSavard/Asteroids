@@ -34,22 +34,42 @@ void Entite::update(){
     // besoin de la def sinon le terminal n'est pas content
 };
 
+
 int Entite::getTeam()
 {
     return team;
 }
-
 void Entite::setTeam(int choixTeam)
 {
     team = choixTeam;
 }
 
+
 bool Entite::getLife()
 {
     return life;
 }
-
 void Entite::setLife(bool newlife)
 {
     life = newlife;
+}
+
+
+std::string Entite::getName()
+{
+    return name;
+}
+void Entite::setName(std::string newName)
+{
+    name = newName;
+}
+
+
+Animation* Entite::getAnim()
+{
+    return &anim;
+}
+void Entite::setAnim(Animation newAnim)
+{
+    anim = newAnim;
 }

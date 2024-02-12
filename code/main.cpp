@@ -183,7 +183,7 @@ while(std::get<0>(action) == "JouerSolo"){
         for(auto a:entities)
             for(auto b:entities)
             {   
-                if (a->name=="asteroide" && b->name=="tir")
+                if (a->getName()=="asteroide" && b->getName()=="tir")
                     if ( isCollide(a,b) )
                         {   // mise à false de leur vie pour une futur suppression de l'entité.
                             a->setLife(false);
@@ -191,7 +191,7 @@ while(std::get<0>(action) == "JouerSolo"){
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
                             e->settings(sExplosion,a->x,a->y);
-                            e->name="explosion";
+                            e->setName("explosion");
                             entities.push_back(e);
 
                             // Ici le score correspond au nombre d'astéroïde détruit. 
@@ -211,14 +211,14 @@ while(std::get<0>(action) == "JouerSolo"){
 
                         }
 
-                    if (a->name=="player" && b->name=="asteroide" && !invincible)
+                    if (a->getName()=="player" && b->getName()=="asteroide" && !invincible)
                         if ( isCollide(a,b) )
                         {
                             b->setLife(false);
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
                             e->settings(sExplosion_ship,a->x,a->y);
-                            e->name="explosion";
+                            e->setName("explosion");
                             entities.push_back(e);
                             // Le vaisseau est détruit. La fenêtre de jeu se ferme.
                             app.close();
@@ -228,13 +228,13 @@ while(std::get<0>(action) == "JouerSolo"){
                 }  
 
             // En fonction de l'entrée de la touche Boost, la texture du vaisseau est modifiée afin d'afficher les réacteurs.
-            if (p->thrust)  p->anim = sPlayer_go;
-            else   p->anim = sPlayer;
+            if (p->thrust)  p->setAnim(sPlayer_go);
+            else   p->setAnim(sPlayer);
 
 
             for(auto e:entities)
-                if (e->name=="explosion")
-                if (e->anim.isEnd()) e->setLife(0);
+                if (e->getName()=="explosion")
+                if (e->getAnim()->isEnd()) e->setLife(false);
 
                 if (rand()%150==0)
                 {
@@ -252,7 +252,7 @@ while(std::get<0>(action) == "JouerSolo"){
                 Entite *e = *i;
 
                 e->update();
-                e->anim.update();
+                e->getAnim()->update();
 
                 if (e->getLife()==false) {i=entities.erase(i); delete e;}
                 else i++;
@@ -405,7 +405,7 @@ while(std::get<0>(action) == "JouerMulti"){
         {
             for(auto b:entities)
             {
-                if (a->name=="player" && b->name=="tir")
+                if (a->getName()=="player" && b->getName()=="tir")
                 {
                     if (isCollide(a,b) && a->getTeam()!=b->getTeam())
                     {
@@ -414,7 +414,7 @@ while(std::get<0>(action) == "JouerMulti"){
 
                         Entite *e = new Entite();
                         e->settings(sExplosion_ship,a->x,a->y);
-                        e->name="explosion";
+                        e->setName("explosion");
                         entities.push_back(e);
 
                         app.close();
@@ -428,15 +428,15 @@ while(std::get<0>(action) == "JouerMulti"){
         }
 
         // En fonction de l'entrée de la touche Boost, la texture du vaisseau est modifiée afin d'afficher les réacteurs.
-        if (p1->thrust)  p1->anim = sPlayer1_go;
-        else   p1->anim = sPlayer1;
-        if (p2->thrust)  p2->anim = sPlayer2_go;
-        else   p2->anim = sPlayer2;
+        if (p1->thrust)  p1->setAnim(sPlayer1_go);
+        else   p1->setAnim(sPlayer1);
+        if (p2->thrust)  p2->setAnim(sPlayer2_go);
+        else   p2->setAnim(sPlayer2);
 
         // Les explosions n'ont qu'une seule apparition. Une fois généré, elles sont immédiatement supprimées.
         for(auto e:entities)
-            if (e->name=="explosion")
-            if (e->anim.isEnd()) e->setLife(0);
+            if (e->getName()=="explosion")
+            if (e->getAnim()->isEnd()) e->setLife(0);
 
 
         /* Le code ci-dessus parcourt un conteneur appelé « entités ». Il met à jour 
@@ -447,7 +447,7 @@ while(std::get<0>(action) == "JouerMulti"){
             Entite *e = *i;
 
             e->update();
-            e->anim.update();
+            e->getAnim()->update();
 
             if (e->getLife()==false) {i=entities.erase(i); delete e;}
             else i++;

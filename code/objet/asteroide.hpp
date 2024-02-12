@@ -16,7 +16,7 @@ class asteroide: public Entite
    {
      vx=rand()%8-4;
      vy=rand()%8-4;
-     name="asteroide";
+     this->setName("asteroide");
    }
 
    void update();

@@ -17,7 +17,7 @@ public:
 
   player() 
   {
-    name="player";
+    this->setName("player");
   }
 
   void update();
