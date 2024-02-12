@@ -10,13 +10,15 @@
 
 class Entite
 {
+    private :
+    int team;
+    bool life;
+    
     public:
 
     float x,y,vx,vy,R,angle;
-    bool life;
     std::string name;
     Animation anim;
-    int team;
 
     Entite(){life=1;}
 
@@ -29,6 +31,10 @@ class Entite
     int getTeam();
 
     void setTeam(int choixTeam);
+
+    bool getLife();
+
+    void setLife(bool newlife);
 
     virtual ~Entite();
 

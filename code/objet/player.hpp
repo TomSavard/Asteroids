@@ -22,8 +22,6 @@ public:
 
   void update();
 
-  void setTeam(int choixTeam);
-
   void draw_bouclier(sf::RenderWindow &app , bool invincible);
 
 };

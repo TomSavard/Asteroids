@@ -19,8 +19,6 @@ class tir: public Entite
   }
 
 
-  void setTeam(int choixTeam);
-
   void  update();
 
 };

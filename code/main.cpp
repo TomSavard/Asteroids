@@ -4,7 +4,7 @@
 ///// TODO : mise en place d'un écran game over.
 ///// TODO : Faire un code séparé avec des fichiers joints.
 ///// TODO : Mise en place d'un mode multi en local
-// TODO : Mettre en place une immunité de 1 seconde au début 
+///// TODO : Mettre en place une immunité au début 
 /**
  * La fonction principale d'Asteroid Game, qui gère la logique du jeu et les interactions des
  * utilisateurs.
@@ -186,8 +186,8 @@ while(std::get<0>(action) == "JouerSolo"){
                 if (a->name=="asteroide" && b->name=="tir")
                     if ( isCollide(a,b) )
                         {   // mise à false de leur vie pour une futur suppression de l'entité.
-                            a->life=false;
-                            b->life=false;
+                            a->setLife(false);
+                            b->setLife(false);
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
                             e->settings(sExplosion,a->x,a->y);
@@ -214,7 +214,7 @@ while(std::get<0>(action) == "JouerSolo"){
                     if (a->name=="player" && b->name=="asteroide" && !invincible)
                         if ( isCollide(a,b) )
                         {
-                            b->life=false;
+                            b->setLife(false);
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
                             e->settings(sExplosion_ship,a->x,a->y);
@@ -234,7 +234,7 @@ while(std::get<0>(action) == "JouerSolo"){
 
             for(auto e:entities)
                 if (e->name=="explosion")
-                if (e->anim.isEnd()) e->life=0;
+                if (e->anim.isEnd()) e->setLife(0);
 
                 if (rand()%150==0)
                 {
@@ -254,7 +254,7 @@ while(std::get<0>(action) == "JouerSolo"){
                 e->update();
                 e->anim.update();
 
-                if (e->life==false) {i=entities.erase(i); delete e;}
+                if (e->getLife()==false) {i=entities.erase(i); delete e;}
                 else i++;
             }
 
@@ -409,8 +409,8 @@ while(std::get<0>(action) == "JouerMulti"){
                 {
                     if (isCollide(a,b) && a->getTeam()!=b->getTeam())
                     {
-                        b->life=false;
-                        a->life=false;
+                        b->setLife(false);
+                        a->setLife(false);
 
                         Entite *e = new Entite();
                         e->settings(sExplosion_ship,a->x,a->y);
@@ -436,7 +436,7 @@ while(std::get<0>(action) == "JouerMulti"){
         // Les explosions n'ont qu'une seule apparition. Une fois généré, elles sont immédiatement supprimées.
         for(auto e:entities)
             if (e->name=="explosion")
-            if (e->anim.isEnd()) e->life=0;
+            if (e->anim.isEnd()) e->setLife(0);
 
 
         /* Le code ci-dessus parcourt un conteneur appelé « entités ». Il met à jour 
@@ -449,7 +449,7 @@ while(std::get<0>(action) == "JouerMulti"){
             e->update();
             e->anim.update();
 
-            if (e->life==false) {i=entities.erase(i); delete e;}
+            if (e->getLife()==false) {i=entities.erase(i); delete e;}
             else i++;
         }
 

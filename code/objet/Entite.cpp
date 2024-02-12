@@ -43,3 +43,13 @@ void Entite::setTeam(int choixTeam)
 {
     team = choixTeam;
 }
+
+bool Entite::getLife()
+{
+    return life;
+}
+
+void Entite::setLife(bool newlife)
+{
+    life = newlife;
+}
