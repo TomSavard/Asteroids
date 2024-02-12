@@ -55,7 +55,7 @@ std::tuple <std::string, float> action = menu.run(); // On récupère les choix 
 float VolumeSelected=std::get<1>(action);
 musicHub.stop();
 
-// Chargement des effets sonores  ///
+// Chargement des effets sonores ( Faire un fichier séparé qui gère le son ?) ///
 // Blaster
 sf::SoundBuffer shootSoundBuffer;
 sf::Sound shootSound;
@@ -79,7 +79,7 @@ if (!clickSoundBuffer.loadFromFile("Ressources/audio/Bouton2.wav")) {
 sf::Sound clickSound;
 clickSound.setBuffer(clickSoundBuffer);
 
-// Boucle de jeu en Solo
+// Boucle de jeu en Solo //
 while(std::get<0>(action) == "JouerSolo"){
     // Chargement et lancement de la musique du jeu
     sf::Music musicGame;
