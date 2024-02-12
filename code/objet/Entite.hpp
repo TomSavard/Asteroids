@@ -15,9 +15,9 @@ class Entite
     bool life;
     std::string name;
     Animation anim;
-    public:
-
     float x,y,vx,vy,R,angle;
+
+    public:
 
     Entite(){life=1;}
 
@@ -26,6 +26,26 @@ class Entite
     virtual void update();
 
     void draw(sf::RenderWindow &app);
+
+
+    float getx();
+    void setx(float newX);
+
+    float gety();
+    void sety(float newY);
+
+    float getvx();
+    void setvx(float newVX);
+
+    float getvy();
+    void setvy(float newVY);
+
+    float getR();
+    void setR(float newR);
+
+    float getangle();
+    void setangle(float newAngle);
+
 
     int getTeam();
     void setTeam(int choixTeam);

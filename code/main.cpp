@@ -34,9 +34,9 @@
                                     /// Fonctions ///
 bool isCollide(Entite *a,Entite *b)
 {
-  return (b->x - a->x)*(b->x - a->x)+
-         (b->y - a->y)*(b->y - a->y)<
-         (a->R + b->R)*(a->R + b->R);
+  return (b->getx() - a->getx())*(b->getx() - a->getx())+
+         (b->gety() - a->gety())*(b->gety() - a->gety())<
+         (a->getR() + b->getR())*(a->getR() + b->getR());
 }
 
                                     /// Main ///
@@ -168,14 +168,14 @@ while(std::get<0>(action) == "JouerSolo"){
                 if (event.key.code == sf::Keyboard::Space)
                 {
                     tir *b = new tir();
-                    b->settings(sBullet,p->x,p->y,p->angle,10);
+                    b->settings(sBullet,p->getx(),p->gety(),p->getangle(),10);
                     entities.push_back(b);
                     shootSound.play();
                 }
         }
         // Contrôles pour le déplacement du joueur
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p->angle+=3;
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p->angle-=3;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p->setangle(p->getangle() + 3);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p->setangle(p->getangle() - 3);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) p->thrust=true;
         else p->thrust=false;
 
@@ -190,7 +190,7 @@ while(std::get<0>(action) == "JouerSolo"){
                             b->setLife(false);
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
-                            e->settings(sExplosion,a->x,a->y);
+                            e->settings(sExplosion,a->getx(),a->gety());
                             e->setName("explosion");
                             entities.push_back(e);
 
@@ -200,11 +200,11 @@ while(std::get<0>(action) == "JouerSolo"){
                             // On scinde les gros astéroïdes en NombreResidu astéroïdes de petite taille. 
                             for(int i=0; i<NombreResidu; i++)
                             {
-                                if (a->R==asteroideWidth){
+                                if (a->getR()==asteroideWidth){
                                     Entite *e = new asteroide();
                                     int NumeroTextureAsteroide = std::rand() % 2;
-                                    if (NumeroTextureAsteroide == 0) {e->settings(sAsteroide1,a->x,a->y,rand()%360,petitAsteroideWidth);}
-                                    else {e->settings(sAsteroide2,a->x,a->y,rand()%360,petitAsteroideWidth);}
+                                    if (NumeroTextureAsteroide == 0) {e->settings(sAsteroide1,a->getx(),a->gety(),rand()%360,petitAsteroideWidth);}
+                                    else {e->settings(sAsteroide2,a->getx(),a->gety(),rand()%360,petitAsteroideWidth);}
                                     entities.push_back(e);
                                 }
                             }
@@ -217,7 +217,7 @@ while(std::get<0>(action) == "JouerSolo"){
                             b->setLife(false);
                             // Génère une entité avec la texture explosion à l'endroit de la collision
                             Entite *e = new Entite();
-                            e->settings(sExplosion_ship,a->x,a->y);
+                            e->settings(sExplosion_ship,a->getx(),a->gety());
                             e->setName("explosion");
                             entities.push_back(e);
                             // Le vaisseau est détruit. La fenêtre de jeu se ferme.
@@ -317,22 +317,16 @@ while(std::get<0>(action) == "JouerMulti"){
 
 
     //Chargement des textures pour les animations
-    sf::Texture t1,t3,t4,t5,t6,t7,t8,t9,t2;
+    sf::Texture t1,t5,t7,t8,t9,t2;
     t1.loadFromFile("Ressources/animation/spaceship.png");
     t9.loadFromFile("Ressources/animation/spaceshipBlue.png");
     t2.loadFromFile("Ressources/image/Space_Background.png");
-    t3.loadFromFile("Ressources/animation/explosions/type_C.png");
-    t4.loadFromFile("Ressources/animation/rock.png");
     t5.loadFromFile("Ressources/animation/fire_red.png");
     t8.loadFromFile("Ressources/animation/fire_blue.png");
-    t6.loadFromFile("Ressources/animation/rock_small.png");
     t7.loadFromFile("Ressources/animation/explosions/type_B.png");
     t1.setSmooth(true);
     t2.setSmooth(true);
     sf::Sprite background(t2);
-    Animation sExplosion(t3, 0,0,256,256, 48, 0.5);
-    Animation sRock(t4, 0,0,64,64, 16, 0.2);
-    Animation sRock_small(t6, 0,0,64,64, 16, 0.2);
     Animation sBulletRed(t5, 0,0,32,64, 16, 0.8);
     Animation sBulletBlue(t8, 0,0,32,64, 16, 0.8);
     Animation sPlayer1(t1, 40,0,40,40, 1, 0);
@@ -374,7 +368,7 @@ while(std::get<0>(action) == "JouerMulti"){
                 {   //Tir du joueur 1
                     tir *t1 = new tir();
                     t1->setTeam(1);
-                    t1->settings(sBulletRed,p1->x,p1->y,p1->angle,10);
+                    t1->settings(sBulletRed,p1->getx(),p1->gety(),p1->getangle(),10);
                     entities.push_back(t1);
                     shootSound.play();
                 }
@@ -382,7 +376,7 @@ while(std::get<0>(action) == "JouerMulti"){
                 {   //Tir du joueur 2
                     tir *t2 = new tir();
                     t2->setTeam(2);
-                    t2->settings(sBulletBlue,p2->x,p2->y,p2->angle,10);
+                    t2->settings(sBulletBlue,p2->getx(),p2->gety(),p2->getangle(),10);
                     entities.push_back(t2);
                     shootSound.play();
                 }
@@ -390,13 +384,13 @@ while(std::get<0>(action) == "JouerMulti"){
         }
 
         // Contrôles du joueur 1
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {p1->angle+=3;}
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {p1->angle-=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {p1->setangle(p1->getangle() + 3);}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {p1->setangle(p1->getangle() - 3);}
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {p1->thrust=true;}
         else {p1->thrust=false;}
         // Contrôles du joueur 2
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {p2->angle+=3;}
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {p2->angle-=3;}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {p2->setangle(p2->getangle() + 3);}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {p2->setangle(p2->getangle() - 3);}
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {p2->thrust=true;}
         else {p2->thrust=false;}
 
@@ -413,7 +407,7 @@ while(std::get<0>(action) == "JouerMulti"){
                         a->setLife(false);
 
                         Entite *e = new Entite();
-                        e->settings(sExplosion_ship,a->x,a->y);
+                        e->settings(sExplosion_ship,a->getx(),a->gety());
                         e->setName("explosion");
                         entities.push_back(e);
 

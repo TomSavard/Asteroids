@@ -73,3 +73,58 @@ void Entite::setAnim(Animation newAnim)
 {
     anim = newAnim;
 }
+
+
+float Entite::getx()
+{
+    return x;
+}
+void Entite::setx(float newX)
+{
+    x = newX;
+}
+
+float Entite::gety()
+{
+    return y;
+}
+void Entite::sety(float newY)
+{
+    y = newY;
+}
+
+float Entite::getvx()
+{
+    return vx;
+}
+void Entite::setvx(float newVX)
+{
+    vx = newVX;
+}
+
+float Entite::getvy()
+{
+    return vy;
+}
+void Entite::setvy(float newVY)
+{
+    vy = newVY;
+}
+
+float Entite::getR()
+{
+    return R;
+}
+void Entite::setR(float newR)
+{
+    R = newR;
+}
+
+float Entite::getangle()
+{
+    return angle;
+}
+void Entite::setangle(float newAngle)
+{
+    angle = newAngle;
+}

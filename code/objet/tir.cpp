@@ -8,12 +8,12 @@
 
 void  tir::update()
 {
-    vx=cos(angle*DEGTORAD)*6;
-    vy=sin(angle*DEGTORAD)*6;
+    this->setvx(cos(this->getangle()*DEGTORAD)*6);
+    this->setvy(sin(this->getangle()*DEGTORAD)*6);
     // angle+=rand()%7-3;  /*try this*/
-    x+=vx;
-    y+=vy;
+    this->setx(this->getx() + this->getvx());
+    this->sety(this->gety() + this->getvy());
 
-    if (x>LargeurFenetre || x<0 || y>HauteurFenetre || y<0) this->setLife(false);
+    if (this->getx()>LargeurFenetre || this->getx()<0 || this->gety()>HauteurFenetre || this->gety()<0) this->setLife(false);
 }
 

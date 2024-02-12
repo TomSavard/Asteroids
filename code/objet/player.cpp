@@ -9,32 +9,38 @@
 void player::update()
 {
     if (thrust)
-    { vx+=cos(angle*DEGTORAD)*0.2;
-    vy+=sin(angle*DEGTORAD)*0.2; }
+    {
+        this->setvx(this->getvx() + cos(this->getangle()*DEGTORAD)*0.2);
+        this->setvy(this->getvy() + sin(this->getangle()*DEGTORAD)*0.2);
+    }
     else
-    { vx*=0.99;
-    vy*=0.99; }
+    {
+        this->setvx(this->getvx() * 0.99);
+        this->setvy(this->getvy() * 0.99);
+    }
 
-int maxSpeed=15;
-float speed = sqrt(vx*vx+vy*vy);
-if (speed>maxSpeed)
-    { vx *= maxSpeed/speed;
-    vy *= maxSpeed/speed; }
+    int maxSpeed=15;
+    float speed = sqrt(this->getvx()*this->getvx()+this->getvy()*this->getvy());
+    if (speed>maxSpeed)
+    {
+        this->setvx(this->getvx() * maxSpeed/speed);
+        this->setvy(this->getvy() * maxSpeed/speed);
+    }
 
-x+=vx;
-y+=vy;
+    this->setx(this->getx() + this->getvx());
+    this->sety(this->gety() + this->getvy());
 
-if (x>LargeurFenetre) x=0; if (x<0) x=LargeurFenetre;
-if (y>HauteurFenetre) y=0; if (y<0) y=HauteurFenetre;
+    if (this->getx()>LargeurFenetre) this->setx(0); if (this->getx()<0) this->setx(LargeurFenetre);
+    if (this->gety()>HauteurFenetre) this->sety(0); if (this->gety()<0) this->sety(HauteurFenetre);
 }
 
 void player::draw_bouclier (sf::RenderWindow &app, bool invincible)
 {
     if (invincible){
-        sf::CircleShape circle(R);
+        sf::CircleShape circle(this->getR());
         circle.setFillColor(sf::Color(255,0,0,170));
-        circle.setPosition(x,y);
-        circle.setOrigin(R,R);
+        circle.setPosition(this->getx(),this->gety());
+        circle.setOrigin(this->getR(),this->getR());
         app.draw(circle);
     }
 }

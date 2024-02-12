@@ -14,8 +14,8 @@ class asteroide: public Entite
    public:
    asteroide()
    {
-     vx=rand()%8-4;
-     vy=rand()%8-4;
+     this->setvx(rand()%8-4);
+     this->setvy(rand()%8-4);
      this->setName("asteroide");
    }
 

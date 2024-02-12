@@ -8,10 +8,10 @@
 
 void asteroide::update()
 {
-    x+=vx;
-    y+=vy;
+    this->setx(this->getx() + this->getvx());
+    this->sety(this->gety() + this->getvy());
 
-    if (x>LargeurFenetre) x=0;  if (x<0) x=LargeurFenetre;
-    if (y>HauteurFenetre) y=0;  if (y<0) y=HauteurFenetre;
+    if (this->getx()>LargeurFenetre) this->setx(0);  if (this->getx()<0) this->setx(LargeurFenetre);
+    if (this->gety()>HauteurFenetre) this->sety(0);  if (this->gety()<0) this->sety(HauteurFenetre);
 }
 
