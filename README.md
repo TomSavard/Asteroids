@@ -19,7 +19,8 @@ Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d
     - [Lancement](#lancement)
     - [Contrôles :](#contrôles-)
       - [Mode Solo :](#mode-solo-)
-      - [Mode Multijoueur](#mode-multijoueur)
+      - [Mode Multijoueur local](#mode-multijoueur-local)
+      - [Mode Multijoueur online](#mode-multijoueur-online)
 
 ## Introduction
 Le projet a pour objectif de réaliser le célèbre jeu Asteroïds.
@@ -74,7 +75,7 @@ Description des étapes pour lancer le jeu :
 ### Contrôles :
 #### Mode Solo :
   - Boost = `↑ `  Gauche = `←`  Droite = `→`  Tir = `Barre espace`
-#### Mode Multijoueur
+#### Mode Multijoueur local
 
 - **Joueur 1 :**
   - Boost = `o`  Gauche = `k`  Droite = `m`  Tir = `;`
@@ -82,7 +83,9 @@ Description des étapes pour lancer le jeu :
 - **Joueur 2 :**
   - Boost = `z`  Gauche = `q`  Droite = `d`  Tir = `x`
   
-  
+#### Mode Multijoueur online
+
+To be done
   
 ---------
 Merci à Deep-Fold pour ses textures disponibles sur https://deep-fold.itch.io/
