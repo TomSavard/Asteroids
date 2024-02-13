@@ -5,12 +5,21 @@
  * @param score Le paramètre « score » est un nombre entier qui représente le score du joueur dans la
  * partie.
  */
-                                            /// Bibliothèques ///
+                                            // Bibliothèques //
 #include "GameOver.hpp"     
 #include "../global_variables.hpp"                             
 
-                                            /// Code Principal ///
+                                            // Code Principal //
 
+/**
+ * @brief Constructeur de la classe GameOverScreen.
+ * 
+ * Initialise l'écran de fin de jeu avec le score fourni et configure les éléments d'affichage.
+ * 
+ * @param score Le score du joueur à afficher.
+ * 
+ * @note Ce constructeur suppose que le fichier de police Arial est disponible dans le répertoire des ressources.
+ */
 GameOverScreen::GameOverScreen(int score) {
 
     if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
@@ -41,6 +50,14 @@ GameOverScreen::GameOverScreen(int score) {
     quitText.setPosition((LargeurFenetre - quitText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 100);
 }
 
+/**
+ * @brief Dessine l'écran de fin de jeu sur la fenêtre spécifiée.
+ * 
+ * Cette méthode dessine les différents éléments de l'écran de fin de jeu (texte de fin de partie,
+ * score, instructions pour redémarrer ou quitter) sur la fenêtre spécifiée.
+ * 
+ * @param window La fenêtre SFML sur laquelle dessiner l'écran de fin de jeu.
+ */
 void GameOverScreen::draw(sf::RenderWindow &window) {
     window.draw(gameOverText);
     window.draw(scoreText);

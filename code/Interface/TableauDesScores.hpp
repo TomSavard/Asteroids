@@ -1,11 +1,17 @@
 #ifndef TABLEAUDESSCORES_HPP
 #define TABLEAUDESSCORES_HPP
-                                            /// Bibliothéques ///
+                                            // Bibliothéques //
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
 
-                                            /// Code Principal ///
+                                            // Code Principal //
+/**
+ * @brief Classe représentant un tableau des scores.
+ * 
+ * Cette classe gère un tableau des scores dans le jeu, permettant d'incrémenter le score,
+ * de le réinitialiser et de le dessiner sur une fenêtre SFML.
+ */
 class TableauDesScores {
     private:
         int score;

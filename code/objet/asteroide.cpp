@@ -1,11 +1,15 @@
-                                            /// Bibliothèques ///
+                                            // Bibliothèques //
 #include "asteroide.hpp"
 #include "Entite.hpp"
 #include "../Animation.hpp"
 #include "../global_variables.hpp"                            
 
-                                            /// Code Principal ///
+                                            // Code Principal //
 
+/**
+ * Met à jour la position d'un astéroïde en ajoutant sa vitesse à sa position actuelle et
+ * enroule la position autour de l'écran si elle dépasse les limites de l'écran.
+ */
 void asteroide::update()
 {
     this->setx(this->getx() + this->getvx());

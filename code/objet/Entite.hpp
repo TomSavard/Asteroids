@@ -1,13 +1,29 @@
 #ifndef ENTITE_HPP
 #define ENTITE_HPP
-                                            /// Bibliothéques ///
+                                            // Bibliothéques //
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include "../Animation.hpp"
 
-                                            /// Code Principal ///
-
+                                            // Code Principal //
+/**
+ * @brief Classe la plus générique regroupant les propriétés des différents objets.
+ * 
+ * Cette classe possède de nombreux paramètres tous passés en privée afin de garantir une certaine sécuritée.
+ * @param team int correspondant au numéro de l'équipe
+ * @param life bool indiquant si l'entité est détruite ou non.
+ * @param name string permettant la discrimination des entitées.
+ * @param anim Animation donnant accès à un sprite.
+ * @param x float position horizontale
+ * @param y float position verticale
+ * @param vx float vitesse horizontale
+ * @param vy float vitesse verticale
+ * @param R float rayon de la hitbox
+ * @param angle float orientation de l'entité dans le plan 
+ * 
+ * 
+ */
 class Entite
 {
     private :
@@ -19,8 +35,20 @@ class Entite
 
     public:
 
+    /**
+     * Le constructeur par défaut de la classe Entite. On initialise l'entité comme étant vivante (life=1;).
+     */
     Entite(){life=1;}
 
+    /**
+     * @brief permet le paramétrage de l'entité en définissant la valeur de ses attributs.
+     * 
+     * @param a animation associée à l'objet
+     * @param X position horizontale de l'entité
+     * @param Y position verticale
+     * @param Angle orientation dans le plan de l'objet
+     * @param radius rayon de la hitbox
+     */
     void settings(Animation &a,int X,int Y,float Angle=0,int radius=1);
 
     virtual void update();

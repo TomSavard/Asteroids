@@ -1,17 +1,18 @@
-/**
- * Le code ci-dessous définit une classe appelée GameOverMultiScreen qui affiche un écran de jeu pour un
- * jeu multijoueur, montrant le gagnant et offrant des options pour redémarrer ou quitter le jeu.
- * 
- * @param gagnant Le paramètre « gagnant » représente le gagnant de la partie dans un scénario
- * multijoueur. Il s'agit d'une valeur entière qui peut être 1 ou 2, indiquant le numéro du joueur ou
- * de l'équipe qui a gagné la partie.
- */
-                                            /// Bibliothèques ///
+                                            // Bibliothèques //
 #include "GameOverMulti.hpp"     
 #include "../global_variables.hpp"                             
 
-                                            /// Code Principal ///
+                                            // Code Principal //
 
+/**
+ * @brief Constructeur de la classe GameOverMultiScreen.
+ * 
+ * Initialise l'écran de fin de jeu multijoueur avec le gagnant spécifié et configure les éléments d'affichage.
+ * 
+ * @param gagnant Le numéro du joueur gagnant. Si égal à 1, le joueur 1 (équipe rouge) est le gagnant, sinon le joueur 2 (équipe bleue) est le gagnant.
+ * 
+ * @note Ce constructeur suppose que le fichier de police Arial est disponible dans le répertoire des ressources.
+ */
 GameOverMultiScreen::GameOverMultiScreen(int gagnant) {
 
     if (!font.loadFromFile("Ressources/police/arial/arial.ttf")) {
@@ -43,6 +44,14 @@ GameOverMultiScreen::GameOverMultiScreen(int gagnant) {
     quitText.setPosition((LargeurFenetre - quitText.getGlobalBounds().width) / 2, HauteurFenetre/2 + 100);
 }
 
+/**
+ * @brief Dessine l'écran de fin de jeu multijoueur sur la fenêtre spécifiée.
+ * 
+ * Cette méthode dessine les différents éléments de l'écran de fin de jeu multijoueur (texte de fin de partie,
+ * texte indiquant le gagnant, instructions pour redémarrer ou quitter) sur la fenêtre spécifiée.
+ * 
+ * @param window La fenêtre SFML sur laquelle dessiner l'écran de fin de jeu multijoueur.
+ */
 void GameOverMultiScreen::draw(sf::RenderWindow &window) {
     window.draw(gameOverText);
     window.draw(gagnantText);

@@ -1,11 +1,15 @@
-                                            /// Bibliothèques ///
+                                            // Bibliothèques //
 #include "tir.hpp"
 #include "Entite.hpp"
 #include "../Animation.hpp"
 #include "../global_variables.hpp"                            
 
-                                            /// Code Principal ///
-
+                                            // Code Principal //
+/**
+ * @brief Mise en oeuvre spécifique à la classe tir de la fonction générique update 
+ * 
+ * Les tirs ont une trajectoire rectiligne uniforme. Ils sont détruits une fois sortis de l'écran.
+ */
 void  tir::update()
 {
     this->setvx(cos(this->getangle()*DEGTORAD)*6);

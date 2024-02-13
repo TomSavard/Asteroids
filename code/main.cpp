@@ -1,16 +1,10 @@
-/// Tom SAVARD 26/01/24 ///
 
 ///// TODO : Faire un code plus propre avec une classe entite et des sous-classes.
 ///// TODO : mise en place d'un écran game over.
 ///// TODO : Faire un code séparé avec des fichiers joints.
 ///// TODO : Mise en place d'un mode multi en local
 ///// TODO : Mettre en place une immunité au début 
-/**
- * La fonction principale d'Asteroid Game, qui gère la logique du jeu et les interactions des
- * utilisateurs.
- */
 
-                                    /// Bibliothèques ///
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
@@ -31,15 +25,28 @@
 #include "objet/tir.hpp"
 #include "objet/player.hpp"
 
-                                    /// Fonctions ///
+/**
+ * @brief Prend deux entités et vérifient si il y a collision
+ * 
+ * @param a une entité
+ * @param b une autre entité
+ * @return true si il y a collision
+ * @return false sinon
+ */
 bool isCollide(Entite *a,Entite *b)
+
 {
   return (b->getx() - a->getx())*(b->getx() - a->getx())+
          (b->gety() - a->gety())*(b->gety() - a->gety())<
          (a->getR() + b->getR())*(a->getR() + b->getR());
 }
 
-                                    /// Main ///
+
+/**
+ * @brief C'est la boucle principale. Elle gère en particulier l'interaction avec le joueur et fait appel aux autres fichiers sources.
+ * 
+ * @return int 
+ */
 int main() {
 // Music du menu d'accueil
 sf::Music musicHub;
@@ -181,7 +188,7 @@ while(std::get<0>(action) == "JouerSolo"){
     // Variable pour le temps écoulé
     auto Temps_start = std::chrono::steady_clock::now();
     bool invincible = true;
-    /// Boucle principale du jeu qui tourne tant que le jeu est en cours. Elle gère l'affichage des entités à chaque frame ///
+    // Boucle principale du jeu qui tourne tant que le jeu est en cours. Elle gère l'affichage des entités à chaque frame //
     while (app.isOpen())
     {
         auto Temps_current = std::chrono::steady_clock::now();
@@ -291,7 +298,7 @@ while(std::get<0>(action) == "JouerSolo"){
                 else i++;
             }
 
-    /// On efface les affichages précédents puis on charge chacune des entitées courantes ainsi que le score. On affiche la fenetre.
+    // On efface les affichages précédents puis on charge chacune des entitées courantes ainsi que le score. On affiche la fenetre.
     app.clear();
     app.draw(background);
     for(auto i:entities) i->draw(app);
@@ -300,7 +307,7 @@ while(std::get<0>(action) == "JouerSolo"){
     app.display();
     } // Fin boucle while app.isOpen()
 
-    /// Le joueur vient de terminer sa partie en modeSolo. Il faut maintenant afficher l'écran GameOver
+    // Le joueur vient de terminer sa partie en modeSolo. Il faut maintenant afficher l'écran GameOver
     sf::RenderWindow window(sf::VideoMode(LargeurFenetre, HauteurFenetre), "Asteroid Game Over");
     int scoreFinal = LeScore.getScore();
     GameOverScreen gameOverScreen(scoreFinal);
@@ -405,7 +412,7 @@ while(std::get<0>(action) == "JouerMulti"){
     int gagnant = -1; // Permet de récupérer l'équipe victorieuse
 
 
-    /// Boucle principale du jeu qui tourne tant que le jeu est en cours. Elle gère l'affichage des entités à chaque frame ///
+    // Boucle principale du jeu qui tourne tant que le jeu est en cours. Elle gère l'affichage des entités à chaque frame ///
     while (app.isOpen())
     {
         sf::Event event;
@@ -540,7 +547,7 @@ while(std::get<0>(action) == "JouerMulti"){
     }
 }// fin de la boucle while Action==JouerMulti
 
-//! Les 2 modes ont beaucoup de code en commun. Une optimisation est certainement possible. Une partie du code pourrait être contenu directement dans le fichier source GameOver et GameOverMulti. Ces deux interfaces pourraient dérivées d'une même classe de base.
+// ! Les 2 modes ont beaucoup de code en commun. Une optimisation est certainement possible. Une partie du code pourrait être contenu directement dans le fichier source GameOver et GameOverMulti. Ces deux interfaces pourraient dérivées d'une même classe de base.
 
 return 0;
 }

@@ -1,32 +1,24 @@
-/**
- * Le code définit une classe appelée Animation qui gère l'animation d'un sprite à l'aide d'une série
- * d'images.
- * 
- * @param t Le paramètre "t" est une référence à un objet sf::Texture. C'est la texture qui sera
- * utilisée pour les images d'animation.
- * @param x Le paramètre "x" dans le constructeur Animation représente la coordonnée x de la position
- * de départ des images d'animation sur la texture.
- * @param y Le paramètre "y" dans le constructeur Animation représente la coordonnée y du coin
- * supérieur gauche de la première image de l'animation dans la texture.
- * @param w Le paramètre "w" dans le constructeur Animation représente la largeur de chaque image de
- * l'animation.
- * @param h Le paramètre "h" dans le constructeur Animation représente la hauteur de chaque image de
- * l'animation. Il est utilisé pour définir la taille des images dans les objets sf::IntRect qui sont
- * stockés dans le vecteur frames.
- * @param count Le paramètre "count" dans le constructeur Animation représente le nombre d'images dans
- * l'animation. Il détermine combien d'images seront ajoutées au vecteur "frames". Chaque cadre est un
- * rectangle défini par sa position (x, y) et sa largeur et hauteur (w, h).
- * @param Speed Le paramètre "Vitesse" du constructeur Animation est utilisé pour contrôler la vitesse
- * à laquelle les images d'animation sont lues. Il détermine la rapidité avec laquelle l'animation
- * progresse d'une image à la suivante. Une valeur plus élevée pour Vitesse accélérera la lecture de
- * l'animation, tandis qu'une valeur inférieure la rendra plus lente.
- */
-                                            /// Bibliothèques ///
+                                            // Bibliothèques //
 #include "Animation.hpp"
 #include "global_variables.hpp"                            
 
-                                            /// Code Principal ///
-
+                                            // Code Principal //
+/**
+ * 
+ * Initialise une animation avec une texture, une position de départ, des dimensions de trame,
+ * un nombre de trames, et une vitesse spécifiée.
+ * 
+ * @param t La texture à utiliser pour l'animation.
+ * @param x La position horizontale de départ de la première trame.
+ * @param y La position verticale de départ de la première trame.
+ * @param w La largeur de chaque trame.
+ * @param h La hauteur de chaque trame.
+ * @param count Le nombre total de trames dans l'animation.
+ * @param Speed La vitesse de l'animation.
+ * 
+ * @note Ce constructeur suppose que la texture est correctement chargée et que les dimensions
+ * de la trame et le nombre de trames sont valides.
+ */
 Animation::Animation (sf::Texture &t, int x, int y, int w, int h, int count, float Speed)
 {
   Frame = 0;
@@ -40,7 +32,15 @@ Animation::Animation (sf::Texture &t, int x, int y, int w, int h, int count, flo
   sprite.setTextureRect(frames[0]);
 }
 
-
+/**
+ * @brief Met à jour l'animation.
+ * 
+ * Cette méthode met à jour l'animation en incrémentant le compteur de trame en fonction de la vitesse
+ * de l'animation. Elle assure également que le compteur de trame boucle pour éviter de sortir
+ * des limites du vecteur de trames.
+ * 
+ * @note Cette méthode suppose que le sprite et le vecteur de trames sont correctement initialisés.
+ */
 void Animation::update()
 {
   Frame += speed;
@@ -49,7 +49,16 @@ void Animation::update()
   if (n>0) sprite.setTextureRect( frames[int(Frame)] );
 }
 
-
+/**
+ * @brief Vérifie si l'animation est terminée.
+ * 
+ * Cette méthode vérifie si l'animation est terminée en comparant la position actuelle de la trame
+ * avec la taille du vecteur de trames, ajustée en fonction de la vitesse de l'animation.
+ * 
+ * @return true si l'animation est terminée, false sinon.
+ * 
+ * @note Cette méthode suppose que le vecteur de trames et la vitesse de l'animation sont correctement définis.
+ */
 bool Animation::isEnd()
 {
   return Frame+speed>=frames.size();

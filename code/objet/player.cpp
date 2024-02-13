@@ -1,11 +1,15 @@
-                                            /// Bibliothèques ///
-#include "player.hpp"
+                                            // Bibliothèques //
 #include "Entite.hpp"
+#include "player.hpp"
 #include "../Animation.hpp"
 #include "../global_variables.hpp"                            
 
-                                            /// Code Principal ///
-
+                                            // Code Principal //
+/**
+ * @brief Mise en oeuvre spécifique à la classe player de la fonction générique update 
+ * 
+ * Actualisation de la vitesse si le boost est activé sinon léger ralentissement 
+ */
 void player::update()
 {
     if (thrust)
