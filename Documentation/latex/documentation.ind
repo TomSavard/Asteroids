@@ -1,0 +1,289 @@
+\begin{theindex}
+
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/Animation.cpp}, 
+		\hyperpage{35}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/Animation.hpp}, 
+		\hyperpage{35, 36}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/global\_variables.cpp}, 
+		\hyperpage{36}, \hyperpage{38}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/global\_variables.hpp}, 
+		\hyperpage{38}, \hyperpage{40}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOver.cpp}, 
+		\hyperpage{40}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOver.hpp}, 
+		\hyperpage{41}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOverMulti.cpp}, 
+		\hyperpage{41, 42}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOverMulti.hpp}, 
+		\hyperpage{42, 43}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/Menu.cpp}, 
+		\hyperpage{43}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/Menu.hpp}, 
+		\hyperpage{45}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/TableauDesScores.cpp}, 
+		\hyperpage{46}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/TableauDesScores.hpp}, 
+		\hyperpage{46, 47}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/main.cpp}, 
+		\hyperpage{47, 48}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/mainpage.h}, 
+		\hyperpage{55}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/Entite.cpp}, 
+		\hyperpage{56, 57}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/Entite.hpp}, 
+		\hyperpage{58}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/asteroide.cpp}, 
+		\hyperpage{55}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/asteroide.hpp}, 
+		\hyperpage{56}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/player.cpp}, 
+		\hyperpage{59}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/player.hpp}, 
+		\hyperpage{60}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/tir.cpp}, 
+		\hyperpage{61}
+  \item {/Users/savardtom/Desktop/2A/IN204/Asteroids/code/objet/tir.hpp}, 
+		\hyperpage{61, 62}
+  \item {\texorpdfstring{$\sim$}{\string~}Entite}
+    \subitem {Entite}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Animation}, \hyperpage{9}
+    \subitem {Animation}, \hyperpage{10}
+    \subitem {Frame}, \hyperpage{12}
+    \subitem {frames}, \hyperpage{12}
+    \subitem {isEnd}, \hyperpage{11}
+    \subitem {speed}, \hyperpage{12}
+    \subitem {sprite}, \hyperpage{12}
+    \subitem {update}, \hyperpage{11}
+  \item {asteroide}, \hyperpage{12}
+    \subitem {asteroide}, \hyperpage{14}
+    \subitem {update}, \hyperpage{14}
+  \item {Astéroïdes Documentation}, \hyperpage{1}
+
+  \indexspace
+
+  \item {DEGTORAD}
+    \subitem {global\_variables.cpp}, \hyperpage{36}
+    \subitem {global\_variables.hpp}, \hyperpage{38}
+  \item {draw}
+    \subitem {Entite}, \hyperpage{17}
+    \subitem {GameOverMultiScreen}, \hyperpage{24}
+    \subitem {GameOverScreen}, \hyperpage{26}
+  \item {draw\_bouclier}
+    \subitem {player}, \hyperpage{29}
+  \item {drawScore}
+    \subitem {TableauDesScores}, \hyperpage{31}
+
+  \indexspace
+
+  \item {Entite}, \hyperpage{15}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Entite}, \hyperpage{16}
+    \subitem {draw}, \hyperpage{17}
+    \subitem {Entite}, \hyperpage{16}
+    \subitem {getangle}, \hyperpage{17}
+    \subitem {getAnim}, \hyperpage{17}
+    \subitem {getLife}, \hyperpage{17}
+    \subitem {getName}, \hyperpage{18}
+    \subitem {getR}, \hyperpage{18}
+    \subitem {getTeam}, \hyperpage{18}
+    \subitem {getvx}, \hyperpage{18}
+    \subitem {getvy}, \hyperpage{19}
+    \subitem {getx}, \hyperpage{19}
+    \subitem {gety}, \hyperpage{19}
+    \subitem {setangle}, \hyperpage{19}
+    \subitem {setAnim}, \hyperpage{20}
+    \subitem {setLife}, \hyperpage{20}
+    \subitem {setName}, \hyperpage{20}
+    \subitem {setR}, \hyperpage{20}
+    \subitem {setTeam}, \hyperpage{21}
+    \subitem {settings}, \hyperpage{21}
+    \subitem {setvx}, \hyperpage{22}
+    \subitem {setvy}, \hyperpage{22}
+    \subitem {setx}, \hyperpage{22}
+    \subitem {sety}, \hyperpage{23}
+    \subitem {update}, \hyperpage{23}
+
+  \indexspace
+
+  \item {Frame}
+    \subitem {Animation}, \hyperpage{12}
+  \item {frames}
+    \subitem {Animation}, \hyperpage{12}
+
+  \indexspace
+
+  \item {GameOverMultiScreen}, \hyperpage{23}
+    \subitem {draw}, \hyperpage{24}
+    \subitem {GameOverMultiScreen}, \hyperpage{24}
+  \item {GameOverScreen}, \hyperpage{25}
+    \subitem {draw}, \hyperpage{26}
+    \subitem {GameOverScreen}, \hyperpage{25}
+  \item {getangle}
+    \subitem {Entite}, \hyperpage{17}
+  \item {getAnim}
+    \subitem {Entite}, \hyperpage{17}
+  \item {getLife}
+    \subitem {Entite}, \hyperpage{17}
+  \item {getName}
+    \subitem {Entite}, \hyperpage{18}
+  \item {getR}
+    \subitem {Entite}, \hyperpage{18}
+  \item {getScore}
+    \subitem {TableauDesScores}, \hyperpage{31}
+  \item {getTeam}
+    \subitem {Entite}, \hyperpage{18}
+  \item {getvx}
+    \subitem {Entite}, \hyperpage{18}
+  \item {getvy}
+    \subitem {Entite}, \hyperpage{19}
+  \item {getx}
+    \subitem {Entite}, \hyperpage{19}
+  \item {gety}
+    \subitem {Entite}, \hyperpage{19}
+  \item {global\_variables.cpp}
+    \subitem {DEGTORAD}, \hyperpage{36}
+    \subitem {HauteurFenetre}, \hyperpage{36}
+    \subitem {hoverColor}, \hyperpage{37}
+    \subitem {LargeurFenetre}, \hyperpage{37}
+    \subitem {NombreAsteroideStart}, \hyperpage{37}
+    \subitem {NombreResidu}, \hyperpage{37}
+    \subitem {normalColor}, \hyperpage{37}
+    \subitem {Temps\_invincible}, \hyperpage{37}
+    \subitem {VolumeGeneral}, \hyperpage{37}
+  \item {global\_variables.hpp}
+    \subitem {DEGTORAD}, \hyperpage{38}
+    \subitem {HauteurFenetre}, \hyperpage{38}
+    \subitem {hoverColor}, \hyperpage{38}
+    \subitem {LargeurFenetre}, \hyperpage{39}
+    \subitem {NombreAsteroideStart}, \hyperpage{39}
+    \subitem {NombreResidu}, \hyperpage{39}
+    \subitem {normalColor}, \hyperpage{39}
+    \subitem {Temps\_invincible}, \hyperpage{39}
+    \subitem {VolumeGeneral}, \hyperpage{39}
+
+  \indexspace
+
+  \item {HauteurFenetre}
+    \subitem {global\_variables.cpp}, \hyperpage{36}
+    \subitem {global\_variables.hpp}, \hyperpage{38}
+  \item {hoverColor}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{38}
+
+  \indexspace
+
+  \item {increaseScore}
+    \subitem {TableauDesScores}, \hyperpage{31}
+  \item {isCollide}
+    \subitem {main.cpp}, \hyperpage{48}
+  \item {isEnd}
+    \subitem {Animation}, \hyperpage{11}
+
+  \indexspace
+
+  \item {LargeurFenetre}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{48}
+  \item {main.cpp}
+    \subitem {isCollide}, \hyperpage{48}
+    \subitem {main}, \hyperpage{48}
+  \item {Menu}, \hyperpage{26}
+    \subitem {Menu}, \hyperpage{27}
+    \subitem {run}, \hyperpage{27}
+
+  \indexspace
+
+  \item {NombreAsteroideStart}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+  \item {NombreResidu}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+  \item {normalColor}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+
+  \indexspace
+
+  \item {player}, \hyperpage{28}
+    \subitem {draw\_bouclier}, \hyperpage{29}
+    \subitem {player}, \hyperpage{29}
+    \subitem {thrust}, \hyperpage{30}
+    \subitem {update}, \hyperpage{30}
+
+  \indexspace
+
+  \item {reset}
+    \subitem {TableauDesScores}, \hyperpage{32}
+  \item {run}
+    \subitem {Menu}, \hyperpage{27}
+
+  \indexspace
+
+  \item {setangle}
+    \subitem {Entite}, \hyperpage{19}
+  \item {setAnim}
+    \subitem {Entite}, \hyperpage{20}
+  \item {setLife}
+    \subitem {Entite}, \hyperpage{20}
+  \item {setName}
+    \subitem {Entite}, \hyperpage{20}
+  \item {setR}
+    \subitem {Entite}, \hyperpage{20}
+  \item {setTeam}
+    \subitem {Entite}, \hyperpage{21}
+  \item {settings}
+    \subitem {Entite}, \hyperpage{21}
+  \item {setvx}
+    \subitem {Entite}, \hyperpage{22}
+  \item {setvy}
+    \subitem {Entite}, \hyperpage{22}
+  \item {setx}
+    \subitem {Entite}, \hyperpage{22}
+  \item {sety}
+    \subitem {Entite}, \hyperpage{23}
+  \item {speed}
+    \subitem {Animation}, \hyperpage{12}
+  \item {sprite}
+    \subitem {Animation}, \hyperpage{12}
+
+  \indexspace
+
+  \item {TableauDesScores}, \hyperpage{30}
+    \subitem {drawScore}, \hyperpage{31}
+    \subitem {getScore}, \hyperpage{31}
+    \subitem {increaseScore}, \hyperpage{31}
+    \subitem {reset}, \hyperpage{32}
+    \subitem {TableauDesScores}, \hyperpage{31}
+  \item {Temps\_invincible}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+  \item {thrust}
+    \subitem {player}, \hyperpage{30}
+  \item {tir}, \hyperpage{32}
+    \subitem {tir}, \hyperpage{34}
+    \subitem {update}, \hyperpage{34}
+
+  \indexspace
+
+  \item {update}
+    \subitem {Animation}, \hyperpage{11}
+    \subitem {asteroide}, \hyperpage{14}
+    \subitem {Entite}, \hyperpage{23}
+    \subitem {player}, \hyperpage{30}
+    \subitem {tir}, \hyperpage{34}
+
+  \indexspace
+
+  \item {VolumeGeneral}
+    \subitem {global\_variables.cpp}, \hyperpage{37}
+    \subitem {global\_variables.hpp}, \hyperpage{39}
+
+\end{theindex}

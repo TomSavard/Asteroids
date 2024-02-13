@@ -1,0 +1,205 @@
+\doxysection{Animation Class Reference}
+\hypertarget{class_animation}{}\label{class_animation}\index{Animation@{Animation}}
+
+
+Gère l\textquotesingle{}animation d\textquotesingle{}un sprite à l\textquotesingle{}aide d\textquotesingle{}une série d\textquotesingle{}images (spritesheet).  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animation_a1096705adf3538580b581efc1c677661}{Animation}} (sf\+::\+Texture \&t, int x, int y, int w, int h, int count, float Speed)
+\begin{DoxyCompactList}\small\item\em Constructeur avec paramètres permettant d\textquotesingle{}initialisées les attributs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}{update}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}animation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_animation_a145061ea983f4f4000155a0196f74bfc}{is\+End}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si l\textquotesingle{}animation est terminée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}
+\item 
+float \mbox{\hyperlink{class_animation_a68079384a94a0ebdba03241f1937608e}{speed}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_animation_aa42d79f0d975d047ba3792143c1ddc74}{sprite}}
+\item 
+std\+::vector$<$ sf\+::\+Int\+Rect $>$ \mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gère l\textquotesingle{}animation d\textquotesingle{}un sprite à l\textquotesingle{}aide d\textquotesingle{}une série d\textquotesingle{}images (spritesheet). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Le paramètre "{}t"{} est une référence à un objet sf\+::\+Texture. C\textquotesingle{}est la texture qui sera utilisée pour les images d\textquotesingle{}animation. \\
+\hline
+{\em x} & Le paramètre "{}x"{} dans le constructeur \doxylink{class_animation}{Animation} représente la coordonnée x de la position de départ des images d\textquotesingle{}animation sur la texture. \\
+\hline
+{\em y} & Le paramètre "{}y"{} dans le constructeur \doxylink{class_animation}{Animation} représente la coordonnée y du coin supérieur gauche de la première image de l\textquotesingle{}animation dans la texture. \\
+\hline
+{\em w} & Le paramètre "{}w"{} dans le constructeur \doxylink{class_animation}{Animation} représente la largeur de chaque image de l\textquotesingle{}animation. \\
+\hline
+{\em h} & Le paramètre "{}h"{} dans le constructeur \doxylink{class_animation}{Animation} représente la hauteur de chaque image de l\textquotesingle{}animation. Il est utilisé pour définir la taille des images dans les objets sf\+::\+Int\+Rect qui sont stockés dans le vecteur frames. \\
+\hline
+{\em count} & Le paramètre "{}count"{} dans le constructeur \doxylink{class_animation}{Animation} représente le nombre d\textquotesingle{}images dans l\textquotesingle{}animation. Il détermine combien d\textquotesingle{}images seront ajoutées au vecteur "{}frames"{}. Chaque cadre est un rectangle défini par sa position (x, y) et sa largeur et hauteur (w, h). \\
+\hline
+{\em Speed} & Le paramètre "{}\+Vitesse"{} du constructeur \doxylink{class_animation}{Animation} est utilisé pour contrôler la vitesse à laquelle les images d\textquotesingle{}animation sont lues. Il détermine la rapidité avec laquelle l\textquotesingle{}animation progresse d\textquotesingle{}une image à la suivante. Une valeur plus élevée pour Vitesse accélérera la lecture de l\textquotesingle{}animation, tandis qu\textquotesingle{}une valeur inférieure la rendra plus lente. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_animation_a83f0a16cef7117f187ad596de38dd9d6}\label{class_animation_a83f0a16cef7117f187ad596de38dd9d6} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Animation()}{Animation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par défaut. 
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+\Hypertarget{class_animation_a1096705adf3538580b581efc1c677661}\label{class_animation_a1096705adf3538580b581efc1c677661} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Animation()}{Animation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{t,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{count,  }\item[{float}]{Speed }\end{DoxyParamCaption})}
+
+
+
+Constructeur avec paramètres permettant d\textquotesingle{}initialisées les attributs. 
+
+Initialise une animation avec une texture, une position de départ, des dimensions de trame, un nombre de trames, et une vitesse spécifiée.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & La texture à utiliser pour l\textquotesingle{}animation. \\
+\hline
+{\em x} & La position horizontale de départ de la première trame. \\
+\hline
+{\em y} & La position verticale de départ de la première trame. \\
+\hline
+{\em w} & La largeur de chaque trame. \\
+\hline
+{\em h} & La hauteur de chaque trame. \\
+\hline
+{\em count} & Le nombre total de trames dans l\textquotesingle{}animation. \\
+\hline
+{\em Speed} & La vitesse de l\textquotesingle{}animation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Ce constructeur suppose que la texture est correctement chargée et que les dimensions de la trame et le nombre de trames sont valides. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_animation_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_animation_8cpp_source}{Animation.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_animation_a145061ea983f4f4000155a0196f74bfc}\label{class_animation_a145061ea983f4f4000155a0196f74bfc} 
+\index{Animation@{Animation}!isEnd@{isEnd}}
+\index{isEnd@{isEnd}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{isEnd()}{isEnd()}}
+{\footnotesize\ttfamily bool Animation\+::is\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si l\textquotesingle{}animation est terminée. 
+
+Cette méthode vérifie si l\textquotesingle{}animation est terminée en comparant la position actuelle de la trame avec la taille du vecteur de trames, ajustée en fonction de la vitesse de l\textquotesingle{}animation.
+
+\begin{DoxyReturn}{Returns}
+true si l\textquotesingle{}animation est terminée, false sinon.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Cette méthode suppose que le vecteur de trames et la vitesse de l\textquotesingle{}animation sont correctement définis. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_animation_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_animation_8cpp_source}{Animation.\+cpp}}.
+
+\Hypertarget{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}\label{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705} 
+\index{Animation@{Animation}!update@{update}}
+\index{update@{update}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Animation\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Met à jour l\textquotesingle{}animation. 
+
+Cette méthode met à jour l\textquotesingle{}animation en incrémentant le compteur de trame en fonction de la vitesse de l\textquotesingle{}animation. Elle assure également que le compteur de trame boucle pour éviter de sortir des limites du vecteur de trames.
+
+\begin{DoxyNote}{Note}
+Cette méthode suppose que le sprite et le vecteur de trames sont correctement initialisés. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_animation_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_animation_8cpp_source}{Animation.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_animation_a2c7bd0213e063da804e2bec388587399}\label{class_animation_a2c7bd0213e063da804e2bec388587399} 
+\index{Animation@{Animation}!Frame@{Frame}}
+\index{Frame@{Frame}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Frame}{Frame}}
+{\footnotesize\ttfamily float Animation\+::\+Frame}
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+\Hypertarget{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}\label{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958} 
+\index{Animation@{Animation}!frames@{frames}}
+\index{frames@{frames}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{frames}{frames}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Int\+Rect$>$ Animation\+::frames}
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+\Hypertarget{class_animation_a68079384a94a0ebdba03241f1937608e}\label{class_animation_a68079384a94a0ebdba03241f1937608e} 
+\index{Animation@{Animation}!speed@{speed}}
+\index{speed@{speed}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float Animation\+::speed}
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+\Hypertarget{class_animation_aa42d79f0d975d047ba3792143c1ddc74}\label{class_animation_aa42d79f0d975d047ba3792143c1ddc74} 
+\index{Animation@{Animation}!sprite@{sprite}}
+\index{sprite@{sprite}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Animation\+::sprite}
+
+
+
+Definition at line \mbox{\hyperlink{_animation_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{_animation_8hpp_source}{Animation.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/\mbox{\hyperlink{_animation_8hpp}{Animation.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/\mbox{\hyperlink{_animation_8cpp}{Animation.\+cpp}}\end{DoxyCompactItemize}

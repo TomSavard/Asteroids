@@ -1,0 +1,75 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+Classe représentant le menu d\textquotesingle{}accueil du jeu.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_acdc2c68d46eded22ad23469539e2ecca}{Menu}} (sf\+::\+Render\+Window \&window, sf\+::\+Music \&music)
+\begin{DoxyCompactList}\small\item\em Constructeur du \doxylink{class_menu}{Menu}. Il fait appel à deux arguments afin de pouvoir effectuer l\textquotesingle{}affichage et avoir une musique de fond. \end{DoxyCompactList}\item 
+std\+::tuple$<$ std\+::string, float $>$ \mbox{\hyperlink{class_menu_add4c7e146f4ce36bc3e23e0c443cec61}{run}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant le menu d\textquotesingle{}accueil du jeu. 
+
+Cette classe gère l\textquotesingle{}affichage et l\textquotesingle{}interaction avec le menu du jeu permettant de sélectionner le mode de jeu ou encore le volume sonore. 
+
+Definition at line \mbox{\hyperlink{_menu_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_menu_8hpp_source}{Menu.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_acdc2c68d46eded22ad23469539e2ecca}\label{class_menu_acdc2c68d46eded22ad23469539e2ecca} 
+\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+Music \&}]{music }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur du \doxylink{class_menu}{Menu}. Il fait appel à deux arguments afin de pouvoir effectuer l\textquotesingle{}affichage et avoir une musique de fond. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & pointeur sf\+::\+Render\+Window qui permet l\textquotesingle{}affichage des éléments. \\
+\hline
+{\em music} & pointeur sf\+::\+Music qui donne accès à la musique chargée. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_menu_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{_menu_8hpp_source}{Menu.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_add4c7e146f4ce36bc3e23e0c443cec61}\label{class_menu_add4c7e146f4ce36bc3e23e0c443cec61} 
+\index{Menu@{Menu}!run@{run}}
+\index{run@{run}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily std\+::tuple$<$ std\+::string, float $>$ Menu\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+La fonction run dans la classe \doxylink{class_menu}{Menu} affiche un écran de menu avec des boutons et gère les interactions de l\textquotesingle{}utilisateur telles que cliquer sur des boutons et faire glisser un indicateur de volume.
+
+\begin{DoxyReturn}{Returns}
+La fonction {\ttfamily \doxylink{class_menu_add4c7e146f4ce36bc3e23e0c443cec61}{run()}} renvoie un tuple contenant une chaîne et un float. La chaîne représente l\textquotesingle{}action sélectionnée par l\textquotesingle{}utilisateur (par exemple, "{}\+Jouer\+Solo"{}, "{}\+Jouer\+Multi"{}, "{}\+Quitter"{}), et le float représente le niveau de volume sélectionné par l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_menu_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_menu_8cpp_source}{Menu.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_menu_8hpp}{Menu.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_menu_8cpp}{Menu.\+cpp}}\end{DoxyCompactItemize}

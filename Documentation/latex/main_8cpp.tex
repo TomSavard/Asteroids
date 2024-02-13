@@ -1,0 +1,73 @@
+\doxysection{/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/main.cpp@{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/main.cpp}}
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Audio.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}interface/\+Menu.\+hpp"{}}\newline
+{\ttfamily \#include "{}interface/\+Game\+Over.\+hpp"{}}\newline
+{\ttfamily \#include "{}interface/\+Game\+Over\+Multi.\+hpp"{}}\newline
+{\ttfamily \#include "{}interface/\+Tableau\+Des\+Scores.\+hpp"{}}\newline
+{\ttfamily \#include "{}global\+\_\+variables.\+hpp"{}}\newline
+{\ttfamily \#include "{}Animation.\+hpp"{}}\newline
+{\ttfamily \#include "{}objet/\+Entite.\+hpp"{}}\newline
+{\ttfamily \#include "{}objet/asteroide.\+hpp"{}}\newline
+{\ttfamily \#include "{}objet/tir.\+hpp"{}}\newline
+{\ttfamily \#include "{}objet/player.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8cpp_a473930892f70de36d4e190e77f19eadb}{is\+Collide}} (\mbox{\hyperlink{class_entite}{Entite}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{class_entite}{Entite}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Prend deux entités et vérifient si il y a collision. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em C\textquotesingle{}est la boucle principale. Elle gère en particulier l\textquotesingle{}interaction avec le joueur et fait appel aux autres fichiers sources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a473930892f70de36d4e190e77f19eadb}\label{main_8cpp_a473930892f70de36d4e190e77f19eadb} 
+\index{main.cpp@{main.cpp}!isCollide@{isCollide}}
+\index{isCollide@{isCollide}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{isCollide()}{isCollide()}}
+{\footnotesize\ttfamily bool is\+Collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entite}{Entite}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{class_entite}{Entite}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Prend deux entités et vérifient si il y a collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & une entité \\
+\hline
+{\em b} & une autre entité \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si il y a collision 
+
+false sinon 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+C\textquotesingle{}est la boucle principale. Elle gère en particulier l\textquotesingle{}interaction avec le joueur et fait appel aux autres fichiers sources. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

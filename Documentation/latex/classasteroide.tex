@@ -1,0 +1,126 @@
+\doxysection{asteroide Class Reference}
+\hypertarget{classasteroide}{}\label{classasteroide}\index{asteroide@{asteroide}}
+
+
+Cette objet regroupe l\textquotesingle{}ensemble des astres qui volent à l\textquotesingle{}écran. Ces derniers peuvent être d\textquotesingle{}apparences, de taille ou encore de vitesse diférentes.  
+
+
+
+
+{\ttfamily \#include $<$asteroide.\+hpp$>$}
+
+Inheritance diagram for asteroide\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classasteroide}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classasteroide_a01e82188110bbd220e97e8ff5aa5516e}{asteroide}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasteroide_a8b5085d16ffa5acc3abb6dd137caa53e}{update}} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant la mise à jour de la position de l\textquotesingle{}astéroïde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entite}{Entite}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entite_af198e4cd607eff1fce60eb103b713360}{Entite}} ()
+\item 
+void \mbox{\hyperlink{class_entite_adbfdc50a0dc97c0c554d4c48ea0d57ce}{settings}} (\mbox{\hyperlink{class_animation}{Animation}} \&a, int X, int Y, float Angle=0, int radius=1)
+\begin{DoxyCompactList}\small\item\em permet le paramétrage de l\textquotesingle{}entité en définissant la valeur de ses attributs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0996185d6fa575d283f3dca4d49f6ada}{draw}} (sf\+::\+Render\+Window \&app)
+\begin{DoxyCompactList}\small\item\em Dessine une entité sur une fenêtre SFML avec une position et une rotation spécifiques. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a588a58b53db63f4d1c7c41023718c524}{getx}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}x"{} sous forme de flottant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0b442e7d26ff9cf974a914390abe5c20}{setx}} (float newX)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable x à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a8113d2f0b2321b58c009c79690d5c6b8}{gety}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}y"{} sous forme de flottant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a1bd648405cd22128ad5a0b01994c24fb}{sety}} (float newY)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable "{}y"{} à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a985ec4acb175cb0402c48dddd1095858}{getvx}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}vx"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_acc484d0d675c9be832f58c550389d597}{setvx}} (float new\+VX)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable "{}vx"{} à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a19d1f83b3518a13667dd4a999e0eb03d}{getvy}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}vy"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a8229257af7e12dc8cf2300a66cfc8f7d}{setvy}} (float new\+VY)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable vy dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_abfe91d44c0003a9a059b2947e283a76c}{getR}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}\+R"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a1834edaecfd1ebd97a4964deb7826d71}{setR}} (float newR)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable R dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_ac157773c65f424e1b26cd2b500c3eee4}{getangle}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}angle"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aac22bd33adabf3b33235cfd760871dfa}{setangle}} (float new\+Angle)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable angle dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entite_a5d3a4562371c4074a64ca019500e859e}{get\+Team}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l\textquotesingle{}équipe d\textquotesingle{}une entité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0a7fd6f1945af452d396ba4bac6d3c74}{set\+Team}} (int choix\+Team)
+\begin{DoxyCompactList}\small\item\em définit l\textquotesingle{}équipe d\textquotesingle{}une entité à la valeur spécifiée. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entite_a6801478047d08287708e52c331e7708f}{get\+Life}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}life"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_add8c7e578c4fc6b1755875876f67dec2}{set\+Life}} (bool newlife)
+\begin{DoxyCompactList}\small\item\em fixe la valeur de la variable "{}life"{} à la valeur passée en paramètre. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_entite_a0786dccb7d8eba492d9483fb54e12898}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le nom d\textquotesingle{}une entité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aa4131a85e4c7c1b8e500e5df442c9709}{set\+Name}} (std\+::string new\+Name)
+\begin{DoxyCompactList}\small\item\em définit le nom d\textquotesingle{}une entité sur une nouvelle valeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animation}{Animation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entite_ab679a2c9129ecc7706856c2755668235}{get\+Anim}} ()
+\begin{DoxyCompactList}\small\item\em renvoie un pointeur sur l\textquotesingle{}objet "{}anim"{} de la classe "{}\+Entite"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aaa8314f2dfb751667db89f3299f46e48}{set\+Anim}} (\mbox{\hyperlink{class_animation}{Animation}} new\+Anim)
+\begin{DoxyCompactList}\small\item\em définit l\textquotesingle{}animation d\textquotesingle{}une entité sur une nouvelle animation. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entite_a60525ac0a9be3ac6c4e4095578245f29}{\texorpdfstring{$\sim$}{\string~}\+Entite}} ()
+\begin{DoxyCompactList}\small\item\em Le destructeur de la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette objet regroupe l\textquotesingle{}ensemble des astres qui volent à l\textquotesingle{}écran. Ces derniers peuvent être d\textquotesingle{}apparences, de taille ou encore de vitesse diférentes. 
+
+Definition at line \mbox{\hyperlink{asteroide_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{asteroide_8hpp_source}{asteroide.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classasteroide_a01e82188110bbd220e97e8ff5aa5516e}\label{classasteroide_a01e82188110bbd220e97e8ff5aa5516e} 
+\index{asteroide@{asteroide}!asteroide@{asteroide}}
+\index{asteroide@{asteroide}!asteroide@{asteroide}}
+\doxysubsubsection{\texorpdfstring{asteroide()}{asteroide()}}
+{\footnotesize\ttfamily asteroide\+::asteroide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par défaut. 
+
+Le constructeur par défaut de la classe \doxylink{class_entite}{Entite}. On initialise aléatoirement les vitesses vx et vy. 
+
+Definition at line \mbox{\hyperlink{asteroide_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{asteroide_8hpp_source}{asteroide.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasteroide_a8b5085d16ffa5acc3abb6dd137caa53e}\label{classasteroide_a8b5085d16ffa5acc3abb6dd137caa53e} 
+\index{asteroide@{asteroide}!update@{update}}
+\index{update@{update}!asteroide@{asteroide}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void asteroide\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Methode permettant la mise à jour de la position de l\textquotesingle{}astéroïde. 
+
+Met à jour la position d\textquotesingle{}un astéroïde en ajoutant sa vitesse à sa position actuelle et enroule la position autour de l\textquotesingle{}écran si elle dépasse les limites de l\textquotesingle{}écran. 
+
+Reimplemented from \mbox{\hyperlink{class_entite_ae95c79694e8d3e317718db28f6247a0a}{Entite}}.
+
+
+
+Definition at line \mbox{\hyperlink{asteroide_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{asteroide_8cpp_source}{asteroide.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/objet/\mbox{\hyperlink{asteroide_8hpp}{asteroide.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/objet/\mbox{\hyperlink{asteroide_8cpp}{asteroide.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,577 @@
+\doxysection{Entite Class Reference}
+\hypertarget{class_entite}{}\label{class_entite}\index{Entite@{Entite}}
+
+
+Classe la plus générique regroupant les propriétés des différents objets.  
+
+
+
+
+{\ttfamily \#include $<$Entite.\+hpp$>$}
+
+Inheritance diagram for Entite\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entite}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entite_af198e4cd607eff1fce60eb103b713360}{Entite}} ()
+\item 
+void \mbox{\hyperlink{class_entite_adbfdc50a0dc97c0c554d4c48ea0d57ce}{settings}} (\mbox{\hyperlink{class_animation}{Animation}} \&a, int X, int Y, float Angle=0, int radius=1)
+\begin{DoxyCompactList}\small\item\em permet le paramétrage de l\textquotesingle{}entité en définissant la valeur de ses attributs. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entite_ae95c79694e8d3e317718db28f6247a0a}{update}} ()
+\begin{DoxyCompactList}\small\item\em fonction d\textquotesingle{}espace réservé qui est destinée à être remplacée par les classes dérivées. Elle est utilisée pour mettre à jour l\textquotesingle{}état de l\textquotesingle{}entité, comme sa position, sa vitesse ou toute autre propriété susceptible de changer au fil du temps. La mise en œuvre de cette fonction variera en fonction du comportement spécifique de l\textquotesingle{}entité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0996185d6fa575d283f3dca4d49f6ada}{draw}} (sf\+::\+Render\+Window \&app)
+\begin{DoxyCompactList}\small\item\em Dessine une entité sur une fenêtre SFML avec une position et une rotation spécifiques. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a588a58b53db63f4d1c7c41023718c524}{getx}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}x"{} sous forme de flottant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0b442e7d26ff9cf974a914390abe5c20}{setx}} (float newX)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable x à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a8113d2f0b2321b58c009c79690d5c6b8}{gety}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}y"{} sous forme de flottant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a1bd648405cd22128ad5a0b01994c24fb}{sety}} (float newY)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable "{}y"{} à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a985ec4acb175cb0402c48dddd1095858}{getvx}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}vx"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_acc484d0d675c9be832f58c550389d597}{setvx}} (float new\+VX)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable "{}vx"{} à une nouvelle valeur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_a19d1f83b3518a13667dd4a999e0eb03d}{getvy}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}vy"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a8229257af7e12dc8cf2300a66cfc8f7d}{setvy}} (float new\+VY)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable vy dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_abfe91d44c0003a9a059b2947e283a76c}{getR}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}\+R"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a1834edaecfd1ebd97a4964deb7826d71}{setR}} (float newR)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable R dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entite_ac157773c65f424e1b26cd2b500c3eee4}{getangle}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}angle"{} sous forme de float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aac22bd33adabf3b33235cfd760871dfa}{setangle}} (float new\+Angle)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la variable angle dans la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entite_a5d3a4562371c4074a64ca019500e859e}{get\+Team}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l\textquotesingle{}équipe d\textquotesingle{}une entité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_a0a7fd6f1945af452d396ba4bac6d3c74}{set\+Team}} (int choix\+Team)
+\begin{DoxyCompactList}\small\item\em définit l\textquotesingle{}équipe d\textquotesingle{}une entité à la valeur spécifiée. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entite_a6801478047d08287708e52c331e7708f}{get\+Life}} ()
+\begin{DoxyCompactList}\small\item\em renvoie la valeur de la variable "{}life"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_add8c7e578c4fc6b1755875876f67dec2}{set\+Life}} (bool newlife)
+\begin{DoxyCompactList}\small\item\em fixe la valeur de la variable "{}life"{} à la valeur passée en paramètre. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_entite_a0786dccb7d8eba492d9483fb54e12898}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le nom d\textquotesingle{}une entité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aa4131a85e4c7c1b8e500e5df442c9709}{set\+Name}} (std\+::string new\+Name)
+\begin{DoxyCompactList}\small\item\em définit le nom d\textquotesingle{}une entité sur une nouvelle valeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animation}{Animation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entite_ab679a2c9129ecc7706856c2755668235}{get\+Anim}} ()
+\begin{DoxyCompactList}\small\item\em renvoie un pointeur sur l\textquotesingle{}objet "{}anim"{} de la classe "{}\+Entite"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entite_aaa8314f2dfb751667db89f3299f46e48}{set\+Anim}} (\mbox{\hyperlink{class_animation}{Animation}} new\+Anim)
+\begin{DoxyCompactList}\small\item\em définit l\textquotesingle{}animation d\textquotesingle{}une entité sur une nouvelle animation. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entite_a60525ac0a9be3ac6c4e4095578245f29}{\texorpdfstring{$\sim$}{\string~}\+Entite}} ()
+\begin{DoxyCompactList}\small\item\em Le destructeur de la classe \doxylink{class_entite}{Entite}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe la plus générique regroupant les propriétés des différents objets. 
+
+Cette classe possède de nombreux paramètres tous passés en privée afin de garantir une certaine sécuritée. 
+\begin{DoxyParams}{Parameters}
+{\em team} & int correspondant au numéro de l\textquotesingle{}équipe \\
+\hline
+{\em life} & bool indiquant si l\textquotesingle{}entité est détruite ou non. \\
+\hline
+{\em name} & string permettant la discrimination des entitées. \\
+\hline
+{\em anim} & \doxylink{class_animation}{Animation} donnant accès à un sprite. \\
+\hline
+{\em x} & float position horizontale \\
+\hline
+{\em y} & float position verticale \\
+\hline
+{\em vx} & float vitesse horizontale \\
+\hline
+{\em vy} & float vitesse verticale \\
+\hline
+{\em R} & float rayon de la hitbox \\
+\hline
+{\em angle} & float orientation de l\textquotesingle{}entité dans le plan \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_entite_8hpp_source}{Entite.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_entite_af198e4cd607eff1fce60eb103b713360}\label{class_entite_af198e4cd607eff1fce60eb103b713360} 
+\index{Entite@{Entite}!Entite@{Entite}}
+\index{Entite@{Entite}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{Entite()}{Entite()}}
+{\footnotesize\ttfamily Entite\+::\+Entite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Le constructeur par défaut de la classe \doxylink{class_entite}{Entite}. On initialise l\textquotesingle{}entité comme étant vivante (life=1;). 
+
+Definition at line \mbox{\hyperlink{_entite_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{_entite_8hpp_source}{Entite.\+hpp}}.
+
+\Hypertarget{class_entite_a60525ac0a9be3ac6c4e4095578245f29}\label{class_entite_a60525ac0a9be3ac6c4e4095578245f29} 
+\index{Entite@{Entite}!````~Entite@{\texorpdfstring{$\sim$}{\string~}Entite}}
+\index{````~Entite@{\texorpdfstring{$\sim$}{\string~}Entite}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entite()}{\string~Entite()}}
+{\footnotesize\ttfamily Entite\+::\texorpdfstring{$\sim$}{\string~}\+Entite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Le destructeur de la classe \doxylink{class_entite}{Entite}. 
+
+Ce destructeur est virtuel car il dépend de la structure des classes dérivées. 
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entite_a0996185d6fa575d283f3dca4d49f6ada}\label{class_entite_a0996185d6fa575d283f3dca4d49f6ada} 
+\index{Entite@{Entite}!draw@{draw}}
+\index{draw@{draw}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Entite\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{app }\end{DoxyParamCaption})}
+
+
+
+Dessine une entité sur une fenêtre SFML avec une position et une rotation spécifiques. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Le paramètre "{}app"{} est une référence à l\textquotesingle{}objet sf\+::\+Render\+Window qui représente la fenêtre de l\textquotesingle{}application. Il est utilisé pour dessiner le sprite sur la fenêtre. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_ac157773c65f424e1b26cd2b500c3eee4}\label{class_entite_ac157773c65f424e1b26cd2b500c3eee4} 
+\index{Entite@{Entite}!getangle@{getangle}}
+\index{getangle@{getangle}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getangle()}{getangle()}}
+{\footnotesize\ttfamily float Entite\+::getangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}angle"{} sous forme de float. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}angle"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_ab679a2c9129ecc7706856c2755668235}\label{class_entite_ab679a2c9129ecc7706856c2755668235} 
+\index{Entite@{Entite}!getAnim@{getAnim}}
+\index{getAnim@{getAnim}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getAnim()}{getAnim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_animation}{Animation}} \texorpdfstring{$\ast$}{*} Entite\+::get\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie un pointeur sur l\textquotesingle{}objet "{}anim"{} de la classe "{}\+Entite"{}. 
+
+\begin{DoxyReturn}{Returns}
+un pointeur vers un objet de type \doxylink{class_animation}{Animation}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a6801478047d08287708e52c331e7708f}\label{class_entite_a6801478047d08287708e52c331e7708f} 
+\index{Entite@{Entite}!getLife@{getLife}}
+\index{getLife@{getLife}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getLife()}{getLife()}}
+{\footnotesize\ttfamily bool Entite\+::get\+Life (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}life"{}. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}vie"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a0786dccb7d8eba492d9483fb54e12898}\label{class_entite_a0786dccb7d8eba492d9483fb54e12898} 
+\index{Entite@{Entite}!getName@{getName}}
+\index{getName@{getName}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Entite\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie le nom d\textquotesingle{}une entité. 
+
+\begin{DoxyReturn}{Returns}
+une chaîne, qui est la valeur de la variable "{}name"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_abfe91d44c0003a9a059b2947e283a76c}\label{class_entite_abfe91d44c0003a9a059b2947e283a76c} 
+\index{Entite@{Entite}!getR@{getR}}
+\index{getR@{getR}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getR()}{getR()}}
+{\footnotesize\ttfamily float Entite\+::getR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}\+R"{} sous forme de float. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}\+R"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00227}{227}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a5d3a4562371c4074a64ca019500e859e}\label{class_entite_a5d3a4562371c4074a64ca019500e859e} 
+\index{Entite@{Entite}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}}
+{\footnotesize\ttfamily int Entite\+::get\+Team (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie l\textquotesingle{}équipe d\textquotesingle{}une entité. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}équipe"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a985ec4acb175cb0402c48dddd1095858}\label{class_entite_a985ec4acb175cb0402c48dddd1095858} 
+\index{Entite@{Entite}!getvx@{getvx}}
+\index{getvx@{getvx}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getvx()}{getvx()}}
+{\footnotesize\ttfamily float Entite\+::getvx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}vx"{} sous forme de float. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}vx"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a19d1f83b3518a13667dd4a999e0eb03d}\label{class_entite_a19d1f83b3518a13667dd4a999e0eb03d} 
+\index{Entite@{Entite}!getvy@{getvy}}
+\index{getvy@{getvy}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getvy()}{getvy()}}
+{\footnotesize\ttfamily float Entite\+::getvy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}vy"{} sous forme de float. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}vy"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00207}{207}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a588a58b53db63f4d1c7c41023718c524}\label{class_entite_a588a58b53db63f4d1c7c41023718c524} 
+\index{Entite@{Entite}!getx@{getx}}
+\index{getx@{getx}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{getx()}{getx()}}
+{\footnotesize\ttfamily float Entite\+::getx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}x"{} sous forme de flottant. 
+
+\begin{DoxyReturn}{Returns}
+la valeur de la variable "{}x"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a8113d2f0b2321b58c009c79690d5c6b8}\label{class_entite_a8113d2f0b2321b58c009c79690d5c6b8} 
+\index{Entite@{Entite}!gety@{gety}}
+\index{gety@{gety}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{gety()}{gety()}}
+{\footnotesize\ttfamily float Entite\+::gety (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur de la variable "{}y"{} sous forme de flottant. 
+
+\begin{DoxyReturn}{Returns}
+La valeur y de l\textquotesingle{}objet \doxylink{class_entite}{Entite}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_aac22bd33adabf3b33235cfd760871dfa}\label{class_entite_aac22bd33adabf3b33235cfd760871dfa} 
+\index{Entite@{Entite}!setangle@{setangle}}
+\index{setangle@{setangle}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setangle()}{setangle()}}
+{\footnotesize\ttfamily void Entite\+::setangle (\begin{DoxyParamCaption}\item[{float}]{new\+Angle }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable angle dans la classe \doxylink{class_entite}{Entite}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Angle} & Le paramètre new\+Angle est un flottant qui représente la nouvelle valeur de la variable angle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00256}{256}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_aaa8314f2dfb751667db89f3299f46e48}\label{class_entite_aaa8314f2dfb751667db89f3299f46e48} 
+\index{Entite@{Entite}!setAnim@{setAnim}}
+\index{setAnim@{setAnim}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setAnim()}{setAnim()}}
+{\footnotesize\ttfamily void Entite\+::set\+Anim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_animation}{Animation}}}]{new\+Anim }\end{DoxyParamCaption})}
+
+
+
+définit l\textquotesingle{}animation d\textquotesingle{}une entité sur une nouvelle animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Anim} & La nouvelle animation que vous souhaitez définir pour l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_add8c7e578c4fc6b1755875876f67dec2}\label{class_entite_add8c7e578c4fc6b1755875876f67dec2} 
+\index{Entite@{Entite}!setLife@{setLife}}
+\index{setLife@{setLife}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setLife()}{setLife()}}
+{\footnotesize\ttfamily void Entite\+::set\+Life (\begin{DoxyParamCaption}\item[{bool}]{newlife }\end{DoxyParamCaption})}
+
+
+
+fixe la valeur de la variable "{}life"{} à la valeur passée en paramètre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newlife} & La nouvelle valeur de la variable "{}life"{}. C\textquotesingle{}est une valeur booléenne indiquant si l\textquotesingle{}entité est vivante ou non. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_aa4131a85e4c7c1b8e500e5df442c9709}\label{class_entite_aa4131a85e4c7c1b8e500e5df442c9709} 
+\index{Entite@{Entite}!setName@{setName}}
+\index{setName@{setName}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Entite\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Name }\end{DoxyParamCaption})}
+
+
+
+définit le nom d\textquotesingle{}une entité sur une nouvelle valeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Name} & Le nouveau nom qui sera attribué à la variable "{}name"{}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a1834edaecfd1ebd97a4964deb7826d71}\label{class_entite_a1834edaecfd1ebd97a4964deb7826d71} 
+\index{Entite@{Entite}!setR@{setR}}
+\index{setR@{setR}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setR()}{setR()}}
+{\footnotesize\ttfamily void Entite\+::setR (\begin{DoxyParamCaption}\item[{float}]{newR }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable R dans la classe \doxylink{class_entite}{Entite}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newR} & Le paramètre newR est un flottant qui représente la nouvelle valeur de la variable R Rayon de la hitbox de l\textquotesingle{}objet \doxylink{class_entite}{Entite}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00237}{237}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a0a7fd6f1945af452d396ba4bac6d3c74}\label{class_entite_a0a7fd6f1945af452d396ba4bac6d3c74} 
+\index{Entite@{Entite}!setTeam@{setTeam}}
+\index{setTeam@{setTeam}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setTeam()}{setTeam()}}
+{\footnotesize\ttfamily void Entite\+::set\+Team (\begin{DoxyParamCaption}\item[{int}]{choix\+Team }\end{DoxyParamCaption})}
+
+
+
+définit l\textquotesingle{}équipe d\textquotesingle{}une entité à la valeur spécifiée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choix\+Team} & Le paramètre « choix\+Team » est un entier qui représente le numéro d\textquotesingle{}équipe ou identifiant de l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_adbfdc50a0dc97c0c554d4c48ea0d57ce}\label{class_entite_adbfdc50a0dc97c0c554d4c48ea0d57ce} 
+\index{Entite@{Entite}!settings@{settings}}
+\index{settings@{settings}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{settings()}{settings()}}
+{\footnotesize\ttfamily void Entite\+::settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_animation}{Animation}} \&}]{a,  }\item[{int}]{X,  }\item[{int}]{Y,  }\item[{float}]{Angle = {\ttfamily 0},  }\item[{int}]{radius = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+permet le paramétrage de l\textquotesingle{}entité en définissant la valeur de ses attributs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & animation associée à l\textquotesingle{}objet \\
+\hline
+{\em X} & position horizontale de l\textquotesingle{}entité \\
+\hline
+{\em Y} & position verticale \\
+\hline
+{\em Angle} & orientation dans le plan de l\textquotesingle{}objet \\
+\hline
+{\em radius} & rayon de la hitbox\\
+\hline
+\end{DoxyParams}
+La fonction « settings » définit l\textquotesingle{}animation, la position, l\textquotesingle{}angle et le rayon d\textquotesingle{}une entité.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Le paramètre "{}a"{} est de type \doxylink{class_animation}{Animation} et permet de définir l\textquotesingle{}animation de l\textquotesingle{}entité. \\
+\hline
+{\em X} & Le paramètre X représente la coordonnée x de la position de l\textquotesingle{}entité. \\
+\hline
+{\em Y} & Le paramètre Y représente la position verticale de l\textquotesingle{}entité sur l\textquotesingle{}écran. \\
+\hline
+{\em Angle} & Le paramètre angle représente l\textquotesingle{}angle de rotation de l\textquotesingle{}entité. Il permet de préciser l\textquotesingle{}angle de rotation initial de l\textquotesingle{}entité lors de sa création. \\
+\hline
+{\em radius} & Le paramètre radius représente le rayon de l\textquotesingle{}entité. Il est utilisé pour déterminer la taille de la hitbox ou de la zone de détection de collision de l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_acc484d0d675c9be832f58c550389d597}\label{class_entite_acc484d0d675c9be832f58c550389d597} 
+\index{Entite@{Entite}!setvx@{setvx}}
+\index{setvx@{setvx}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setvx()}{setvx()}}
+{\footnotesize\ttfamily void Entite\+::setvx (\begin{DoxyParamCaption}\item[{float}]{new\+VX }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable "{}vx"{} à une nouvelle valeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+VX} & La nouvelle valeur de la vitesse x de l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a8229257af7e12dc8cf2300a66cfc8f7d}\label{class_entite_a8229257af7e12dc8cf2300a66cfc8f7d} 
+\index{Entite@{Entite}!setvy@{setvy}}
+\index{setvy@{setvy}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setvy()}{setvy()}}
+{\footnotesize\ttfamily void Entite\+::setvy (\begin{DoxyParamCaption}\item[{float}]{new\+VY }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable vy dans la classe \doxylink{class_entite}{Entite}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+VY} & Le paramètre new\+VY est un flottant qui représente la nouvelle valeur de la variable vy (vitesse verticale) de l\textquotesingle{}objet \doxylink{class_entite}{Entite}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a0b442e7d26ff9cf974a914390abe5c20}\label{class_entite_a0b442e7d26ff9cf974a914390abe5c20} 
+\index{Entite@{Entite}!setx@{setx}}
+\index{setx@{setx}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{setx()}{setx()}}
+{\footnotesize\ttfamily void Entite\+::setx (\begin{DoxyParamCaption}\item[{float}]{newX }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable x à une nouvelle valeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & Le paramètre "{}new\+X"{} est une variable de type float qui représente la nouvelle valeur de la coordonnée x de l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00158}{158}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_a1bd648405cd22128ad5a0b01994c24fb}\label{class_entite_a1bd648405cd22128ad5a0b01994c24fb} 
+\index{Entite@{Entite}!sety@{sety}}
+\index{sety@{sety}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{sety()}{sety()}}
+{\footnotesize\ttfamily void Entite\+::sety (\begin{DoxyParamCaption}\item[{float}]{newY }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la variable "{}y"{} à une nouvelle valeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newY} & Le paramètre "{}new\+Y"{} est une valeur flottante qui représente la nouvelle coordonnée y de l\textquotesingle{}entité. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00178}{178}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+\Hypertarget{class_entite_ae95c79694e8d3e317718db28f6247a0a}\label{class_entite_ae95c79694e8d3e317718db28f6247a0a} 
+\index{Entite@{Entite}!update@{update}}
+\index{update@{update}!Entite@{Entite}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Entite\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+fonction d\textquotesingle{}espace réservé qui est destinée à être remplacée par les classes dérivées. Elle est utilisée pour mettre à jour l\textquotesingle{}état de l\textquotesingle{}entité, comme sa position, sa vitesse ou toute autre propriété susceptible de changer au fil du temps. La mise en œuvre de cette fonction variera en fonction du comportement spécifique de l\textquotesingle{}entité. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classasteroide_a8b5085d16ffa5acc3abb6dd137caa53e}{asteroide}}, \mbox{\hyperlink{classplayer_ae6c5ccfab01537d7de75705550f47704}{player}}, and \mbox{\hyperlink{classtir_a2e77030c36816967eaa772bdf16f2313}{tir}}.
+
+
+
+Definition at line \mbox{\hyperlink{_entite_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_entite_8cpp_source}{Entite.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/objet/\mbox{\hyperlink{_entite_8hpp}{Entite.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/objet/\mbox{\hyperlink{_entite_8cpp}{Entite.\+cpp}}\end{DoxyCompactItemize}

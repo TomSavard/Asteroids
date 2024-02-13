@@ -1,0 +1,147 @@
+\doxysection{Menu.\+cpp}
+\hypertarget{_menu_8cpp_source}{}\label{_menu_8cpp_source}\index{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/Menu.cpp@{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/Menu.cpp}}
+\mbox{\hyperlink{_menu_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00001}00001\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bibliothèques\ //}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8hpp}{Menu.hpp}}"{}}\ \ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global__variables_8hpp}{../global\_variables.hpp}}"{}}\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <tuple>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00006}00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variables\ //}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Code\ Principal\ //}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00019}\mbox{\hyperlink{class_menu_add4c7e146f4ce36bc3e23e0c443cec61}{00019}}\ std::tuple\ <std::string,\ float>\ \mbox{\hyperlink{class_menu_add4c7e146f4ce36bc3e23e0c443cec61}{Menu::run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00020}00020\ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font.loadFromFile(\textcolor{stringliteral}{"{}Ressources/police/arial/arial.ttf"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ font."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\textcolor{stringliteral}{"{}Quitter"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00026}00026\ \ \ \ \ sf::Text\ title(\textcolor{stringliteral}{"{}Asteroid\ Game"{}},\ font,\ 50);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00027}00027\ \ \ \ \ title.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00028}00028\ \ \ \ \ title.setStyle(sf::Text::Bold);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00029}00029\ \ \ \ \ title.setPosition(200,\ 100);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00031}00031\ \ \ \ \ sf::Text\ BoutonSolo(\textcolor{stringliteral}{"{}Solo"{}},\ font,\ 30);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00032}00032\ \ \ \ \ BoutonSolo.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00033}00033\ \ \ \ \ BoutonSolo.setPosition(300,\ 250);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00035}00035\ \ \ \ \ sf::Text\ BoutonMultijoueur(\textcolor{stringliteral}{"{}Multijoueur"{}},\ font,\ 30);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00036}00036\ \ \ \ \ BoutonMultijoueur.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00037}00037\ \ \ \ \ BoutonMultijoueur.setPosition(300,\ 300);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00039}00039\ \ \ \ \ sf::Text\ BoutonQuitter(\textcolor{stringliteral}{"{}Quitter"{}},\ font,\ 30);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00040}00040\ \ \ \ \ BoutonQuitter.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00041}00041\ \ \ \ \ BoutonQuitter.setPosition(300,\ 400);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00043}00043\ \ \ \ \ sf::RectangleShape\ volumeBar(sf::Vector2f(200,\ 20));}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00044}00044\ \ \ \ \ volumeBar.setFillColor(sf::Color(200,\ 200,\ 200));\ \textcolor{comment}{//\ Couleur\ gris\ clair}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00045}00045\ \ \ \ \ volumeBar.setPosition(window.getSize().x\ -\/\ 250,\ window.getSize().y\ -\/\ 50);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00047}00047\ \ \ \ \ sf::CircleShape\ volumeIndicator(10);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00048}00048\ \ \ \ \ volumeIndicator.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00049}00049\ \ \ \ \ volumeIndicator.setOutlineColor(sf::Color::Black);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00050}00050\ \ \ \ \ volumeIndicator.setOutlineThickness(2);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00051}00051\ \ \ \ \ volumeIndicator.setOrigin(5,\ 5);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00052}00052\ \ \ \ \ volumeIndicator.setPosition(window.getSize().x\ -\/\ 250\ +\ volume\ *\ 200,\ window.getSize().y\ -\/\ 45);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDragging\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Charger\ le\ son\ pour\ le\ clic\ sur\ le\ bouton}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00057}00057\ \ \ \ \ sf::SoundBuffer\ clickSoundBuffer;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clickSoundBuffer.loadFromFile(\textcolor{stringliteral}{"{}Ressources/audio/Bouton2.wav"{}}))\ \{std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ click\ sound\ file"{}}\ <<\ std::endl;\}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00059}00059\ \ \ \ \ sf::Sound\ clickSound;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00060}00060\ \ \ \ \ clickSound.setBuffer(clickSoundBuffer);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ Test\ pour\ le\ pictogramme\ de\ son}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00063}00063\ \ \ \ \ sf::Texture\ SonTexture;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (!SonTexture.loadFromFile(\textcolor{stringliteral}{"{}Ressources/image/Pictogramme\_son.png"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ logo\ image."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gérer\ l'échec\ du\ chargement\ de\ l'image}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00068}00068\ \ \ \ \ sf::Sprite\ PictogrammeSonSprite(SonTexture);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00069}00069\ \ \ \ \ PictogrammeSonSprite.setPosition(window.getSize().x\ -\/\ 290,\ window.getSize().y\ -\/\ 55);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{float}\ scaleFactor\ =\ 0.1f;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00071}00071\ \ \ \ \ PictogrammeSonSprite.setScale(scaleFactor,\ scaleFactor);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ Test\ pour\ le\ fond\ d'écran}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00074}00074\ \ \ \ \ sf::Texture\ tbackground;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00075}00075\ \ \ \ \ tbackground.loadFromFile(\textcolor{stringliteral}{"{}Ressources/image/Menu\_Background.png"{}});}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00076}00076\ \ \ \ \ tbackground.setSmooth(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00077}00077\ \ \ \ \ sf::Sprite\ background(tbackground);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{while}\ (window.isOpen())\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ sf::Event\ event;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (window.pollEvent(event))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event.type\ ==\ sf::Event::Closed)}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.close();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event.type\ ==\ sf::Event::MouseButtonPressed\ \&\&\ event.mouseButton.button\ ==\ sf::Mouse::Left)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ mousePos\ =\ window.mapPixelToCoords(sf::Vector2i(event.mouseButton.x,\ event.mouseButton.y));}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BoutonSolo.getGlobalBounds().contains(mousePos))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Action\ lorsque\ le\ bouton\ "{}Solo"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Bouton\ Solo\ cliqué"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickSound.play();\ \textcolor{comment}{//\ Jouer\ le\ son\ de\ clic}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.close();\ \textcolor{comment}{//\ Fermer\ la\ fenêtre\ lorsque\ le\ bouton\ "{}Jouer"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\textcolor{stringliteral}{"{}JouerSolo"{}},\ volume);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (BoutonMultijoueur.getGlobalBounds().contains(mousePos))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Action\ lorsque\ le\ bouton\ "{}Multijoueur"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Bouton\ Multijoueur\ cliqué"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickSound.play();\ \textcolor{comment}{//\ Jouer\ le\ son\ de\ clic}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.close();\ \textcolor{comment}{//\ Fermer\ la\ fenêtre\ lorsque\ le\ bouton\ "{}Jouer"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\textcolor{stringliteral}{"{}JouerMulti"{}},\ volume);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (BoutonQuitter.getGlobalBounds().contains(mousePos))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Action\ lorsque\ le\ bouton\ "{}Quitter"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Bouton\ quitter\ cliqué!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickSound.play();\ \textcolor{comment}{//\ Jouer\ le\ son\ de\ clic}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.close();\ \textcolor{comment}{//\ Fermer\ la\ fenêtre\ lorsque\ le\ bouton\ "{}Quitter"{}\ est\ cliqué}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\textcolor{stringliteral}{"{}Quitter"{}},\ volume);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (volumeIndicator.getGlobalBounds().contains(mousePos))\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ isDragging\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event.type\ ==\ sf::Event::MouseButtonReleased\ \&\&\ event.mouseButton.button\ ==\ sf::Mouse::Left)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ isDragging\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event.type\ ==\ sf::Event::MouseMoved)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ mousePos\ =\ window.mapPixelToCoords(sf::Vector2i(event.mouseMove.x,\ event.mouseMove.y));}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gestion\ du\ survol\ des\ boutons}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BoutonSolo.getGlobalBounds().contains(mousePos))\ \{BoutonSolo.setFillColor(\mbox{\hyperlink{global__variables_8cpp_ac230c94a13ed872ef29561fc182c7b0b}{hoverColor}});\}\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{BoutonSolo.setFillColor(\mbox{\hyperlink{global__variables_8cpp_a3bc72a3954654882b4a741e841d6e1f3}{normalColor}});\}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BoutonMultijoueur.getGlobalBounds().contains(mousePos))\ \{BoutonMultijoueur.setFillColor(\mbox{\hyperlink{global__variables_8cpp_ac230c94a13ed872ef29561fc182c7b0b}{hoverColor}});\}\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{BoutonMultijoueur.setFillColor(\mbox{\hyperlink{global__variables_8cpp_a3bc72a3954654882b4a741e841d6e1f3}{normalColor}});\}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BoutonQuitter.getGlobalBounds().contains(mousePos))\ \{BoutonQuitter.setFillColor(\mbox{\hyperlink{global__variables_8cpp_ac230c94a13ed872ef29561fc182c7b0b}{hoverColor}});\}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{BoutonQuitter.setFillColor(\mbox{\hyperlink{global__variables_8cpp_a3bc72a3954654882b4a741e841d6e1f3}{normalColor}});\}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Déplacement\ du\ bouton\ de\ volume\ si\ l'utilisateur\ est\ en\ train\ de\ le\ glisser}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isDragging)\ \{}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ newVolume\ =\ (mousePos.x\ -\/\ (window.getSize().x\ -\/\ 250))\ /\ 200.0f;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newVolume\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newVolume\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (newVolume\ >\ 1)}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newVolume\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ volume\ =\ newVolume;}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ music.setVolume(volume\ *\ 100);\ \textcolor{comment}{//\ Réglez\ le\ volume\ sur\ une\ échelle\ de\ 0\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ volumeIndicator.setPosition(window.getSize().x\ -\/\ 250\ +\ volume\ *\ 200,\ window.getSize().y\ -\/\ 45);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ window.clear();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ window.draw(background);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ window.draw(title);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ window.draw(BoutonSolo);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ window.draw(BoutonMultijoueur);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ window.draw(BoutonQuitter);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ window.draw(PictogrammeSonSprite);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ window.draw(volumeBar);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ window.draw(volumeIndicator);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ window.display();}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00147}00147\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00149}00149\ \textcolor{keywordflow}{return}\ std::make\_tuple(\textcolor{stringliteral}{"{}Quitter"{}},\ volume);}
+\DoxyCodeLine{\Hypertarget{_menu_8cpp_source_l00150}00150\ \}}
+
+\end{DoxyCode}

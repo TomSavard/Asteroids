@@ -1,0 +1,51 @@
+\doxysection{Game\+Over\+Multi.\+cpp}
+\hypertarget{_game_over_multi_8cpp_source}{}\label{_game_over_multi_8cpp_source}\index{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOverMulti.cpp@{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/GameOverMulti.cpp}}
+\mbox{\hyperlink{_game_over_multi_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00001}00001\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bibliothèques\ //}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_over_multi_8hpp}{GameOverMulti.hpp}}"{}}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global__variables_8hpp}{../global\_variables.hpp}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00005}00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Code\ Principal\ //}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00016}\mbox{\hyperlink{class_game_over_multi_screen_a99713a8e0010c367cc67fc10a4e3d6d9}{00016}}\ \mbox{\hyperlink{class_game_over_multi_screen_a99713a8e0010c367cc67fc10a4e3d6d9}{GameOverMultiScreen::GameOverMultiScreen}}(\textcolor{keywordtype}{int}\ gagnant)\ \{}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font.loadFromFile(\textcolor{stringliteral}{"{}Ressources/police/arial/arial.ttf"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00021}00021\ \ \ \ \ gameOverText.setFont(font);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00022}00022\ \ \ \ \ gameOverText.setCharacterSize(50);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00023}00023\ \ \ \ \ gameOverText.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00024}00024\ \ \ \ \ gameOverText.setString(\textcolor{stringliteral}{"{}Game\ Over"{}});}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00025}00025\ \ \ \ \ gameOverText.setPosition((\mbox{\hyperlink{global__variables_8cpp_aef2f214a39897c9ccefcd08c80a0084d}{LargeurFenetre}}\ -\/\ gameOverText.getGlobalBounds().width)\ /\ 2,\ \mbox{\hyperlink{global__variables_8cpp_a3cd04fcdae8e1c8a118e90c3a63a7b94}{HauteurFenetre}}/2\ -\/\ 100);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00027}00027\ \ \ \ \ gagnantText.setFont(font);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00028}00028\ \ \ \ \ gagnantText.setCharacterSize(30);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00029}00029\ \ \ \ \ gagnantText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (gagnant\ ==\ 1)\ \{gagnantText.setString(\textcolor{stringliteral}{"{}Victoire\ du\ Joueur\ 1\ (Equipe\ Rouge)"{}});\}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{else}\ \{gagnantText.setString(\textcolor{stringliteral}{"{}Victoire\ du\ Joueur\ 2\ (Equipe\ Bleue)"{}});\}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00032}00032\ \ \ \ \ gagnantText.setPosition((\mbox{\hyperlink{global__variables_8cpp_aef2f214a39897c9ccefcd08c80a0084d}{LargeurFenetre}}\ -\/\ gagnantText.getGlobalBounds().width)\ /\ 2,\ \mbox{\hyperlink{global__variables_8cpp_a3cd04fcdae8e1c8a118e90c3a63a7b94}{HauteurFenetre}}\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00034}00034\ \ \ \ \ retryText.setFont(font);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00035}00035\ \ \ \ \ retryText.setCharacterSize(30);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00036}00036\ \ \ \ \ retryText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00037}00037\ \ \ \ \ retryText.setString(\textcolor{stringliteral}{"{}Appuyer\ sur\ R\ pour\ redemarrer"{}});}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00038}00038\ \ \ \ \ retryText.setPosition((\mbox{\hyperlink{global__variables_8cpp_aef2f214a39897c9ccefcd08c80a0084d}{LargeurFenetre}}\ -\/\ retryText.getGlobalBounds().width)\ /\ 2,\ \mbox{\hyperlink{global__variables_8cpp_a3cd04fcdae8e1c8a118e90c3a63a7b94}{HauteurFenetre}}/2\ +\ 50);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00040}00040\ \ \ \ \ quitText.setFont(font);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00041}00041\ \ \ \ \ quitText.setCharacterSize(30);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00042}00042\ \ \ \ \ quitText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00043}00043\ \ \ \ \ quitText.setString(\textcolor{stringliteral}{"{}Appuyer\ sur\ Q\ pour\ quitter"{}});}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00044}00044\ \ \ \ \ quitText.setPosition((\mbox{\hyperlink{global__variables_8cpp_aef2f214a39897c9ccefcd08c80a0084d}{LargeurFenetre}}\ -\/\ quitText.getGlobalBounds().width)\ /\ 2,\ \mbox{\hyperlink{global__variables_8cpp_a3cd04fcdae8e1c8a118e90c3a63a7b94}{HauteurFenetre}}/2\ +\ 100);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00055}\mbox{\hyperlink{class_game_over_multi_screen_a243c63139f00936f79376e1c6459d798}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_multi_screen_a243c63139f00936f79376e1c6459d798}{GameOverMultiScreen::draw}}(sf::RenderWindow\ \&window)\ \{}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00056}00056\ \ \ \ \ window.draw(gameOverText);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00057}00057\ \ \ \ \ window.draw(gagnantText);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00058}00058\ \ \ \ \ window.draw(retryText);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00059}00059\ \ \ \ \ window.draw(quitText);}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_game_over_multi_8cpp_source_l00062}00062\ }
+
+\end{DoxyCode}

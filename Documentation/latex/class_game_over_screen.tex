@@ -1,0 +1,91 @@
+\doxysection{Game\+Over\+Screen Class Reference}
+\hypertarget{class_game_over_screen}{}\label{class_game_over_screen}\index{GameOverScreen@{GameOverScreen}}
+
+
+Classe représentant l\textquotesingle{}écran de fin de jeu.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Over.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_over_screen_aef16532b5c1aa3dfff19c9c33df2686c}{Game\+Over\+Screen}} (int score=0)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxylink{class_game_over_screen}{Game\+Over\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_screen_ad81ca22f989791a5e35e2891e21263f4}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}écran de fin de jeu sur la fenêtre spécifiée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant l\textquotesingle{}écran de fin de jeu. 
+
+Cette classe gère l\textquotesingle{}affichage de l\textquotesingle{}écran de fin de jeu, incluant le message de fin de partie, le score du joueur, ainsi que les instructions pour redémarrer ou quitter le jeu. 
+
+Definition at line \mbox{\hyperlink{_game_over_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_game_over_8hpp_source}{Game\+Over.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_over_screen_aef16532b5c1aa3dfff19c9c33df2686c}\label{class_game_over_screen_aef16532b5c1aa3dfff19c9c33df2686c} 
+\index{GameOverScreen@{GameOverScreen}!GameOverScreen@{GameOverScreen}}
+\index{GameOverScreen@{GameOverScreen}!GameOverScreen@{GameOverScreen}}
+\doxysubsubsection{\texorpdfstring{GameOverScreen()}{GameOverScreen()}}
+{\footnotesize\ttfamily Game\+Over\+Screen\+::\+Game\+Over\+Screen (\begin{DoxyParamCaption}\item[{int}]{score = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \doxylink{class_game_over_screen}{Game\+Over\+Screen}. 
+
+Le code ci-\/dessous définit une classe \doxylink{class_game_over_screen}{Game\+Over\+Screen} en C++ qui affiche un jeu sur écran avec le score et les options pour redémarrer ou quitter le jeu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & Le paramètre « score » est un nombre entier qui représente le score du joueur dans la partie. \\
+\hline
+\end{DoxyParams}
+Initialise l\textquotesingle{}écran de fin de jeu avec le score fourni et configure les éléments d\textquotesingle{}affichage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & Le score du joueur à afficher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Ce constructeur suppose que le fichier de police Arial est disponible dans le répertoire des ressources. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_game_over_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_game_over_8cpp_source}{Game\+Over.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_over_screen_ad81ca22f989791a5e35e2891e21263f4}\label{class_game_over_screen_ad81ca22f989791a5e35e2891e21263f4} 
+\index{GameOverScreen@{GameOverScreen}!draw@{draw}}
+\index{draw@{draw}!GameOverScreen@{GameOverScreen}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+Over\+Screen\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}écran de fin de jeu sur la fenêtre spécifiée. 
+
+Cette méthode dessine les différents éléments de l\textquotesingle{}écran de fin de jeu (texte de fin de partie, score, instructions pour redémarrer ou quitter) sur la fenêtre spécifiée.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La fenêtre SFML sur laquelle dessiner l\textquotesingle{}écran de fin de jeu. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_over_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_game_over_8cpp_source}{Game\+Over.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_game_over_8hpp}{Game\+Over.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_game_over_8cpp}{Game\+Over.\+cpp}}\end{DoxyCompactItemize}

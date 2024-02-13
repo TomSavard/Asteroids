@@ -1,0 +1,84 @@
+\doxysection{Game\+Over\+Multi\+Screen Class Reference}
+\hypertarget{class_game_over_multi_screen}{}\label{class_game_over_multi_screen}\index{GameOverMultiScreen@{GameOverMultiScreen}}
+
+
+Classe représentant l\textquotesingle{}écran de fin de jeu multijoueur.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Over\+Multi.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_over_multi_screen_a99713a8e0010c367cc67fc10a4e3d6d9}{Game\+Over\+Multi\+Screen}} (int gagnant)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxylink{class_game_over_multi_screen}{Game\+Over\+Multi\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_multi_screen_a243c63139f00936f79376e1c6459d798}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}écran de fin de jeu multijoueur sur la fenêtre spécifiée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant l\textquotesingle{}écran de fin de jeu multijoueur. 
+
+Cette classe gère l\textquotesingle{}affichage de l\textquotesingle{}écran de fin de jeu multijoueur, incluant le message de fin de partie, le nom du joueur gagnant, ainsi que les instructions pour redémarrer ou quitter le jeu. 
+
+Definition at line \mbox{\hyperlink{_game_over_multi_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_game_over_multi_8hpp_source}{Game\+Over\+Multi.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_over_multi_screen_a99713a8e0010c367cc67fc10a4e3d6d9}\label{class_game_over_multi_screen_a99713a8e0010c367cc67fc10a4e3d6d9} 
+\index{GameOverMultiScreen@{GameOverMultiScreen}!GameOverMultiScreen@{GameOverMultiScreen}}
+\index{GameOverMultiScreen@{GameOverMultiScreen}!GameOverMultiScreen@{GameOverMultiScreen}}
+\doxysubsubsection{\texorpdfstring{GameOverMultiScreen()}{GameOverMultiScreen()}}
+{\footnotesize\ttfamily Game\+Over\+Multi\+Screen\+::\+Game\+Over\+Multi\+Screen (\begin{DoxyParamCaption}\item[{int}]{gagnant }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \doxylink{class_game_over_multi_screen}{Game\+Over\+Multi\+Screen}. 
+
+Initialise l\textquotesingle{}écran de fin de jeu multijoueur avec le gagnant spécifié et configure les éléments d\textquotesingle{}affichage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gagnant} & Le numéro du joueur gagnant. Si égal à 1, le joueur 1 (équipe rouge) est le gagnant, sinon le joueur 2 (équipe bleue) est le gagnant.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Ce constructeur suppose que le fichier de police Arial est disponible dans le répertoire des ressources. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_game_over_multi_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_game_over_multi_8cpp_source}{Game\+Over\+Multi.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_over_multi_screen_a243c63139f00936f79376e1c6459d798}\label{class_game_over_multi_screen_a243c63139f00936f79376e1c6459d798} 
+\index{GameOverMultiScreen@{GameOverMultiScreen}!draw@{draw}}
+\index{draw@{draw}!GameOverMultiScreen@{GameOverMultiScreen}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+Over\+Multi\+Screen\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}écran de fin de jeu multijoueur sur la fenêtre spécifiée. 
+
+Cette méthode dessine les différents éléments de l\textquotesingle{}écran de fin de jeu multijoueur (texte de fin de partie, texte indiquant le gagnant, instructions pour redémarrer ou quitter) sur la fenêtre spécifiée.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La fenêtre SFML sur laquelle dessiner l\textquotesingle{}écran de fin de jeu multijoueur. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_over_multi_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_game_over_multi_8cpp_source}{Game\+Over\+Multi.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_game_over_multi_8hpp}{Game\+Over\+Multi.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_game_over_multi_8cpp}{Game\+Over\+Multi.\+cpp}}\end{DoxyCompactItemize}

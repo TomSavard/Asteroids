@@ -1,0 +1,130 @@
+\doxysection{Tableau\+Des\+Scores Class Reference}
+\hypertarget{class_tableau_des_scores}{}\label{class_tableau_des_scores}\index{TableauDesScores@{TableauDesScores}}
+
+
+Classe représentant un tableau des scores.  
+
+
+
+
+{\ttfamily \#include $<$Tableau\+Des\+Scores.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tableau_des_scores_aefe649440d4752f0c0229c09c0732d2d}{Tableau\+Des\+Scores}} ()
+\item 
+void \mbox{\hyperlink{class_tableau_des_scores_af772e3cd69ef40fd28f7dd53c722a28f}{increase\+Score}} (int points)
+\begin{DoxyCompactList}\small\item\em Incrémente le score de la valeur spécifiée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tableau_des_scores_ad61ce297ab6a1a998ffc30be9ea1f3db}{draw\+Score}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Dessine le score sur la fenêtre spécifiée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tableau_des_scores_a0a7c169ec1d3f6695030f48a806c63e3}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Réinitialise le score à zéro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_tableau_des_scores_af5d3c8b6921b164b8efd8de0a3983884}{get\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Obtient le score actuel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant un tableau des scores. 
+
+Cette classe gère un tableau des scores dans le jeu, permettant d\textquotesingle{}incrémenter le score, de le réinitialiser et de le dessiner sur une fenêtre SFML. 
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_tableau_des_scores_8hpp_source}{Tableau\+Des\+Scores.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tableau_des_scores_aefe649440d4752f0c0229c09c0732d2d}\label{class_tableau_des_scores_aefe649440d4752f0c0229c09c0732d2d} 
+\index{TableauDesScores@{TableauDesScores}!TableauDesScores@{TableauDesScores}}
+\index{TableauDesScores@{TableauDesScores}!TableauDesScores@{TableauDesScores}}
+\doxysubsubsection{\texorpdfstring{TableauDesScores()}{TableauDesScores()}}
+{\footnotesize\ttfamily Tableau\+Des\+Scores\+::\+Tableau\+Des\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{_tableau_des_scores_8hpp_source}{Tableau\+Des\+Scores.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tableau_des_scores_ad61ce297ab6a1a998ffc30be9ea1f3db}\label{class_tableau_des_scores_ad61ce297ab6a1a998ffc30be9ea1f3db} 
+\index{TableauDesScores@{TableauDesScores}!drawScore@{drawScore}}
+\index{drawScore@{drawScore}!TableauDesScores@{TableauDesScores}}
+\doxysubsubsection{\texorpdfstring{drawScore()}{drawScore()}}
+{\footnotesize\ttfamily void Tableau\+Des\+Scores\+::draw\+Score (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Dessine le score sur la fenêtre spécifiée. 
+
+Cette méthode dessine le score actuel sur la fenêtre SFML spécifiée.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La fenêtre SFML sur laquelle dessiner le score. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_tableau_des_scores_8cpp_source}{Tableau\+Des\+Scores.\+cpp}}.
+
+\Hypertarget{class_tableau_des_scores_af5d3c8b6921b164b8efd8de0a3983884}\label{class_tableau_des_scores_af5d3c8b6921b164b8efd8de0a3983884} 
+\index{TableauDesScores@{TableauDesScores}!getScore@{getScore}}
+\index{getScore@{getScore}!TableauDesScores@{TableauDesScores}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int Tableau\+Des\+Scores\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient le score actuel. 
+
+\begin{DoxyReturn}{Returns}
+Le score actuel. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_tableau_des_scores_8cpp_source}{Tableau\+Des\+Scores.\+cpp}}.
+
+\Hypertarget{class_tableau_des_scores_af772e3cd69ef40fd28f7dd53c722a28f}\label{class_tableau_des_scores_af772e3cd69ef40fd28f7dd53c722a28f} 
+\index{TableauDesScores@{TableauDesScores}!increaseScore@{increaseScore}}
+\index{increaseScore@{increaseScore}!TableauDesScores@{TableauDesScores}}
+\doxysubsubsection{\texorpdfstring{increaseScore()}{increaseScore()}}
+{\footnotesize\ttfamily void Tableau\+Des\+Scores\+::increase\+Score (\begin{DoxyParamCaption}\item[{int}]{points }\end{DoxyParamCaption})}
+
+
+
+Incrémente le score de la valeur spécifiée. 
+
+Le code définit une classe appelée "{}\+Tableau\+Des\+Scores"{} qui gère un compteur de scores et fournit des fonctions pour augmenter, afficher, réinitialiser et récupérer le score.
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Le paramètre « points » est un nombre entier qui représente le nombre de points à ajouter au score. \\
+\hline
+{\em points} & La valeur à ajouter au score actuel. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_tableau_des_scores_8cpp_source}{Tableau\+Des\+Scores.\+cpp}}.
+
+\Hypertarget{class_tableau_des_scores_a0a7c169ec1d3f6695030f48a806c63e3}\label{class_tableau_des_scores_a0a7c169ec1d3f6695030f48a806c63e3} 
+\index{TableauDesScores@{TableauDesScores}!reset@{reset}}
+\index{reset@{reset}!TableauDesScores@{TableauDesScores}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Tableau\+Des\+Scores\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Réinitialise le score à zéro. 
+
+Cette méthode réinitialise le score à zéro, remettant ainsi le compteur de points à sa valeur initiale. 
+
+Definition at line \mbox{\hyperlink{_tableau_des_scores_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_tableau_des_scores_8cpp_source}{Tableau\+Des\+Scores.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_tableau_des_scores_8hpp}{Tableau\+Des\+Scores.\+hpp}}\item 
+/\+Users/savardtom/\+Desktop/2\+A/\+IN204/\+Asteroids/code/interface/\mbox{\hyperlink{_tableau_des_scores_8cpp}{Tableau\+Des\+Scores.\+cpp}}\end{DoxyCompactItemize}

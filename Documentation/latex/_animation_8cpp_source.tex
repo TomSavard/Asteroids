@@ -1,0 +1,36 @@
+\doxysection{Animation.\+cpp}
+\hypertarget{_animation_8cpp_source}{}\label{_animation_8cpp_source}\index{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/Animation.cpp@{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/Animation.cpp}}
+\mbox{\hyperlink{_animation_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00001}00001\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bibliothèques\ //}}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_animation_8hpp}{Animation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global__variables_8hpp}{global\_variables.hpp}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00005}00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Code\ Principal\ //}}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00022}\mbox{\hyperlink{class_animation_a1096705adf3538580b581efc1c677661}{00022}}\ \mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation::Animation}}\ (sf::Texture\ \&t,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ count,\ \textcolor{keywordtype}{float}\ Speed)}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00024}00024\ \ \ \mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00025}00025\ \ \ \mbox{\hyperlink{class_animation_a68079384a94a0ebdba03241f1937608e}{speed}}\ =\ Speed;}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00027}00027\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;i<count;i++)}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00028}00028\ \ \ \mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}.push\_back(\ sf::IntRect(x+i*w,\ y,\ w,\ h)\ \ );}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00030}00030\ \ \ \mbox{\hyperlink{class_animation_aa42d79f0d975d047ba3792143c1ddc74}{sprite}}.setTexture(t);}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00031}00031\ \ \ \mbox{\hyperlink{class_animation_aa42d79f0d975d047ba3792143c1ddc74}{sprite}}.setOrigin(w/2,h/2);}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00032}00032\ \ \ \mbox{\hyperlink{class_animation_aa42d79f0d975d047ba3792143c1ddc74}{sprite}}.setTextureRect(\mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}[0]);}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00044}\mbox{\hyperlink{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}{00044}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}{Animation::update}}()}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00046}00046\ \ \ \mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}\ +=\ \mbox{\hyperlink{class_animation_a68079384a94a0ebdba03241f1937608e}{speed}};}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{int}\ n\ =\ \mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}.size();}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00048}00048\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}\ >=\ n)\ \mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}\ -\/=\ n;}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00049}00049\ \ \ \textcolor{keywordflow}{if}\ (n>0)\ \mbox{\hyperlink{class_animation_aa42d79f0d975d047ba3792143c1ddc74}{sprite}}.setTextureRect(\ \mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}[\textcolor{keywordtype}{int}(\mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}})]\ );}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00062}\mbox{\hyperlink{class_animation_a145061ea983f4f4000155a0196f74bfc}{00062}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_a145061ea983f4f4000155a0196f74bfc}{Animation::isEnd}}()}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00064}00064\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_animation_a2c7bd0213e063da804e2bec388587399}{Frame}}+\mbox{\hyperlink{class_animation_a68079384a94a0ebdba03241f1937608e}{speed}}>=\mbox{\hyperlink{class_animation_a25d2fc2d769f9ff7eda63bff7cd8e958}{frames}}.size();}
+\DoxyCodeLine{\Hypertarget{_animation_8cpp_source_l00065}00065\ \}}
+
+\end{DoxyCode}

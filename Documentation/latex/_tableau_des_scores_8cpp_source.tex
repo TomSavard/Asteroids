@@ -1,0 +1,32 @@
+\doxysection{Tableau\+Des\+Scores.\+cpp}
+\hypertarget{_tableau_des_scores_8cpp_source}{}\label{_tableau_des_scores_8cpp_source}\index{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/TableauDesScores.cpp@{/Users/savardtom/Desktop/2A/IN204/Asteroids/code/interface/TableauDesScores.cpp}}
+\mbox{\hyperlink{_tableau_des_scores_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bibliothèques\ //}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tableau_des_scores_8hpp}{TableauDesScores.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global__variables_8hpp}{../global\_variables.hpp}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Code\ Principal\ //}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00018}\mbox{\hyperlink{class_tableau_des_scores_af772e3cd69ef40fd28f7dd53c722a28f}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tableau_des_scores_af772e3cd69ef40fd28f7dd53c722a28f}{TableauDesScores::increaseScore}}(\textcolor{keywordtype}{int}\ points)\ \{score\ +=\ points;\}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00027}\mbox{\hyperlink{class_tableau_des_scores_ad61ce297ab6a1a998ffc30be9ea1f3db}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tableau_des_scores_ad61ce297ab6a1a998ffc30be9ea1f3db}{TableauDesScores::drawScore}}(sf::RenderWindow\&\ window)\ \{}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00028}00028\ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font.loadFromFile(\textcolor{stringliteral}{"{}Ressources/police/arial/arial.ttf"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gérer\ l'erreur\ de\ chargement\ de\ la\ police}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ font\ file"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00034}00034\ \ \ \ \ sf::Text\ scoreText(\textcolor{stringliteral}{"{}Score:\ "{}}\ +\ std::to\_string(score),\ font,\ 30);}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00035}00035\ \ \ \ \ scoreText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00036}00036\ \ \ \ \ scoreText.setPosition(10,\ 10);}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00038}00038\ \ \ \ \ window.draw(scoreText);\ \textcolor{comment}{//\ Dessiner\ le\ compteur\ de\ points\ à\ l'écran}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00046}\mbox{\hyperlink{class_tableau_des_scores_a0a7c169ec1d3f6695030f48a806c63e3}{00046}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tableau_des_scores_a0a7c169ec1d3f6695030f48a806c63e3}{TableauDesScores::reset}}()\{score\ =\ 0;\}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00053}\mbox{\hyperlink{class_tableau_des_scores_af5d3c8b6921b164b8efd8de0a3983884}{00053}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tableau_des_scores_af5d3c8b6921b164b8efd8de0a3983884}{TableauDesScores::getScore}}()\{\textcolor{keywordflow}{return}\ score;\}}
+\DoxyCodeLine{\Hypertarget{_tableau_des_scores_8cpp_source_l00054}00054\ }
+
+\end{DoxyCode}
