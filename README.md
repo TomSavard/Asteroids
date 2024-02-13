@@ -24,14 +24,19 @@ Un vaisseau spatiale perdu dans l'espace se retrouve au beau milieu d'un nuage d
 
 ## Introduction
 Le projet a pour objectif de réaliser le célèbre jeu Asteroïds.
+
 Le code est réalisé en C++ et utilise la librairie SFML.
+
+<a href="https://tomsavard.github.io/Documentation-Asteroides/" target="_blank">Lien vers la documentation du projet</a>
+
 
 ## Features
 
 - C++ and SFML
 - 2D Game (done)
 - Hub Menu, Game Over et score (done)
-- Multiplayer (done)
+- Multiplayer local (done)
+- Multiplayer online (to be done)
 
 ## Structure des dossiers
 - code : contient l'ensemble du code. Ce dernier est décomposé en plusieurs fichiers sources et headers afin d'obtenir une meilleur modularité et une capacité d'évolution performante.
