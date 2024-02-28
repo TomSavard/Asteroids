@@ -32,7 +32,7 @@ std::tuple <std::string, float> Menu::run() {
     BoutonSolo.setFillColor(sf::Color::White);
     BoutonSolo.setPosition(300, 250);
 
-    sf::Text BoutonMultijoueur("Multijoueur", font, 30);
+    sf::Text BoutonMultijoueur("Multijoueur Local", font, 30);
     BoutonMultijoueur.setFillColor(sf::Color::White);
     BoutonMultijoueur.setPosition(300, 300);
 
@@ -93,7 +93,7 @@ std::tuple <std::string, float> Menu::run() {
                 }
                 else if (BoutonMultijoueur.getGlobalBounds().contains(mousePos)) {
                     // Action lorsque le bouton "Multijoueur" est cliqué
-                    std::cout << "Bouton Multijoueur cliqué" << std::endl;
+                    std::cout << "Bouton Multijoueur Local cliqué" << std::endl;
                     clickSound.play(); // Jouer le son de clic
                     window.close(); // Fermer la fenêtre lorsque le bouton "Jouer" est cliqué
                     return std::make_tuple("JouerMulti", volume);

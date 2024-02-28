@@ -1,43 +1,54 @@
 #include <SFML/Network.hpp>
-#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp> // Pour SFML Graphics
 #include <iostream>
 
 int main() {
-    // Connexion au serveur
     sf::TcpSocket socket;
-    if (socket.connect("127.0.0.1", 53000) != sf::Socket::Done) {
-        std::cerr << "Erreur lors de la connexion au serveur" << std::endl;
+    sf::Socket::Status status = socket.connect("127.0.0.1", 53000);
+    if (status != sf::Socket::Done) {
+        std::cout << "Connection failed" << std::endl;
         return 1;
     }
 
-    std::cout << "Connecté au serveur !" << std::endl;
+    sf::Clock clock;
+    sf::Time timePerPacket = sf::seconds(0.02f); // 20 millisecondes entre chaque envoi de paquet
+    sf::Time elapsedTime = sf::Time::Zero; // Initialisation du temps écoulé
 
-    // Boucle principale pour l'échange de messages
-    while (true) {
-        // Envoi d'un message au serveur
-        std::string message;
-        std::cout << "Entrez un message : ";
-        std::getline(std::cin, message);
-        sf::Packet packet;
-        packet << message;
-        if (socket.send(packet) != sf::Socket::Done) {
-            std::cerr << "Erreur lors de l'envoi du message au serveur" << std::endl;
-            break;
+    bool running = true;
+    bool KeyPressed = false;
+    std::vector<u_int8_t> StateVector(4, 0); // [0]:space, [1]:right, [2]:left, [3]:up;
+
+    while (running) {
+        elapsedTime += clock.restart(); // Ajouter le temps écoulé depuis la dernière itération
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) { KeyPressed = true; StateVector[0] = 1; } 
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { KeyPressed = true; StateVector[1] = 1; }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) { KeyPressed = true; StateVector[2] = 1; }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { KeyPressed = true; StateVector[3] = 1; }
+
+        if (KeyPressed && elapsedTime >= timePerPacket) {
+            std::cout << "\x1b[2K"; // Effacer la ligne actuelle du terminal
+
+            sf::Packet sendPacket;
+            std::string message = "";
+            for (u_int8_t value : StateVector) {
+                message += std::to_string(value);
+            }
+            sendPacket << message;
+
+            if (socket.send(sendPacket) != sf::Socket::Done) {
+                std::cout << "Failed to send data" << std::endl;
+                return 1;
+            }
+
+            std::cout << "Data sent successfully" << std::endl;
+            elapsedTime = sf::Time::Zero; // Réinitialiser le temps écoulé après l'envoi de données
+            KeyPressed = false;
+            StateVector.assign(4, 0);
         }
-
-        // Réception de la réponse du serveur
-        sf::Packet replyPacket;
-        if (socket.receive(replyPacket) != sf::Socket::Done) {
-            std::cerr << "Erreur lors de la réception de la réponse du serveur" << std::endl;
-            break;
-        }
-
-        std::string replyMessage;
-        replyPacket >> replyMessage;
-        std::cout << "Réponse du serveur : " << replyMessage << std::endl;
     }
 
-    // Fermeture de la connexion
+    // Fermer proprement la connexion
     socket.disconnect();
 
     return 0;
