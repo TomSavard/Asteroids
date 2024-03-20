@@ -62,7 +62,7 @@ std::tuple <std::string, float> action = menu.run(); // On récupère les choix 
 float VolumeSelected=std::get<1>(action);
 musicHub.stop();
 
-// Chargement des effets sonores ( Faire un fichier séparé qui gère le son ?) ///
+// Chargement des effets sonores ( Faire un fichier séparé qui gère le son ?) //
 // Blaster
 sf::SoundBuffer shootSoundBuffer;
 sf::Sound shootSound;

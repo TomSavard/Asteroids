@@ -1,5 +1,5 @@
 #include <SFML/Network.hpp>
-#include <SFML/Graphics.hpp> // Pour SFML Graphics
+#include <SFML/Graphics.hpp>
 #include <iostream>
 
 int main() {
@@ -12,7 +12,7 @@ int main() {
 
     sf::Clock clock;
     sf::Time timePerPacket = sf::seconds(0.02f); // 20 millisecondes entre chaque envoi de paquet
-    sf::Time elapsedTime = sf::Time::Zero; // Initialisation du temps écoulé
+    sf::Time elapsedTime = sf::Time::Zero;
 
     bool running = true;
     bool KeyPressed = false;
